@@ -154,3 +154,11 @@ Trip_Id nvarchar(20) References Trip ,
 TouristSpot_Id nvarchar(20) References TouristSpot,
 Primary Key (Trip_Id,TouristSpot_Id)
 )
+create table Abouts
+(
+AboutId int Primary key IDENTITY,
+AboutBirth date,
+AboutGender bit,
+AboutLike nvarchar (150),
+AboutImg nvarchar (250)
+)
