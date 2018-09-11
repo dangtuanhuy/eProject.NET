@@ -157,6 +157,7 @@ Primary Key (Trip_Id,TouristSpot_Id)
 create table Abouts
 (
 AboutId int Primary key IDENTITY,
+AboutName nvarchar(50),
 AboutBirth date,
 AboutGender bit,
 AboutLike nvarchar (150),
