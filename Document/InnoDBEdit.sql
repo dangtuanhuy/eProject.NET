@@ -163,3 +163,13 @@ AboutGender bit,
 AboutLike nvarchar (150),
 AboutImg nvarchar (250)
 )
+create table Feedback(
+
+FeedbackId int Primary key Identity,
+SenderName nvarchar(50),
+SenderMail nvarchar(50),
+FeedBackTitle nvarchar(40),
+FeedBackContent nvarchar(150),
+State int not null default 0,
+Create_on datetime NOT NULL DEFAULT GETDATE()
+)
