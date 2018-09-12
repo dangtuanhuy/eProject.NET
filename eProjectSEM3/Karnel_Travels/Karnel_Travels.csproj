@@ -45,10 +45,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -149,9 +157,79 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Administrator\AdministratorAreaRegistration.cs" />
     <Compile Include="Areas\Administrator\Controllers\AdminController.cs" />
+    <Compile Include="Areas\Administrator\Controllers\FeedbacksController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\About.cs">
+      <DependentUpon>KarnelTravel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Administrator.cs">
+      <DependentUpon>KarnelTravel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Customer.cs">
+      <DependentUpon>KarnelTravel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Feedback.cs">
+      <DependentUpon>KarnelTravel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Food.cs">
+      <DependentUpon>KarnelTravel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Hotel.cs">
+      <DependentUpon>KarnelTravel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ImgFood.cs">
+      <DependentUpon>KarnelTravel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ImgHotel.cs">
+      <DependentUpon>KarnelTravel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ImgRestaurant.cs">
+      <DependentUpon>KarnelTravel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ImgRoom.cs">
+      <DependentUpon>KarnelTravel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\KarnelTravel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KarnelTravel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\KarnelTravel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KarnelTravel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\KarnelTravel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KarnelTravel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Location.cs">
+      <DependentUpon>KarnelTravel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Restaurant.cs">
+      <DependentUpon>KarnelTravel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Room.cs">
+      <DependentUpon>KarnelTravel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysdiagram.cs">
+      <DependentUpon>KarnelTravel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TouristSpot.cs">
+      <DependentUpon>KarnelTravel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Transportation.cs">
+      <DependentUpon>KarnelTravel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Trip.cs">
+      <DependentUpon>KarnelTravel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Vihicle.cs">
+      <DependentUpon>KarnelTravel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -874,6 +952,16 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Models\KarnelTravel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>KarnelTravel.Context.cs</LastGenOutput>
+      <DependentUpon>KarnelTravel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\KarnelTravel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>KarnelTravel.edmx</DependentUpon>
+      <LastGenOutput>KarnelTravel.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
@@ -960,6 +1048,18 @@
     <Content Include="Content\User\fonts\revicons\revicons90c6.eot" />
     <Content Include="Content\User\fonts\revicons\revicons90c6.ttf" />
     <Content Include="Content\User\fonts\revicons\revicons90c6.woff" />
+    <EntityDeploy Include="Models\KarnelTravel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>KarnelTravel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\KarnelTravel.edmx.diagram">
+      <DependentUpon>KarnelTravel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Areas\Administrator\Views\Feedbacks\Create.cshtml" />
+    <Content Include="Areas\Administrator\Views\Feedbacks\Delete.cshtml" />
+    <Content Include="Areas\Administrator\Views\Feedbacks\Details.cshtml" />
+    <Content Include="Areas\Administrator\Views\Feedbacks\Edit.cshtml" />
+    <Content Include="Areas\Administrator\Views\Feedbacks\Index.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -991,7 +1091,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Administrator\Models\" />
     <Folder Include="Content\Admin\assets\jquery-file-upload\server\php\files\thumbnail\" />
-    <Folder Include="Models\" />
     <Folder Include="myImg\" />
   </ItemGroup>
   <ItemGroup>
@@ -1006,6 +1105,9 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

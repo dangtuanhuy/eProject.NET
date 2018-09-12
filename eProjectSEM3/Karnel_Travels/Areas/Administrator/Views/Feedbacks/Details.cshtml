@@ -1,0 +1,67 @@
+﻿@model Karnel_Travels.Models.Feedback
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Administrator/Views/Shared/_AdministratorLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Feedback</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SenderName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SenderName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SenderMail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SenderMail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FeedBackTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FeedBackTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FeedBackContent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FeedBackContent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.State)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.State)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Create_on)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Create_on)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.FeedbackId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
