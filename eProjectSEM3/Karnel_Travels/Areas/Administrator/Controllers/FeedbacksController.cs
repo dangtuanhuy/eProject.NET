@@ -123,5 +123,26 @@ namespace Karnel_Travels.Areas.Administrator.Controllers
             }
             base.Dispose(disposing);
         }
+        public ActionResult UpdateStatus(int id)
+        {
+            try
+            {
+                Feedback cmd = db.Feedbacks.Where(c => c.FeedbackId == id).SingleOrDefault();
+                cmd.State = true;
+                db.SaveChanges();
+                return Json(cmd, JsonRequestBehavior.AllowGet);
+            }
+            catch
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.InternalServerError);
+            }
+        }
+        public ActionResult Index1()
+        {
+            List<Feedback> lstComment = new List<Feedback>();
+            try { lstComment = db.Feedbacks.Where(u => u.State == false).ToList(); } catch { return new HttpStatusCodeResult(HttpStatusCode.InternalServerError); }
+            return View(lstComment);
+
+        }
     }
 }
