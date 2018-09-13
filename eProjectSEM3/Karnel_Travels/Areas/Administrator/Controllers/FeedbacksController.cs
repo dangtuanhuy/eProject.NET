@@ -128,7 +128,15 @@ namespace Karnel_Travels.Areas.Administrator.Controllers
             try
             {
                 Feedback cmd = db.Feedbacks.Where(c => c.FeedbackId == id).SingleOrDefault();
-                cmd.State = true;
+                if (cmd.State == false)
+                {
+                    cmd.State = true;
+                }
+                else if (cmd.State == true)
+                {
+                    
+                    cmd.State = false;
+                }
                 db.SaveChanges();
                 return Json(cmd, JsonRequestBehavior.AllowGet);
             }
@@ -141,6 +149,7 @@ namespace Karnel_Travels.Areas.Administrator.Controllers
         {
             List<Feedback> lstFeedback = new List<Feedback>();
             try { lstFeedback = db.Feedbacks.Where(u => u.State == false).ToList(); } catch { return new HttpStatusCodeResult(HttpStatusCode.InternalServerError); }
+            //try { lstFeedback = db.Feedbacks.Where(u => u.State == true).ToList(); } catch { return new HttpStatusCodeResult(HttpStatusCode.InternalServerError); }
             return View(lstFeedback);
 
         }

@@ -40,20 +40,3 @@
     @RenderSection("scripts", required: false)
 </body>
 </html>
-<script type="text/javascript">
-    function UpdateStatus(id) {
-        $.ajax({
-            url: "/FeedbacksController/UpdateStatus",
-            data: { id: id },
-            type: "POST",
-            success: function (data) {
-                //$("#" + id).attr("disabled", "disabled");
-                $("#" + id).prop('disabled', true);//disabled is a property not an attribute
-                bootbox.alert("Cập nhật status thành công!");
-            },
-            error: function (e) {
-                bootbox.alert(e.responseText);
-            }
-        });
-    }
-</script>
