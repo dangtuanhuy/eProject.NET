@@ -57,10 +57,10 @@
                 @Html.DisplayFor(modelItem => item.Create_on)
             </td>
             <td>
+                <button id="@item.FeedbackId" class="btn btn-info" onclick="UpdateStatus(this.id)">Update status</button>
                 @Html.ActionLink("Edit", "Edit", new { id = item.FeedbackId }) |
                 @Html.ActionLink("Details", "Details", new { id = item.FeedbackId }) |
                 @Html.ActionLink("Delete", "Delete", new { id = item.FeedbackId })|
-                <button id="@item.FeedbackId" class="btn btn-info" onclick="UpdateStatus(this.id)">Update status</button>
             </td>
         </tr>
     }
@@ -69,11 +69,11 @@
 <script type="text/javascript">
     function UpdateStatus(id) {
         $.ajax({
-            url: "/Feedbacks/UpdateStatus",
+            url: "/FeedbacksController/UpdateStatus",
             data: { id: id },
             type: "POST",
             success: function (data) {
-                //$("#"+id).attr("disabled","disabled");
+                //$("#" + id).attr("disabled", "disabled");
                 $("#" + id).prop('disabled', true);//disabled is a property not an attribute
                 bootbox.alert("Cập nhật status thành công!");
             },

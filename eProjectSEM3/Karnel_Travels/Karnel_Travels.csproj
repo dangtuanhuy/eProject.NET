@@ -157,7 +157,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Administrator\AdministratorAreaRegistration.cs" />
     <Compile Include="Areas\Administrator\Controllers\AdminController.cs" />
-    <Compile Include="Areas\Administrator\Controllers\CustomersController.cs" />
     <Compile Include="Areas\Administrator\Controllers\FeedbacksController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -1423,11 +1422,6 @@
     <Content Include="Content\Admin\ckeditor\samples\toolbarconfigurator\font\fontello.woff" />
     <Content Include="Content\Admin\ckeditor\samples\toolbarconfigurator\lib\codemirror\LICENSE" />
     <Content Include="Content\Admin\ckeditor\skins\moono-lisa\readme.md" />
-    <Content Include="Areas\Administrator\Views\Customers\Create.cshtml" />
-    <Content Include="Areas\Administrator\Views\Customers\Delete.cshtml" />
-    <Content Include="Areas\Administrator\Views\Customers\Details.cshtml" />
-    <Content Include="Areas\Administrator\Views\Customers\Edit.cshtml" />
-    <Content Include="Areas\Administrator\Views\Customers\Index.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

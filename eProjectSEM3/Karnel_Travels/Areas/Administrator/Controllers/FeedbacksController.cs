@@ -139,9 +139,9 @@ namespace Karnel_Travels.Areas.Administrator.Controllers
         }
         public ActionResult Index1()
         {
-            List<Feedback> lstComment = new List<Feedback>();
-            try { lstComment = db.Feedbacks.Where(u => u.State == false).ToList(); } catch { return new HttpStatusCodeResult(HttpStatusCode.InternalServerError); }
-            return View(lstComment);
+            List<Feedback> lstFeedback = new List<Feedback>();
+            try { lstFeedback = db.Feedbacks.Where(u => u.State == false).ToList(); } catch { return new HttpStatusCodeResult(HttpStatusCode.InternalServerError); }
+            return View(lstFeedback);
 
         }
     }
