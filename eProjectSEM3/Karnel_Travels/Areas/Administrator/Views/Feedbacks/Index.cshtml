@@ -52,7 +52,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.State)
             </td>
-           
+
             <td>
                 @Html.DisplayFor(modelItem => item.Create_on)
             </td>
@@ -74,8 +74,8 @@
             type: "POST",
             success: function (data) {
                 //$("#" + id).attr("disabled", "disabled");
-               $("#" + id).prop('disabled', true);//disabled is a property not an attribute
-               bootbox.alert("Cập nhật status thành công!");
+                $("#" + id).prop('disabled', true);//disabled is a property not an attribute
+                bootbox.alert("Cập nhật status thành công!");
             },
             error: function (e) {
                 bootbox.alert(e.responseText);
@@ -83,3 +83,4 @@
         });
     }
 </script>
+

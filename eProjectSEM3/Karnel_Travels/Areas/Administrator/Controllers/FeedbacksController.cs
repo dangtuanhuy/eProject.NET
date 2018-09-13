@@ -137,8 +137,11 @@ namespace Karnel_Travels.Areas.Administrator.Controllers
                     
                     cmd.State = false;
                 }
+                
                 db.SaveChanges();
+                
                 return Json(cmd, JsonRequestBehavior.AllowGet);
+                
             }
             catch
             {
@@ -152,6 +155,16 @@ namespace Karnel_Travels.Areas.Administrator.Controllers
             //try { lstFeedback = db.Feedbacks.Where(u => u.State == true).ToList(); } catch { return new HttpStatusCodeResult(HttpStatusCode.InternalServerError); }
             return View(lstFeedback);
 
+        }
+
+        [HttpGet]
+        public ActionResult Request()
+        {
+
+            if (Session["type"] != null && Session["resulttype"] != null)
+                return View();
+            else
+                return RedirectToAction("Request");
         }
     }
 }
