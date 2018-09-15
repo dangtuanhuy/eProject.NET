@@ -5,48 +5,77 @@
     Layout = "~/Areas/Administrator/Views/Shared/_AdministratorLayout.cshtml";
 }
 
-<h2>Index</h2>
+<h2 class="text-center">Vihicles</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    <a href="@Url.Action("Create", "Vihicles")" class="btn btn-info">
+        Create
+    </a>
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Vihicle_Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Vihicle_Weight)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Vihicle_Img)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Transportation.Transportation_Name)
-        </th>
-        <th></th>
-    </tr>
+<table class="table table-striped table-bordered" id="tablefillset">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Vihicle_Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Vihicle_Weight)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Vihicle_Img)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Transportation.Transportation_Name)
+            </th>
+            <th></th>
+        </tr>
+        </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Vihicle_Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Vihicle_Weight)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Vihicle_Img)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Transportation.Transportation_Name)
+                </td>
+                <td>
+                    <a href="@Url.Action("UploadVihicles", "Vihicles", new { id = item.Vihicle_Id })" class="btn btn-info">
+                        <i class="fa fa-image"></i>
+                        <span>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Vihicle_Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Vihicle_Weight)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Vihicle_Img)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Transportation.Transportation_Name)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Vihicle_Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Vihicle_Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Vihicle_Id })
-        </td>
-    </tr>
-}
+                        </span>
+                    </a>
+                    |
+                    <a href="@Url.Action("Edit", "Vihicles", new { id = item.Vihicle_Id })" class="btn btn-success">
+                        <i class="fa fa-flash"></i>
+                        <span>
 
+                        </span>
+                    </a>
+                    |
+                    <a href="@Url.Action("Details", "Vihicles", new { id = item.Vihicle_Id })" class="btn btn-primary">
+                        <i class="fa fa-list-alt"></i>
+                        <span>
+
+                        </span>
+                    </a>
+                    |
+                    <a href="@Url.Action("Delete", "Vihicles", new { id = item.Vihicle_Id})" class="btn btn-danger">
+                        <i class="fa fa-trash-o"></i>
+                        <span>
+
+                        </span>
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
 </table>
