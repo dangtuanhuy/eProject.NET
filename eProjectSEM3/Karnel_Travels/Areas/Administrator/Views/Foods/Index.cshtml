@@ -8,7 +8,7 @@
 <h2 class="text-center">Food</h2>
 
 <p>
-    <a href="@Url.Action("Create", "Foods")" class="btn btn-info">
+    <a href="@Url.Action("Create", "Products")" class="btn btn-info">
         Create
     </a>
 </p>
@@ -48,28 +48,28 @@
                  @Html.DisplayFor(modelItem => item.Restaurant.Restaurant_Name)
              </td>
              <td>
-                 <a href="@Url.Action("UploadVihicles", "Foods", new { id = item.Food_Code })" class="btn btn-info">
+                 <a href="@Url.Action("UploadVihicles", "Products", new { id = item.Food_Code })" class="btn btn-info">
                      <i class="fa fa-image"></i>
                      <span>
 
                      </span>
                  </a>
                  |
-                 <a href="@Url.Action("Edit", "Foods", new { id = item.Food_Code })" class="btn btn-success">
+                 <a href="@Url.Action("Edit", "Vihicles", new { id = item.Food_Code })" class="btn btn-success">
                      <i class="fa fa-flash"></i>
                      <span>
 
                      </span>
                  </a>
                  |
-                 <a href="@Url.Action("Details", "Foods", new { id = item.Food_Code })" class="btn btn-primary">
+                 <a href="@Url.Action("Details", "Vihicles", new { id = item.Food_Code })" class="btn btn-primary">
                      <i class="fa fa-list-alt"></i>
                      <span>
 
                      </span>
                  </a>
                  |
-                 <a href="@Url.Action("Delete", "Foods", new { id = item.Food_Code})" class="btn btn-danger">
+                 <a href="@Url.Action("Delete", "Vihicles", new { id = item.Food_Code})" class="btn btn-danger">
                      <i class="fa fa-trash-o"></i>
                      <span>
 
