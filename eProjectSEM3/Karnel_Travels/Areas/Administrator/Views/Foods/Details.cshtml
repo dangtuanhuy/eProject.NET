@@ -1,0 +1,51 @@
+﻿@model Karnel_Travels.Models.Food
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Administrator/Views/Shared/_AdministratorLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Food</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Food_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Food_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Food_Cost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Food_Cost)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Food_Specific)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Food_Specific)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Restaurant.Restaurant_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Restaurant.Restaurant_Name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Food_Code }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Karnel_Travels.Models.Restaurant>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Administrator/Views/Shared/_AdministratorLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Restaurant_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Restaurant_Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Restaurant_Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TouristSpot.TouristSpot_Name)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Restaurant_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Restaurant_Address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Restaurant_Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TouristSpot.TouristSpot_Name)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Restaurant_Code }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Restaurant_Code }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Restaurant_Code })
+        </td>
+    </tr>
+}
+
+</table>

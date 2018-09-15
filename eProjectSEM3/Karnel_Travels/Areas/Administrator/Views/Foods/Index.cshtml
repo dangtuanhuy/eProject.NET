@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Karnel_Travels.Models.Food>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Administrator/Views/Shared/_AdministratorLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Food_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Food_Cost)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Food_Specific)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Restaurant.Restaurant_Name)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Food_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Food_Cost)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Food_Specific)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Restaurant.Restaurant_Name)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Food_Code }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Food_Code }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Food_Code })
+        </td>
+    </tr>
+}
+
+</table>

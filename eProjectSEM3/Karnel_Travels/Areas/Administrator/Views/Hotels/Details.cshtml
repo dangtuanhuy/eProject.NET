@@ -1,0 +1,51 @@
+﻿@model Karnel_Travels.Models.Hotel
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Administrator/Views/Shared/_AdministratorLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Hotel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Hotel_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Hotel_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Hotel_Address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Hotel_Address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Hotel_Details)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Hotel_Details)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TouristSpot.TouristSpot_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TouristSpot.TouristSpot_Name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Hotel_Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

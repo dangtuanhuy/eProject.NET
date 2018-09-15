@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Karnel_Travels.Models.About>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Administrator/Views/Shared/_AdministratorLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.AboutName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AboutBirth)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AboutGender)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AboutLike)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AboutImg)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.AboutName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AboutBirth)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AboutGender)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AboutLike)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AboutImg)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.AboutId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.AboutId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.AboutId })
+        </td>
+    </tr>
+}
+
+</table>
