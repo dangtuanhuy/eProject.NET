@@ -1,0 +1,64 @@
+﻿@model IEnumerable<Karnel_Travels.Models.Room>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Administrator/Views/Shared/_AdministratorLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Room_Type)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Room_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Room_Start)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Room_Stop)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Room_Cost)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Hotel.Hotel_Name)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Room_Type)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Room_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Room_Start)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Room_Stop)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Room_Cost)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Hotel.Hotel_Name)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Room_Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Room_Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Room_Id })
+        </td>
+    </tr>
+}
+
+</table>
