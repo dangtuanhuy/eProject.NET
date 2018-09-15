@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Karnel_Travels.Models.Vihicle>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Administrator/Views/Shared/_AdministratorLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Vihicle_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Vihicle_Weight)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Vihicle_Img)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Transportation.Transportation_Name)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Vihicle_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Vihicle_Weight)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Vihicle_Img)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Transportation.Transportation_Name)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Vihicle_Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Vihicle_Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Vihicle_Id })
+        </td>
+    </tr>
+}
+
+</table>

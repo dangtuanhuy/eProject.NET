@@ -1,0 +1,51 @@
+﻿@model Karnel_Travels.Models.Vihicle
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Administrator/Views/Shared/_AdministratorLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Vihicle</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Vihicle_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vihicle_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Vihicle_Weight)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vihicle_Weight)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Vihicle_Img)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vihicle_Img)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Transportation.Transportation_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Transportation.Transportation_Name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Vihicle_Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

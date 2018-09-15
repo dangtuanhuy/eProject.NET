@@ -1490,6 +1490,11 @@
     <Content Include="Areas\Administrator\Views\Customers\Details.cshtml" />
     <Content Include="Areas\Administrator\Views\Customers\Edit.cshtml" />
     <Content Include="Areas\Administrator\Views\Customers\Index.cshtml" />
+    <Content Include="Areas\Administrator\Views\Vihicles\Create.cshtml" />
+    <Content Include="Areas\Administrator\Views\Vihicles\Delete.cshtml" />
+    <Content Include="Areas\Administrator\Views\Vihicles\Details.cshtml" />
+    <Content Include="Areas\Administrator\Views\Vihicles\Edit.cshtml" />
+    <Content Include="Areas\Administrator\Views\Vihicles\Index.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
