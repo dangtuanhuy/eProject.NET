@@ -12,7 +12,7 @@ namespace Karnel_Travels.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Administrator
+    public partial class Admin
     {
         public string Username { get; set; }
         public string Password { get; set; }

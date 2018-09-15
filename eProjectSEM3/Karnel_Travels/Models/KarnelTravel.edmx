@@ -16,7 +16,7 @@
           <Property Name="AboutLike" Type="nvarchar" MaxLength="150" />
           <Property Name="AboutImg" Type="nvarchar" MaxLength="250" />
         </EntityType>
-        <EntityType Name="Administrator">
+        <EntityType Name="Admin">
           <Key>
             <PropertyRef Name="Username" />
           </Key>
@@ -395,7 +395,7 @@
         </Association>
         <EntityContainer Name="KarnelTravelModelStoreContainer">
           <EntitySet Name="Abouts" EntityType="Self.Abouts" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Administrator" EntityType="Self.Administrator" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Feedback" EntityType="Self.Feedback" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Foods" EntityType="Self.Foods" Schema="dbo" store:Type="Tables" />
@@ -481,7 +481,6 @@
       <Schema Namespace="KarnelTravelModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="KarnelTravelEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Abouts" EntityType="KarnelTravelModel.About" />
-          <EntitySet Name="Administrators" EntityType="KarnelTravelModel.Administrator" />
           <EntitySet Name="Customers" EntityType="KarnelTravelModel.Customer" />
           <EntitySet Name="Feedbacks" EntityType="KarnelTravelModel.Feedback" />
           <EntitySet Name="Foods" EntityType="KarnelTravelModel.Food" />
@@ -550,6 +549,7 @@
             <End Role="TouristSpot" EntitySet="TouristSpots" />
             <End Role="Trip" EntitySet="Trips" />
           </AssociationSet>
+          <EntitySet Name="Admins" EntityType="KarnelTravelModel.Admin" />
         </EntityContainer>
         <EntityType Name="About">
           <Key>
@@ -561,13 +561,6 @@
           <Property Name="AboutGender" Type="Boolean" />
           <Property Name="AboutLike" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
           <Property Name="AboutImg" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="Administrator">
-          <Key>
-            <PropertyRef Name="Username" />
-          </Key>
-          <Property Name="Username" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="Password" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Customer">
           <Key>
@@ -909,6 +902,13 @@
           <End Type="KarnelTravelModel.TouristSpot" Role="TouristSpot" Multiplicity="*" />
           <End Type="KarnelTravelModel.Trip" Role="Trip" Multiplicity="*" />
         </Association>
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="Username" />
+          </Key>
+          <Property Name="Username" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -924,14 +924,6 @@
                 <ScalarProperty Name="AboutBirth" ColumnName="AboutBirth" />
                 <ScalarProperty Name="AboutName" ColumnName="AboutName" />
                 <ScalarProperty Name="AboutId" ColumnName="AboutId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Administrators">
-            <EntityTypeMapping TypeName="KarnelTravelModel.Administrator">
-              <MappingFragment StoreEntitySet="Administrator">
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="Username" ColumnName="Username" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1127,6 +1119,14 @@
               <ScalarProperty Name="TouristSpot_Id" ColumnName="TouristSpot_Id" />
             </EndProperty>
           </AssociationSetMapping>
+          <EntitySetMapping Name="Admins">
+            <EntityTypeMapping TypeName="KarnelTravelModel.Admin">
+              <MappingFragment StoreEntitySet="Admin">
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

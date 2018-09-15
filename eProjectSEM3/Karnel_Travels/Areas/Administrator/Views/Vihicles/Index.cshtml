@@ -47,9 +47,33 @@
                     @Html.DisplayFor(modelItem => item.Transportation.Transportation_Name)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.Vihicle_Id }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.Vihicle_Id }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.Vihicle_Id })
+                    <a href="@Url.Action("UploadVihicles", "Products", new { id = item.Vihicle_Id })" class="btn btn-info">
+                        <i class="fa fa-image"></i>
+                        <span>
+
+                        </span>
+                    </a>
+                    |
+                    <a href="@Url.Action("Edit", "Vihicles", new { id = item.Vihicle_Id })" class="btn btn-success">
+                        <i class="fa fa-flash"></i>
+                        <span>
+
+                        </span>
+                    </a>
+                    |
+                    <a href="@Url.Action("Details", "Vihicles", new { id = item.Vihicle_Id })" class="btn btn-primary">
+                        <i class="fa fa-list-alt"></i>
+                        <span>
+
+                        </span>
+                    </a>
+                    |
+                    <a href="@Url.Action("Delete", "Vihicles", new { id = item.Vihicle_Id})" class="btn btn-danger">
+                        <i class="fa fa-trash-o"></i>
+                        <span>
+
+                        </span>
+                    </a>
                 </td>
             </tr>
         }

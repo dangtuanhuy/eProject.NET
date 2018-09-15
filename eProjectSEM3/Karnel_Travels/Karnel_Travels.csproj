@@ -158,6 +158,7 @@
     <Compile Include="Areas\Administrator\AdministratorAreaRegistration.cs" />
     <Compile Include="Areas\Administrator\Controllers\AboutsController.cs" />
     <Compile Include="Areas\Administrator\Controllers\AdminController.cs" />
+    <Compile Include="Areas\Administrator\Controllers\AdminsController.cs" />
     <Compile Include="Areas\Administrator\Controllers\FeedbacksController.cs" />
     <Compile Include="Areas\Administrator\Controllers\FoodsController.cs" />
     <Compile Include="Areas\Administrator\Controllers\HotelsController.cs" />
@@ -174,7 +175,7 @@
     <Compile Include="Models\About.cs">
       <DependentUpon>KarnelTravel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Administrator.cs">
+    <Compile Include="Models\Admin.cs">
       <DependentUpon>KarnelTravel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Customer.cs">
@@ -1477,6 +1478,11 @@
     <Content Include="Areas\Administrator\Views\Abouts\Details.cshtml" />
     <Content Include="Areas\Administrator\Views\Abouts\Edit.cshtml" />
     <Content Include="Areas\Administrator\Views\Abouts\Index.cshtml" />
+    <Content Include="Areas\Administrator\Views\Admins\Create.cshtml" />
+    <Content Include="Areas\Administrator\Views\Admins\Delete.cshtml" />
+    <Content Include="Areas\Administrator\Views\Admins\Details.cshtml" />
+    <Content Include="Areas\Administrator\Views\Admins\Edit.cshtml" />
+    <Content Include="Areas\Administrator\Views\Admins\Index.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
