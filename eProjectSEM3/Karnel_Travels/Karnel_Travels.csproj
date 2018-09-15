@@ -158,7 +158,6 @@
     <Compile Include="Areas\Administrator\AdministratorAreaRegistration.cs" />
     <Compile Include="Areas\Administrator\Controllers\AboutsController.cs" />
     <Compile Include="Areas\Administrator\Controllers\AdminController.cs" />
-    <Compile Include="Areas\Administrator\Controllers\AdministratorsController.cs" />
     <Compile Include="Areas\Administrator\Controllers\FeedbacksController.cs" />
     <Compile Include="Areas\Administrator\Controllers\FoodsController.cs" />
     <Compile Include="Areas\Administrator\Controllers\HotelsController.cs" />
@@ -181,6 +180,7 @@
     <Compile Include="Models\Customer.cs">
       <DependentUpon>KarnelTravel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Encrypt.cs" />
     <Compile Include="Models\Feedback.cs">
       <DependentUpon>KarnelTravel.tt</DependentUpon>
     </Compile>
@@ -1472,11 +1472,6 @@
     <Content Include="Areas\Administrator\Views\Locations\Details.cshtml" />
     <Content Include="Areas\Administrator\Views\Locations\Edit.cshtml" />
     <Content Include="Areas\Administrator\Views\Locations\Index.cshtml" />
-    <Content Include="Areas\Administrator\Views\Administrators\Create.cshtml" />
-    <Content Include="Areas\Administrator\Views\Administrators\Delete.cshtml" />
-    <Content Include="Areas\Administrator\Views\Administrators\Details.cshtml" />
-    <Content Include="Areas\Administrator\Views\Administrators\Edit.cshtml" />
-    <Content Include="Areas\Administrator\Views\Administrators\Index.cshtml" />
     <Content Include="Areas\Administrator\Views\Abouts\Create.cshtml" />
     <Content Include="Areas\Administrator\Views\Abouts\Delete.cshtml" />
     <Content Include="Areas\Administrator\Views\Abouts\Details.cshtml" />
@@ -1488,8 +1483,6 @@
     <Content Include="Scripts\jquery-3.3.1.slim.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
-    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
-    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
