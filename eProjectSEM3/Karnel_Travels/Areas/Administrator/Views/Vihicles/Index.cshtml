@@ -8,7 +8,7 @@
 <h2 class="text-center">VIHICLE</h2>
 
 <p>
-    <a href="@Url.Action("Create", "Products")" class="btn btn-info">
+    <a href="@Url.Action("Create", "Vihicles")" class="btn btn-info">
         Create
     </a>
 </p>
@@ -47,7 +47,7 @@
                     @Html.DisplayFor(modelItem => item.Transportation.Transportation_Name)
                 </td>
                 <td>
-                    <a href="@Url.Action("UploadVihicles", "Products", new { id = item.Vihicle_Id })" class="btn btn-info">
+                    <a href="@Url.Action("UploadVihicles", "Vihicles", new { id = item.Vihicle_Id })" class="btn btn-info">
                         <i class="fa fa-image"></i>
                         <span>
 
