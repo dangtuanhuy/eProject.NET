@@ -1450,9 +1450,6 @@
     <Content Include="Areas\Administrator\Views\Restaurants\Details.cshtml" />
     <Content Include="Areas\Administrator\Views\Restaurants\Edit.cshtml" />
     <Content Include="Areas\Administrator\Views\Restaurants\Index.cshtml" />
-    <Content Include="Areas\Administrator\Views\Vihicles\Create.cshtml" />
-    <Content Include="Areas\Administrator\Views\Vihicles\Details.cshtml" />
-    <Content Include="Areas\Administrator\Views\Vihicles\Edit.cshtml" />
     <Content Include="Areas\Administrator\Views\Transportations\Create.cshtml" />
     <Content Include="Areas\Administrator\Views\Transportations\Delete.cshtml" />
     <Content Include="Areas\Administrator\Views\Transportations\Details.cshtml" />
@@ -1493,7 +1490,6 @@
     <Content Include="Areas\Administrator\Views\Customers\Details.cshtml" />
     <Content Include="Areas\Administrator\Views\Customers\Edit.cshtml" />
     <Content Include="Areas\Administrator\Views\Customers\Index.cshtml" />
-    <Content Include="Areas\Administrator\Views\Vihicles\Nana.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
