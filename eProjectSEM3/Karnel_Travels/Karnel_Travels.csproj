@@ -159,7 +159,6 @@
     <Compile Include="Areas\Administrator\Controllers\AboutsController.cs" />
     <Compile Include="Areas\Administrator\Controllers\AdminController.cs" />
     <Compile Include="Areas\Administrator\Controllers\AdminsController.cs" />
-    <Compile Include="Areas\Administrator\Controllers\CustomersController.cs" />
     <Compile Include="Areas\Administrator\Controllers\FeedbacksController.cs" />
     <Compile Include="Areas\Administrator\Controllers\FoodsController.cs" />
     <Compile Include="Areas\Administrator\Controllers\HotelsController.cs" />
@@ -1485,11 +1484,6 @@
     <Content Include="Areas\Administrator\Views\Rooms\Details.cshtml" />
     <Content Include="Areas\Administrator\Views\Rooms\Edit.cshtml" />
     <Content Include="Areas\Administrator\Views\Rooms\Index.cshtml" />
-    <Content Include="Areas\Administrator\Views\Customers\Create.cshtml" />
-    <Content Include="Areas\Administrator\Views\Customers\Delete.cshtml" />
-    <Content Include="Areas\Administrator\Views\Customers\Details.cshtml" />
-    <Content Include="Areas\Administrator\Views\Customers\Edit.cshtml" />
-    <Content Include="Areas\Administrator\Views\Customers\Index.cshtml" />
     <Content Include="Areas\Administrator\Views\Vihicles\Create.cshtml" />
     <Content Include="Areas\Administrator\Views\Vihicles\Delete.cshtml" />
     <Content Include="Areas\Administrator\Views\Vihicles\Details.cshtml" />

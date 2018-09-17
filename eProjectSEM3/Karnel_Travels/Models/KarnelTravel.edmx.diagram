@@ -6,7 +6,6 @@
     <edmx:Diagrams>
       <Diagram DiagramId="50accf43e9b24e5787d49bfe627a068c" Name="Diagram1">
         <EntityTypeShape EntityType="KarnelTravelModel.About" Width="1.5" PointX="0.75" PointY="0.75" />
-        <EntityTypeShape EntityType="KarnelTravelModel.Customer" Width="1.5" PointX="3" PointY="4.75" />
         <EntityTypeShape EntityType="KarnelTravelModel.Feedback" Width="1.5" PointX="4.75" PointY="0.75" />
         <EntityTypeShape EntityType="KarnelTravelModel.Food" Width="1.5" PointX="7.5" PointY="3" />
         <EntityTypeShape EntityType="KarnelTravelModel.Hotel" Width="1.5" PointX="5.25" PointY="13.125" />
@@ -33,9 +32,10 @@
         <AssociationConnector Association="KarnelTravelModel.FK__Restauran__Touri__5535A963" />
         <AssociationConnector Association="KarnelTravelModel.FK__Transport__Touri__6EF57B66" />
         <AssociationConnector Association="KarnelTravelModel.FK__Vihicle__Transpo__70DDC3D8" />
-        <AssociationConnector Association="KarnelTravelModel.Trip_Customer" />
         <AssociationConnector Association="KarnelTravelModel.Trip_TouristSpot" />
         <EntityTypeShape EntityType="KarnelTravelModel.Admin" Width="1.5" PointX="7.375" PointY="0.75" />
+        <EntityTypeShape EntityType="KarnelTravelModel.Customer" Width="1.5" PointX="0.75" PointY="4" />
+        <AssociationConnector Association="KarnelTravelModel.Trip_Customer" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

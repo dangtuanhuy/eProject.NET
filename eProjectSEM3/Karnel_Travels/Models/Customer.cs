@@ -21,6 +21,7 @@ namespace Karnel_Travels.Models
         }
     
         public string Customer_Id { get; set; }
+        public string Customer_Password { get; set; }
         public string Customer_LastName { get; set; }
         public string Customer_FirstName { get; set; }
         public Nullable<System.DateTime> Customer_Bithday { get; set; }

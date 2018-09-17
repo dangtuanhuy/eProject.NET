@@ -28,6 +28,7 @@
             <PropertyRef Name="Customer_Id" />
           </Key>
           <Property Name="Customer_Id" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Customer_Password" Type="nvarchar" MaxLength="32" />
           <Property Name="Customer_LastName" Type="nvarchar" MaxLength="20" />
           <Property Name="Customer_FirstName" Type="nvarchar" MaxLength="20" />
           <Property Name="Customer_Bithday" Type="date" />
@@ -481,7 +482,6 @@
       <Schema Namespace="KarnelTravelModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="KarnelTravelEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Abouts" EntityType="KarnelTravelModel.About" />
-          <EntitySet Name="Customers" EntityType="KarnelTravelModel.Customer" />
           <EntitySet Name="Feedbacks" EntityType="KarnelTravelModel.Feedback" />
           <EntitySet Name="Foods" EntityType="KarnelTravelModel.Food" />
           <EntitySet Name="Hotels" EntityType="KarnelTravelModel.Hotel" />
@@ -541,15 +541,16 @@
             <End Role="Transportation" EntitySet="Transportations" />
             <End Role="Vihicle" EntitySet="Vihicles" />
           </AssociationSet>
-          <AssociationSet Name="Trip_Customer" Association="KarnelTravelModel.Trip_Customer">
-            <End Role="Customer" EntitySet="Customers" />
-            <End Role="Trip" EntitySet="Trips" />
-          </AssociationSet>
           <AssociationSet Name="Trip_TouristSpot" Association="KarnelTravelModel.Trip_TouristSpot">
             <End Role="TouristSpot" EntitySet="TouristSpots" />
             <End Role="Trip" EntitySet="Trips" />
           </AssociationSet>
           <EntitySet Name="Admins" EntityType="KarnelTravelModel.Admin" />
+          <EntitySet Name="Customers" EntityType="KarnelTravelModel.Customer" />
+          <AssociationSet Name="Trip_Customer" Association="KarnelTravelModel.Trip_Customer">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="Trip" EntitySet="Trips" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="About">
           <Key>
@@ -561,21 +562,6 @@
           <Property Name="AboutGender" Type="Boolean" />
           <Property Name="AboutLike" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
           <Property Name="AboutImg" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="Customer">
-          <Key>
-            <PropertyRef Name="Customer_Id" />
-          </Key>
-          <Property Name="Customer_Id" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="Customer_LastName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="Customer_FirstName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="Customer_Bithday" Type="DateTime" Precision="0" />
-          <Property Name="Customer_Gender" Type="Boolean" />
-          <Property Name="Customer_Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="Customer_Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Customer_Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Customer_Possport" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Trips" Relationship="KarnelTravelModel.Trip_Customer" FromRole="Customer" ToRole="Trip" />
         </EntityType>
         <EntityType Name="Feedback">
           <Key>
@@ -734,8 +720,8 @@
           <Property Name="Trip_Id" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="Trip_Name" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
           <Property Name="Trip_Details" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Customers" Relationship="KarnelTravelModel.Trip_Customer" FromRole="Trip" ToRole="Customer" />
           <NavigationProperty Name="TouristSpots" Relationship="KarnelTravelModel.Trip_TouristSpot" FromRole="Trip" ToRole="TouristSpot" />
+          <NavigationProperty Name="Customers" Relationship="KarnelTravelModel.Trip_Customer" FromRole="Trip" ToRole="Customer" />
         </EntityType>
         <EntityType Name="Vihicle">
           <Key>
@@ -894,10 +880,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="Trip_Customer">
-          <End Type="KarnelTravelModel.Customer" Role="Customer" Multiplicity="*" />
-          <End Type="KarnelTravelModel.Trip" Role="Trip" Multiplicity="*" />
-        </Association>
         <Association Name="Trip_TouristSpot">
           <End Type="KarnelTravelModel.TouristSpot" Role="TouristSpot" Multiplicity="*" />
           <End Type="KarnelTravelModel.Trip" Role="Trip" Multiplicity="*" />
@@ -909,6 +891,26 @@
           <Property Name="Username" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="Password" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
         </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="Customer_Id" />
+          </Key>
+          <Property Name="Customer_Id" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Customer_Password" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="Customer_LastName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Customer_FirstName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Customer_Bithday" Type="DateTime" Precision="0" />
+          <Property Name="Customer_Gender" Type="Boolean" />
+          <Property Name="Customer_Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Customer_Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Customer_Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Customer_Possport" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Trips" Relationship="KarnelTravelModel.Trip_Customer" FromRole="Customer" ToRole="Trip" />
+        </EntityType>
+        <Association Name="Trip_Customer">
+          <End Type="KarnelTravelModel.Customer" Role="Customer" Multiplicity="*" />
+          <End Type="KarnelTravelModel.Trip" Role="Trip" Multiplicity="*" />
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -924,21 +926,6 @@
                 <ScalarProperty Name="AboutBirth" ColumnName="AboutBirth" />
                 <ScalarProperty Name="AboutName" ColumnName="AboutName" />
                 <ScalarProperty Name="AboutId" ColumnName="AboutId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Customers">
-            <EntityTypeMapping TypeName="KarnelTravelModel.Customer">
-              <MappingFragment StoreEntitySet="Customer">
-                <ScalarProperty Name="Customer_Possport" ColumnName="Customer_Possport" />
-                <ScalarProperty Name="Customer_Email" ColumnName="Customer_Email" />
-                <ScalarProperty Name="Customer_Address" ColumnName="Customer_Address" />
-                <ScalarProperty Name="Customer_Phone" ColumnName="Customer_Phone" />
-                <ScalarProperty Name="Customer_Gender" ColumnName="Customer_Gender" />
-                <ScalarProperty Name="Customer_Bithday" ColumnName="Customer_Bithday" />
-                <ScalarProperty Name="Customer_FirstName" ColumnName="Customer_FirstName" />
-                <ScalarProperty Name="Customer_LastName" ColumnName="Customer_LastName" />
-                <ScalarProperty Name="Customer_Id" ColumnName="Customer_Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1103,14 +1090,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <AssociationSetMapping Name="Trip_Customer" TypeName="KarnelTravelModel.Trip_Customer" StoreEntitySet="Trip_Customer">
-            <EndProperty Name="Trip">
-              <ScalarProperty Name="Trip_Id" ColumnName="Trip_Id" />
-            </EndProperty>
-            <EndProperty Name="Customer">
-              <ScalarProperty Name="Customer_Id" ColumnName="Customer_Id" />
-            </EndProperty>
-          </AssociationSetMapping>
           <AssociationSetMapping Name="Trip_TouristSpot" TypeName="KarnelTravelModel.Trip_TouristSpot" StoreEntitySet="Trip_TouristSpot">
             <EndProperty Name="Trip">
               <ScalarProperty Name="Trip_Id" ColumnName="Trip_Id" />
@@ -1127,6 +1106,30 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="KarnelTravelModel.Customer">
+              <MappingFragment StoreEntitySet="Customer">
+                <ScalarProperty Name="Customer_Possport" ColumnName="Customer_Possport" />
+                <ScalarProperty Name="Customer_Email" ColumnName="Customer_Email" />
+                <ScalarProperty Name="Customer_Address" ColumnName="Customer_Address" />
+                <ScalarProperty Name="Customer_Phone" ColumnName="Customer_Phone" />
+                <ScalarProperty Name="Customer_Gender" ColumnName="Customer_Gender" />
+                <ScalarProperty Name="Customer_Bithday" ColumnName="Customer_Bithday" />
+                <ScalarProperty Name="Customer_FirstName" ColumnName="Customer_FirstName" />
+                <ScalarProperty Name="Customer_LastName" ColumnName="Customer_LastName" />
+                <ScalarProperty Name="Customer_Password" ColumnName="Customer_Password" />
+                <ScalarProperty Name="Customer_Id" ColumnName="Customer_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="Trip_Customer" TypeName="KarnelTravelModel.Trip_Customer" StoreEntitySet="Trip_Customer">
+            <EndProperty Name="Trip">
+              <ScalarProperty Name="Trip_Id" ColumnName="Trip_Id" />
+            </EndProperty>
+            <EndProperty Name="Customer">
+              <ScalarProperty Name="Customer_Id" ColumnName="Customer_Id" />
+            </EndProperty>
+          </AssociationSetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
