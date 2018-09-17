@@ -192,6 +192,7 @@
     <Compile Include="Models\Hotel.cs">
       <DependentUpon>KarnelTravel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\HotelMetaData.cs" />
     <Compile Include="Models\ImgFood.cs">
       <DependentUpon>KarnelTravel.tt</DependentUpon>
     </Compile>
