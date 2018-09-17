@@ -176,6 +176,7 @@
     <Compile Include="Models\About.cs">
       <DependentUpon>KarnelTravel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\AboutMetaData.cs" />
     <Compile Include="Models\Admin.cs">
       <DependentUpon>KarnelTravel.tt</DependentUpon>
     </Compile>
