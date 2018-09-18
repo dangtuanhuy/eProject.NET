@@ -5,10 +5,11 @@
     Layout = "~/Areas/Administrator/Views/Shared/_AdministratorLayout.cshtml";
 }
 
-<h2>Details</h2>
+<h2 class="text-center">Information Trips</h2>
+<a href="@Url.Action("Index","Tripss")" class="btn btn-info">Manage</a>
 
 <div>
-    <h4>Trip</h4>
+   
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -30,6 +31,5 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Trip_Id }) |
-    @Html.ActionLink("Back to List", "Index")
+    <a href="@Url.Action("Edit", "Trips", new { id = Model.Trip_Id })" class="btn btn-success">Edit</a>
 </p>
