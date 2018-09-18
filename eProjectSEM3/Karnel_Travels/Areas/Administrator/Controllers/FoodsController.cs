@@ -145,7 +145,7 @@ namespace Karnel_Travels.Areas.Administrator.Controllers
             var listFile = files.Where(p => p != null);
             foreach (var f in listFile)
             {
-                //T?o m?t d?i tu?ng
+                
                 var img = new ImgFood();
                 img.Food_Code = id;
                 img.Img_Foods = f.FileName;
