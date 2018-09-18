@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -118,6 +119,77 @@ namespace Karnel_Travels.Areas.Administrator.Controllers
             db.Restaurants.Remove(restaurant);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+        public ActionResult UploadRestaurants(string id)
+        {
+            if (id == null)
+            {
+                return RedirectToAction("Index");
+            }
+            var products = db.Restaurants.Include(s => s.ImgRestaurants).SingleOrDefault(p => p.Restaurant_Code == id);
+            if (products == null)
+            {
+                object Err = "Information not find";
+                return View("Error", Err);
+            }
+            return View(products);
+        }
+        [HttpPost]
+        public ActionResult UploadRestaurants(string id, HttpPostedFileBase[] files)
+        {
+            byte max = 0;
+            var listImg = db.ImgRestaurants.Where(p => p.Restaurant_Code == id).ToList();
+            if (listImg.Count > 0)
+                max = listImg.Max(p => p.Img_Restaurants_Sort);
+            var listFile = files.Where(p => p != null);
+            foreach (var f in listFile)
+            {
+                //Tạo một đối tượng
+                var img = new ImgRestaurant();
+                img.Restaurant_Code = id;
+                img.Img_Restaurants = f.FileName;
+                img.Img_Restaurants_Sort = ++max;
+                db.ImgRestaurants.Add(img);
+                var path = Server.MapPath("~/myImg/Restaurants/" + f.FileName);
+                f.SaveAs(path);
+            }
+            if (listFile.Any())
+                db.SaveChanges();
+            return RedirectToAction("UploadRestaurants");
+        }
+
+        public ActionResult DeleteImg(int id, string Restaurant_Code)
+        {
+            if (Restaurant_Code != null)
+            {
+                try
+                {
+                    var img = db.ImgRestaurants.Find(id);
+                    if (img == null)
+                        return RedirectToAction("Index");
+                    db.ImgRestaurants.Remove(img);
+                    var fileName = img.Img_Restaurants;
+                    var path = Server.MapPath("~/ImgUI/Product/" + fileName);
+                    var file = new FileInfo(path);
+
+                    if (file.Exists)
+                    {
+                        file.Delete();
+                    }
+
+                    db.SaveChanges();
+                    return RedirectToAction("UploadRestaurants");
+                }
+
+                catch (Exception ex)
+                {
+                    object mess = "Can not Delete IMG " + ex.Message;
+                    return View("Error", mess);
+                }
+            }
+
+            TempData["Success_Mess"] = "<script>alert('Delete Success')</script>";
+            return Redirect("~/Restaurants/UploadRestaurants/" + Restaurant_Code);
         }
 
         protected override void Dispose(bool disposing)
