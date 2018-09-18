@@ -18,6 +18,9 @@
     <thead>
         <tr>
             <th>
+                @Html.DisplayNameFor(model => model.Trip_Id)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Trip_Name)
             </th>
             <th>
@@ -29,36 +32,39 @@
     <tbody>
         @foreach (var item in Model)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Trip_Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Trip_Details)
-                </td>
-                <td>
-                    <a href="@Url.Action("Edit", "Trips", new { id = item.Trip_Id })" class="btn btn-success">
-                        <i class="fa fa-pencil"></i>
-                        <span>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Trip_Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Trip_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Trip_Details)
+            </td>
+            <td>
+                <a href="@Url.Action("Edit", "Trips", new { id = item.Trip_Id })" class="btn btn-success">
+                    <i class="fa fa-pencil"></i>
+                    <span>
 
-                        </span>
-                    </a>
-                    |
-                    <a href="@Url.Action("Details", "Trips", new { id = item.Trip_Id})" class="btn btn-primary">
-                        <i class="fa fa-list-alt"></i>
-                        <span>
+                    </span>
+                </a>
+                |
+                <a href="@Url.Action("Details", "Trips", new { id = item.Trip_Id})" class="btn btn-primary">
+                    <i class="fa fa-list-alt"></i>
+                    <span>
 
-                        </span>
-                    </a>
-                    |
-                    <a href="@Url.Action("Delete", "Trips", new { id = item.Trip_Id})" class="btn btn-danger">
-                        <i class="fa fa-trash-o"></i>
-                        <span>
+                    </span>
+                </a>
+                |
+                <a href="@Url.Action("Delete", "Trips", new { id = item.Trip_Id})" class="btn btn-danger">
+                    <i class="fa fa-trash-o"></i>
+                    <span>
 
-                        </span>
-                    </a>
-                </td>
-            </tr>
+                    </span>
+                </a>
+            </td>
+        </tr>
         }
     </tbody>
 </table>

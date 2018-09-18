@@ -242,6 +242,7 @@
     <Compile Include="Models\Trip.cs">
       <DependentUpon>KarnelTravel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\TripMetaData.cs" />
     <Compile Include="Models\Vihicle.cs">
       <DependentUpon>KarnelTravel.tt</DependentUpon>
     </Compile>
