@@ -47,7 +47,10 @@
                 @Html.DisplayFor(modelItem => item.Vihicle_Weight)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Vihicle_Img)
+                @if (String.IsNullOrEmpty(item.Vihicle_Img) == false)
+                {
+                    <img style="width: 100px" src="@Url.Content(item.Vihicle_Img)" />
+                }
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Transportation.Transportation_Name)

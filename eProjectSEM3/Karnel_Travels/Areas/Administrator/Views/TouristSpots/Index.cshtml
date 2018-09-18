@@ -41,7 +41,10 @@
                     @Html.DisplayFor(modelItem => item.TouristSpot_Specific)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.TouristSpot_Img)
+                    @if (String.IsNullOrEmpty(item.TouristSpot_Img) == false)
+                    {
+                        <img style="width: 100px" src="@Url.Content(item.TouristSpot_Img)" />
+                    }
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Location.Location_Name)
