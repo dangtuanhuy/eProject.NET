@@ -48,6 +48,13 @@
                  @Html.DisplayFor(modelItem => item.Restaurant.Restaurant_Name)
              </td>
              <td>
+                 <a href="@Url.Action("UploadFoods", "Foods", new { id = item.Food_Code })" class="btn btn-info">
+                     <i class="fa fa-image"></i>
+                     <span>
+
+                     </span>
+                 </a>
+                 |
                  <a href="@Url.Action("Edit", "Foods", new { id = item.Food_Code })" class="btn btn-success">
                      <i class="fa fa-flash"></i>
                      <span>
