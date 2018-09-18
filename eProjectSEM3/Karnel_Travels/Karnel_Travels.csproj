@@ -1498,6 +1498,7 @@
     <Content Include="Areas\Administrator\Views\Restaurants\UploadRestaurants.cshtml" />
     <Content Include="Areas\Administrator\Views\Vihicles\UploadVihicles.cshtml" />
     <Content Include="Areas\Administrator\Views\Transportations\UploadTransportations.cshtml" />
+    <Content Include="Areas\Administrator\Views\TouristSpots\UploadTouristSpot.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -1534,6 +1535,7 @@
     <Folder Include="myImg\Hotels\" />
     <Folder Include="myImg\Restaurants\" />
     <Folder Include="myImg\Rooms\" />
+    <Folder Include="myImg\TouristSpot\" />
     <Folder Include="myImg\Transportations\" />
     <Folder Include="myImg\Vehicle\" />
     <Folder Include="Views\Comment\" />

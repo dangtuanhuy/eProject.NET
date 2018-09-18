@@ -47,6 +47,13 @@
                     @Html.DisplayFor(modelItem => item.Location.Location_Name)
                 </td>
                 <td>
+                    <a href="@Url.Action("UploadTouristSpot", "TouristSpots", new { id = item.TouristSpot_Id })" class="btn btn-info">
+                        <i class="fa fa-image"></i>
+                        <span>
+
+                        </span>
+                    </a>
+                    |
                     <a href="@Url.Action("Edit", "TouristSpots", new { id = item.TouristSpot_Id })" class="btn btn-success">
                         <i class="fa fa-pencil"></i>
                         <span>
