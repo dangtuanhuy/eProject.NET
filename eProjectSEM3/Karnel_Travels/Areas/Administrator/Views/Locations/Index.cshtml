@@ -8,7 +8,7 @@
 <h2 class="text-center">Location</h2>
 
 <p>
-    <a href="@Url.Action("Create", "Products")" class="btn btn-info">
+    <a href="@Url.Action("Create", "Locations")" class="btn btn-info">
         Create
     </a>
 </p>
@@ -36,28 +36,22 @@
                     @Html.DisplayFor(modelItem => item.Location_Location)
                 </td>
                 <td>
-                    <a href="@Url.Action("UploadVihicles", "Products", new { id = item.Location_Id })" class="btn btn-info">
-                        <i class="fa fa-image"></i>
-                        <span>
-
-                        </span>
-                    </a>
-                    |
-                    <a href="@Url.Action("Edit", "Vihicles", new { id = item.Location_Id })" class="btn btn-success">
+                    
+                    <a href="@Url.Action("Edit", "Locations", new { id = item.Location_Id })" class="btn btn-success">
                         <i class="fa fa-flash"></i>
                         <span>
 
                         </span>
                     </a>
                     |
-                    <a href="@Url.Action("Details", "Vihicles", new { id = item.Location_Id })" class="btn btn-primary">
+                    <a href="@Url.Action("Details", "Locations", new { id = item.Location_Id })" class="btn btn-primary">
                         <i class="fa fa-list-alt"></i>
                         <span>
 
                         </span>
                     </a>
                     |
-                    <a href="@Url.Action("Delete", "Vihicles", new { id = item.Location_Id})" class="btn btn-danger">
+                    <a href="@Url.Action("Delete", "Locations", new { id = item.Location_Id})" class="btn btn-danger">
                         <i class="fa fa-trash-o"></i>
                         <span>
 

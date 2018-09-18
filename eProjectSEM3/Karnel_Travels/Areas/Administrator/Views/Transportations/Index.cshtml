@@ -8,45 +8,67 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    <a href="@Url.Action("Create", "Transportations")" class="btn btn-info">
+        Create
+    </a>
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Transportation_Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Transportation_Details)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Transportation_Img)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TouristSpot.TouristSpot_Name)
-        </th>
-        <th></th>
-    </tr>
+<table class="table table-striped table-bordered" id="tablefillset">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Transportation_Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Transportation_Details)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Transportation_Img)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TouristSpot.TouristSpot_Name)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Transportation_Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Transportation_Details)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Transportation_Img)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TouristSpot.TouristSpot_Name)
+                </td>
+                <td>
+                    <a href="@Url.Action("Edit", "Transportations", new { id = item.Transportation_Id })" class="btn btn-success">
+                        <i class="fa fa-pencil"></i>
+                        <span>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Transportation_Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Transportation_Details)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Transportation_Img)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TouristSpot.TouristSpot_Name)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Transportation_Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Transportation_Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Transportation_Id })
-        </td>
-    </tr>
-}
+                        </span>
+                    </a>
+                    |
+                    <a href="@Url.Action("Details", "Transportations", new { id = item.Transportation_Id })" class="btn btn-primary">
+                        <i class="fa fa-list-alt"></i>
+                        <span>
 
+                        </span>
+                    </a>
+                    |
+                    <a href="@Url.Action("Delete", "Transportations", new { id = item.Transportation_Id})" class="btn btn-danger">
+                        <i class="fa fa-trash-o"></i>
+                        <span>
+
+                        </span>
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
 </table>
