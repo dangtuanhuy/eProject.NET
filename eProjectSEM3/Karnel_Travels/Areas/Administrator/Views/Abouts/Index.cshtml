@@ -50,10 +50,13 @@
                     @Html.DisplayFor(modelItem => item.AboutLike)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.AboutImg)
+                    @if (String.IsNullOrEmpty(item.AboutImg) == false)
+                    {
+                        <img style="width: 100px" src="@Url.Content(item.AboutImg)" />
+                    }
                 </td>
                 <td>
-                    <a href="@Url.Action("UploadAbouts", "Abouts", new { id = item.AboutId })" class="btn btn-info">
+                    <a href="@Url.Action("UploadImage", "Abouts", new { id = item.AboutId })" class="btn btn-info">
                         <i class="fa fa-image"></i>
                         <span>
 

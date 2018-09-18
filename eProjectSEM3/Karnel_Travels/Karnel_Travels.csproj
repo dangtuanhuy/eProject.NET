@@ -1492,6 +1492,9 @@
     <Content Include="Areas\Administrator\Views\Vihicles\Details.cshtml" />
     <Content Include="Areas\Administrator\Views\Vihicles\Edit.cshtml" />
     <Content Include="Areas\Administrator\Views\Vihicles\Index.cshtml" />
+    <Content Include="Areas\Administrator\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Administrator\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Administrator\Views\Abouts\UploadImage.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
