@@ -1,14 +1,14 @@
-﻿@model Karnel_Travels.Models.Hotel
+﻿@model Karnel_Travels.Models.Food
 @{
-    ViewBag.Title = "UploadHotels";
+    ViewBag.Title = "UploadFoods";
     Layout = "~/Areas/Administrator/Views/Shared/_AdministratorLayout.cshtml";
 }
 
-<h2 class=" text-center">Upload Hình Hotels</h2>
-@using (Html.BeginForm("UploadHotels", "Hotels", FormMethod.Post, new { enctype = "multipart/form-data" }))
+<h2 class=" text-center">Upload Hình Food</h2>
+@using (Html.BeginForm("UploadFoods", "Foods", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     <article class="panel panel-info">
-        @Html.HiddenFor(model => model.Hotel_Id)
+        @Html.HiddenFor(model => model.Food_Code)
         <div class="panel-heading icon">
             <table class="table table-hover">
                 <thead>
@@ -20,16 +20,16 @@
                         <th>Delete</th>
                     </tr>
                 </thead>
-                @foreach (var item in @Model.ImgHotels)
+                @foreach (var item in @Model.ImgFoods)
                 {
 
                     <tbody>
                         <tr>
-                            <th>@item.Hotel_Id</th>
-                            <th>@item.Img_Hotels</th>
-                            <th>@item.Img_Hotels_Sort</th>
-                            <th><img src="~/myImg/Hotels/@item.Img_Hotels" width="150" height="150" /></th>
-                            <th>@Html.ActionLink("Xóa", "DeleteImg", new { id = item.Img_Hotels_Id, Hotel_Idd = item.Hotel_Id }, htmlAttributes: new { onclick = "return confirm('Are you sure Delete Img?');", @class = "btn btn-circle brn-danger" })</th>
+                            <th>@item.Food_Code</th>
+                            <th>@item.Img_Foods</th>
+                            <th>@item.Img_Foods_Sort</th>
+                            <th><img src="~/myImg/Foods/@item.Img_Foods" width="150" height="150" /></th>
+                            <th>@Html.ActionLink("Xóa", "DeleteImg", new { id = item.Img_Foods_Id, Food_Coded = item.Food_Code }, htmlAttributes: new { onclick = "return confirm('Are you sure Delete Img?');", @class = "btn btn-circle brn-danger" })</th>
                         </tr>
                     </tbody>
 
@@ -60,7 +60,7 @@
                     </div>
                 </div>
             </div>
-            <input type="hidden" name="id" value="@Model.Hotel_Id" id="spID" />
+            <input type="hidden" name="id" value="@Model.Food_Code" id="spID" />
             <input type="submit" value="Upload" class="btn btn-primary btn-block" />
         </div>
     </article>
