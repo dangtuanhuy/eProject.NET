@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -118,6 +119,78 @@ namespace Karnel_Travels.Areas.Administrator.Controllers
             db.Hotels.Remove(hotel);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        public ActionResult UploadHotels(string id)
+        {
+            if (id == null)
+            {
+                return RedirectToAction("Index");
+            }
+            var products = db.Hotels.Include(s => s.ImgHotels).SingleOrDefault(p => p.Hotel_Id == id);
+            if (products == null)
+            {
+                object Err = "Information not find";
+                return View("Error", Err);
+            }
+            return View(products);
+        }
+        [HttpPost]
+        public ActionResult UploadHotels(string id, HttpPostedFileBase[] files)
+        {
+            byte max = 0;
+            var listImg = db.ImgHotels.Where(p => p.Hotel_Id == id).ToList();
+            if (listImg.Count > 0)
+                max = listImg.Max(p => p.Img_Hotels_Sort);
+            var listFile = files.Where(p => p != null);
+            foreach (var f in listFile)
+            {
+                //T?o m?t d?i tu?ng
+                var img = new ImgHotel();
+                img.Hotel_Id = id;
+                img.Img_Hotels = f.FileName;
+                img.Img_Hotels_Sort = ++max;
+                db.ImgHotels.Add(img);
+                var path = Server.MapPath("~/myImg/Hotels/" + f.FileName);
+                f.SaveAs(path);
+            }
+            if (listFile.Any())
+                db.SaveChanges();
+            return RedirectToAction("UploadHotels");
+        }
+
+        public ActionResult DeleteImg(int id, string Hotel_Id)
+        {
+            if (Hotel_Id == null)
+            {
+                try
+                {
+                    var img = db.ImgHotels.Find(id);
+                    if (img == null)
+                        return RedirectToAction("Index");
+                    db.ImgHotels.Remove(img);
+                    var fileName = img.Img_Hotels;
+                    var path = Server.MapPath("~/myImg/Hotels/" + fileName);
+                    var file = new FileInfo(path);
+
+                    if (file.Exists)
+                    {
+                        file.Delete();
+                    }
+
+                    db.SaveChanges();
+                    return RedirectToAction("UploadHotels");
+                }
+
+                catch (Exception ex)
+                {
+                    object mess = "Can not Delete IMG " + ex.Message;
+                    return View("Error", mess);
+                }
+            }
+
+            TempData["Success_Mess"] = "<script>alert('Delete Success')</script>";
+            return Redirect("~/Hotels/UploadHotels/" + Hotel_Id);
         }
 
         protected override void Dispose(bool disposing)
