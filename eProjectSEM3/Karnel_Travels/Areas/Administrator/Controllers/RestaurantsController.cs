@@ -160,7 +160,7 @@ namespace Karnel_Travels.Areas.Administrator.Controllers
 
         public ActionResult DeleteImg(int id, string Restaurant_Code)
         {
-            if (Restaurant_Code != null)
+            if (Restaurant_Code == null)
             {
                 try
                 {
@@ -169,7 +169,7 @@ namespace Karnel_Travels.Areas.Administrator.Controllers
                         return RedirectToAction("Index");
                     db.ImgRestaurants.Remove(img);
                     var fileName = img.Img_Restaurants;
-                    var path = Server.MapPath("~/ImgUI/Product/" + fileName);
+                    var path = Server.MapPath("~/myImg/Restaurants/" + fileName);
                     var file = new FileInfo(path);
 
                     if (file.Exists)
