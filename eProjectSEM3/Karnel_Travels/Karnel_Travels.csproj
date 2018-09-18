@@ -1497,6 +1497,7 @@
     <Content Include="Areas\Administrator\Views\Abouts\UploadImage.cshtml" />
     <Content Include="Areas\Administrator\Views\Restaurants\UploadRestaurants.cshtml" />
     <Content Include="Areas\Administrator\Views\Vihicles\UploadVihicles.cshtml" />
+    <Content Include="Areas\Administrator\Views\Transportations\UploadTransportations.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
