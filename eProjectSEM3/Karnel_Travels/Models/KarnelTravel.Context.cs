@@ -26,8 +26,6 @@ namespace Karnel_Travels.Models
         }
     
         public virtual DbSet<About> Abouts { get; set; }
-        public virtual DbSet<Administrator> Administrators { get; set; }
-        public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<Feedback> Feedbacks { get; set; }
         public virtual DbSet<Food> Foods { get; set; }
         public virtual DbSet<Hotel> Hotels { get; set; }
@@ -43,5 +41,7 @@ namespace Karnel_Travels.Models
         public virtual DbSet<Transportation> Transportations { get; set; }
         public virtual DbSet<Trip> Trips { get; set; }
         public virtual DbSet<Vihicle> Vihicles { get; set; }
+        public virtual DbSet<Admin> Admins { get; set; }
+        public virtual DbSet<Customer> Customers { get; set; }
     }
 }

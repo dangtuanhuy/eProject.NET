@@ -10,7 +10,7 @@
 
 
     <title>Karnel - Travels</title>
-
+    <link rel="shortcut icon" type="image/x-icon" href="~/Content/User/images/favicon.ico">
     <!-- Bootstrap CSS -->
     <link href="~/Content/Admin/css/bootstrap.min.css" rel="stylesheet" />
     <!-- bootstrap theme -->
@@ -20,7 +20,7 @@
     <link href="~/Content/Admin/css/elegant-icons-style.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <!-- full calendar css-->
-
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link href="~/Content/Admin/assets/fullcalendar/fullcalendar/bootstrap-fullcalendar.css" rel="stylesheet" />
     <link href="~/Content/Admin/assets/fullcalendar/fullcalendar/fullcalendar.css" rel="stylesheet" />
     <!-- easy pie chart-->
@@ -482,6 +482,35 @@
     <script src="~/Content/Admin/assets/chart-master/Chart.js"></script>
 
     <!--custome script for all page-->
+    <!-- Datatable-->
+    <script src="~/Content/Admin/DataTables/datatables.min.js"></script>
+    <link href="~/Content/Admin/DataTables/datatables.min.css" rel="stylesheet" />
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#tablefillset').DataTable(
+                {
+                    "language": {                       
+                        "infoEmpty": "Data null",
+                        "emptyTable": "Null Data",
+                        "processing": "Access...",
+                        "search": "Search:",
+                        "loadingRecords": "load...",
+                        "zeroRecords": "Data cannot find",
+                        "paginate": {
+                            "first": "|<",
+                            "last": ">|",
+                            "next": ">>",
+                            "previous": "<<"
+                        }
+                    },
+                    "lengthMenu": [[5, 10, 15, 20, 25, 30, -1], [5, 10, 15, 20, 25, 30, "All"]]
+                }
+
+            );
+
+
+        });
+    </script>
     <script src="~/Content/Admin/js/scripts.js"></script>
     <!-- custom script for this page-->
     <script src="~/Content/Admin/js/sparkline-chart.js"></script>
@@ -496,6 +525,7 @@
     <script src="~/Content/Admin/js/sparklines.js"></script>
     <script src="~/Content/Admin/js/charts.js"></script>
     <script src="~/Content/Admin/js/jquery.slimscroll.min.js"></script>
+ 
     <script>
         //knob
         $(function () {
@@ -541,6 +571,7 @@
             });
         });
     </script>
+
 
 </body>
 

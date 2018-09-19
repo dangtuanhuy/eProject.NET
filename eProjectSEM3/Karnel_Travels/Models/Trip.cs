@@ -17,8 +17,8 @@ namespace Karnel_Travels.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Trip()
         {
-            this.Customers = new HashSet<Customer>();
             this.TouristSpots = new HashSet<TouristSpot>();
+            this.Customers = new HashSet<Customer>();
         }
     
         public string Trip_Id { get; set; }
@@ -26,8 +26,8 @@ namespace Karnel_Travels.Models
         public string Trip_Details { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Customer> Customers { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TouristSpot> TouristSpots { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Customer> Customers { get; set; }
     }
 }

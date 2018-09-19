@@ -1,0 +1,51 @@
+﻿@model Karnel_Travels.Models.Restaurant
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Administrator/Views/Shared/_AdministratorLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Restaurant</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Restaurant_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Restaurant_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Restaurant_Address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Restaurant_Address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Restaurant_Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Restaurant_Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TouristSpot.TouristSpot_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TouristSpot.TouristSpot_Name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Restaurant_Code }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,82 @@
+﻿@model IEnumerable<Karnel_Travels.Models.Food>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Administrator/Views/Shared/_AdministratorLayout.cshtml";
+}
+
+<h2 class="text-center">Food</h2>
+
+<p>
+    <a href="@Url.Action("Create", "Foods")" class="btn btn-info">
+        Create
+    </a>
+</p>
+ <table class="table table-striped table-bordered" id="tablefillset">
+     <thead>
+         <tr>
+             <th>
+                 @Html.DisplayNameFor(model => model.Food_Name)
+             </th>
+             <th>
+                 @Html.DisplayNameFor(model => model.Food_Cost)
+             </th>
+             <th>
+                 @Html.DisplayNameFor(model => model.Food_Specific)
+             </th>
+             <th>
+                 @Html.DisplayNameFor(model => model.Restaurant.Restaurant_Name)
+             </th>
+             <th></th>
+         </tr>
+     </thead>
+
+     <tbody>
+         @foreach (var item in Model)
+         {
+         <tr>
+             <td>
+                 @Html.DisplayFor(modelItem => item.Food_Name)
+             </td>
+             <td>
+                 @Html.DisplayFor(modelItem => item.Food_Cost)
+             </td>
+             <td>
+                 @Html.DisplayFor(modelItem => item.Food_Specific)
+             </td>
+             <td>
+                 @Html.DisplayFor(modelItem => item.Restaurant.Restaurant_Name)
+             </td>
+             <td>
+                 <a href="@Url.Action("UploadFoods", "Foods", new { id = item.Food_Code })" class="btn btn-info">
+                     <i class="fa fa-image"></i>
+                     <span>
+
+                     </span>
+                 </a>
+                 |
+                 <a href="@Url.Action("Edit", "Foods", new { id = item.Food_Code })" class="btn btn-success">
+                     <i class="fa fa-flash"></i>
+                     <span>
+
+                     </span>
+                 </a>
+                 |
+                 <a href="@Url.Action("Details", "Foods", new { id = item.Food_Code })" class="btn btn-primary">
+                     <i class="fa fa-list-alt"></i>
+                     <span>
+
+                     </span>
+                 </a>
+                 |
+                 <a href="@Url.Action("Delete", "Foods", new { id = item.Food_Code})" class="btn btn-danger">
+                     <i class="fa fa-trash-o"></i>
+                     <span>
+
+                     </span>
+                 </a>
+             </td>
+         </tr>
+         }
+    </tbody>
+ </table>

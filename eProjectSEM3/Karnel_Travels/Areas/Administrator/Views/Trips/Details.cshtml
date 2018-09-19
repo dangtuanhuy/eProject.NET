@@ -1,0 +1,35 @@
+﻿@model Karnel_Travels.Models.Trip
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Administrator/Views/Shared/_AdministratorLayout.cshtml";
+}
+
+<h2 class="text-center">Information Trips</h2>
+<a href="@Url.Action("Index","Tripss")" class="btn btn-info">Manage</a>
+
+<div>
+   
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Trip_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Trip_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Trip_Details)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Trip_Details)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    <a href="@Url.Action("Edit", "Trips", new { id = Model.Trip_Id })" class="btn btn-success">Edit</a>
+</p>
