@@ -230,6 +230,7 @@
     <Compile Include="Models\Room.cs">
       <DependentUpon>KarnelTravel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\RoomMetaData.cs" />
     <Compile Include="Models\sysdiagram.cs">
       <DependentUpon>KarnelTravel.tt</DependentUpon>
     </Compile>
