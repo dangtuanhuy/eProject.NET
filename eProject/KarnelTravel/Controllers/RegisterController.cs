@@ -1,6 +1,7 @@
 ﻿using KarnelTravel.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -21,8 +22,22 @@ namespace KarnelTravel.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Customers.Add(customer);
-                db.SaveChanges();
+                try
+                {
+                    customer.Customer_Password = Encrypt.MD5_Encode(customer.Customer_Password);
+                    db.Customers.Add(customer);
+                    db.SaveChanges();
+                }
+                catch(DbEntityValidationException dbEx)
+                {
+                    foreach (var validationErrors in dbEx.EntityValidationErrors)
+                    {
+                        foreach (var validationError in validationErrors.ValidationErrors)
+                        {
+                            System.Console.WriteLine("Property: {0} Error: {1}", validationError.PropertyName, validationError.ErrorMessage);
+                        }
+                    }
+                }
                 return RedirectToAction("Index");
             }
 
