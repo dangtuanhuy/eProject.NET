@@ -1,0 +1,39 @@
+﻿@using CaptchaMvc.HtmlHelpers;
+@using CaptchaMvc;
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Areas/Management/Views/Shared/_SignInLayout.cshtml";
+}
+@model KarnelTravel.Areas.Management.Models.LoginModel
+<div class="container">
+    @using (Html.BeginForm("Login", "Login", FormMethod.Post, new { @class = "login-form" }))
+    {
+    <div class="login-wrap">
+        @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+        @Html.AntiForgeryToken()
+        <p class="login-img"><i class="icon_lock_alt"></i></p>
+        <div class="input-group">
+            <span class="input-group-addon"><i class="icon_profile"></i></span>
+            @Html.TextBoxFor(model => model.Username, new { @class = "form-control", @autofocus = "autofocus", @placeholder = "Username" })
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon"><i class="icon_key_alt"></i></span>
+            @Html.PasswordFor(model => model.Password, new { @class = "form-control", @placeholder = "Password" })
+        </div>
+        <div class="input-group">
+            @*<span class="input-group-addon"><i class="icon_blocked"></i></span>*@
+            @Html.MathCaptcha()
+        </div>
+        <label class="checkbox">
+            <input type="checkbox" value="remember-me"> Remember me
+        </label>
+        <button class="btn btn-primary btn-lg btn-block" type="submit">Login</button>
+    </div>
+    }
+    <div class="text-right">
+        <div class="credits">
+        </div>
+    </div>
+</div>
+
+

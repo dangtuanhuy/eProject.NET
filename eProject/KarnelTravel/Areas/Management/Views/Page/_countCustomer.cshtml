@@ -1,0 +1,11 @@
+﻿
+@using KarnelTravel.Models;
+@{
+    IQueryable<Customer> ListCustomer = ViewBag.ListCustomer as IQueryable<Customer>;
+}
+<div class="info-box dark-bg">
+    <i class="fa fa-user-circle"></i>
+    <div class="count">@ViewBag.ListCustomer</div>
+    <div class="title"><a href="@Url.Action("Index","Customers")">Customers</a></div>
+
+</div>

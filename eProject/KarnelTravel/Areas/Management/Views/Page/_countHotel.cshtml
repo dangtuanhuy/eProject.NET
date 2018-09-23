@@ -1,0 +1,10 @@
+﻿@using KarnelTravel.Models;
+@{
+    IEnumerable<Hotel> countHotels = ViewBag.countHotels as IEnumerable<Hotel>;
+}
+<div class="info-box purple-bg">
+    <i class="fa fa-meetup"></i>
+    <div class="count">@ViewBag.countHotels</div>
+    <div class="title"><a href="@Url.Action("Index","Hotels")">Hotels</a></div>
+
+</div>

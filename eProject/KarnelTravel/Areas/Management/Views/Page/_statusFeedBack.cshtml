@@ -1,0 +1,9 @@
+﻿@using KarnelTravel.Models;
+@{
+    IQueryable<Feedback> statusFeedBack = ViewBag.statusFeedBack as IQueryable<Feedback>;
+}
+<div class="info-box green-bg">
+    <i class="fa fa-envelope-open-o"></i>
+    <div class="count">@ViewBag.statusFeedBack</div>
+    <div class="title"><a href="@Url.Action("Index","Feedbacks")">Feedbacks</a></div>
+</div>

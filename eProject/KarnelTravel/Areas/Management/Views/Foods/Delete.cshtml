@@ -1,0 +1,56 @@
+﻿@model KarnelTravel.Models.Food
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Management/Views/Shared/_AdministratorLayout.cshtml";
+}
+<h3>Are you sure you want to delete this?</h3>
+<div>
+
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Food_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Food_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Food_Price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Food_Price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Food_Specific)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Food_Specific)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Restaurant.Restaurant_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Restaurant.Restaurant_Name)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-danger" /> |
+            <a href="@Url.Action("Index","Locations")" class="btn btn-info">Manage</a>
+        </div>
+    }
+</div>
+
+
