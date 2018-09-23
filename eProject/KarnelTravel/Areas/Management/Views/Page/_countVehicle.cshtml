@@ -1,0 +1,9 @@
+﻿@using KarnelTravel.Models;
+@{
+    IEnumerable<Vehicle> ListCount1 = ViewBag.ListVehicle as IEnumerable<Vehicle>;
+}
+<div class="info-box brown-bg">
+    <i class="fa fa-bus"></i>
+    <div class="count">@ViewBag.ListVehicle</div>
+    <div class="title"><a href="@Url.Action("Index","Vehicles")">Vehicles</a></div>
+</div>

@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "UploadTransportations";
+    Layout = "~/Areas/Management/Views/Shared/_AdministratorLayout.cshtml";
+}
+
+<h2 class="text-center">Upload Transportations</h2>
+
+@using (Html.BeginForm("UploadTransportations", "Transportations", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="form-inline">
+        <!-- File Upload -->
+        <div class="form-group">
+
+            <input type="file" class="form-control" name="file" />
+
+            <input type="submit" value="Upload" class="btn btn-primary" />
+
+        </div>
+    </div>
+
+}
+

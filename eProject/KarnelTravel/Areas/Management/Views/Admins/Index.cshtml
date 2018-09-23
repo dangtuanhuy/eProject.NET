@@ -1,0 +1,53 @@
+﻿@model IEnumerable<KarnelTravel.Models.Admin>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Management/Views/Shared/_AdministratorLayout.cshtml";
+}
+
+<p>
+    <a href="@Url.Action("Create", "Admins")" class="btn btn-info">
+        Create
+    </a>
+</p>
+<table class="table table-striped table-bordered" id="tablefillset">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Username)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Password)
+            </th>
+            <th></th>
+        </tr>
+        </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Username)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Password)
+            </td>
+            <td>
+                <a href="@Url.Action("Edit", "Admins", new { id = item.Username })" class="btn btn-success">
+                    <i class="fa fa-flash"></i>
+                    <span>
+
+                    </span>
+                </a>
+                |
+                <a href="@Url.Action("Delete", "Admins", new { id = item.Username})" class="btn btn-danger">
+                    <i class="fa fa-trash-o"></i>
+                    <span>
+
+                    </span>
+                </a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

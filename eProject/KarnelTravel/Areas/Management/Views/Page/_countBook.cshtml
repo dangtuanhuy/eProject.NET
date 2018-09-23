@@ -1,0 +1,10 @@
+﻿@using KarnelTravel.Models;
+@{
+    IQueryable<TripDetail> countBooks = ViewBag.countBooks as IQueryable<TripDetail>;
+}
+<div class="info-box yellow-bg">
+    <i class="fa fa-object-group"></i>
+    <div class="count">@ViewBag.countBooks</div>
+    <div class="title"><a href="#">Book</a></div>
+
+</div>

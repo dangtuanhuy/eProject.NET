@@ -1,0 +1,103 @@
+﻿@model IEnumerable<KarnelTravel.Models.About>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Management/Views/Shared/_AdministratorLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a href="@Url.Action("Create", "Abouts")" class="btn btn-info">
+        Create
+    </a>
+</p>
+<table class="table table-striped table-bordered" id="tablefillset">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.AboutName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AboutGender)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AboutLike)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AboutImg)
+            </th>
+            <th></th>
+            <th></th>
+        </tr>
+        </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AboutName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AboutGender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AboutLike)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AboutImg)
+            </td>
+            <td>
+                <a href="@Url.Action("UploadAbout", "Abouts", new { id = item.AboutId })" class="btn btn-info">
+                    <i class="fa fa-image"></i>
+                    <span>
+
+                    </span>
+                </a>
+                |
+                <a href="@Url.Action("Edit", "Abouts", new { id = item.AboutId })" class="btn btn-success">
+                    <i class="fa fa-pencil"></i>
+                    <span>
+
+                    </span>
+                </a>
+                |
+                <a href="@Url.Action("Delete", "Abouts", new { id = item.AboutId })" class="btn btn-danger">
+                    <i class="fa fa-trash-o"></i>
+                    <span>
+
+                    </span>
+                </a>
+            <td>
+                @if (@item.AboutGender == true)
+                {
+                    <button id="@item.AboutId" class="btn btn-info" onclick="UpdateStatus(this.id)">@item.AboutGender</button>
+                }
+                else
+                {
+                    <button id="@item.AboutId" class="btn btn-danger" onclick="UpdateStatus(this.id)">@item.AboutGender</button>
+                }
+            </td>
+        </tr>
+        }
+        </tbody>
+</table>
+
+<script type="text/javascript">
+    function UpdateStatus(id) {
+        $.ajax({
+            url: "/Abouts/UpdateStatus",
+            data: { id: id },
+            type: "POST",
+            success: function (data) {
+                //$("#"+id).attr("disabled","disabled");
+                $("#" + id).prop('disabled', true);//disabled is a property not an attribute
+                alert("Cập nhật status thành công!");
+                window.location.reload();
+            },
+            error: function (e) {
+                bootbox.alert(e.responseText);
+            }
+        });
+    }
+</script>

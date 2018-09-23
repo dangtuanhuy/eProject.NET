@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c9d3798570b94d69a8354132d83d7c44" Name="Diagram1">
+        <EntityTypeShape EntityType="KarnelTravelModel.About" Width="1.5" PointX="7.75" PointY="0.75" />
+        <EntityTypeShape EntityType="KarnelTravelModel.Admin" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="KarnelTravelModel.Customer" Width="1.5" PointX="0.75" PointY="5.5" />
+        <EntityTypeShape EntityType="KarnelTravelModel.Feedback" Width="1.5" PointX="7.75" PointY="3.75" />
+        <EntityTypeShape EntityType="KarnelTravelModel.Food" Width="1.5" PointX="7.5" PointY="17.875" />
+        <EntityTypeShape EntityType="KarnelTravelModel.Hotel" Width="1.5" PointX="5.25" PointY="10.375" />
+        <EntityTypeShape EntityType="KarnelTravelModel.ImgFood" Width="1.5" PointX="9.75" PointY="18.125" />
+        <EntityTypeShape EntityType="KarnelTravelModel.ImgHotel" Width="1.5" PointX="7.5" PointY="12.5" />
+        <EntityTypeShape EntityType="KarnelTravelModel.ImgRestaurant" Width="1.5" PointX="7.5" PointY="15.125" />
+        <EntityTypeShape EntityType="KarnelTravelModel.ImgRoom" Width="1.5" PointX="9.75" PointY="9.375" />
+        <EntityTypeShape EntityType="KarnelTravelModel.ImgTouristSpot" Width="1.5" PointX="5.25" PointY="3.25" />
+        <EntityTypeShape EntityType="KarnelTravelModel.Location" Width="1.5" PointX="0.75" PointY="11" />
+        <EntityTypeShape EntityType="KarnelTravelModel.PaymentMethod" Width="1.5" PointX="0.75" PointY="3.125" />
+        <EntityTypeShape EntityType="KarnelTravelModel.Restaurant" Width="1.5" PointX="5.25" PointY="16.5" />
+        <EntityTypeShape EntityType="KarnelTravelModel.Room" Width="1.5" PointX="7.5" PointY="9" />
+        <EntityTypeShape EntityType="KarnelTravelModel.sysdiagram" Width="1.5" PointX="9.75" PointY="0.75" />
+        <EntityTypeShape EntityType="KarnelTravelModel.TouristSpot" Width="1.5" PointX="3" PointY="10.125" />
+        <EntityTypeShape EntityType="KarnelTravelModel.Transportation" Width="1.5" PointX="5.25" PointY="21" />
+        <EntityTypeShape EntityType="KarnelTravelModel.Trip" Width="1.5" PointX="3" PointY="4.25" />
+        <EntityTypeShape EntityType="KarnelTravelModel.TripDetail" Width="1.5" PointX="5.25" PointY="6.75" />
+        <EntityTypeShape EntityType="KarnelTravelModel.Vehicle" Width="1.5" PointX="7.5" PointY="21" />
+        <AssociationConnector Association="KarnelTravelModel.FK_Trip_Customer" />
+        <AssociationConnector Association="KarnelTravelModel.FK__Foods__Restauran__59FA5E80" />
+        <AssociationConnector Association="KarnelTravelModel.FK__ImgFoods__Food_C__5BE2A6F2" />
+        <AssociationConnector Association="KarnelTravelModel.FK__Hotels__TouristS__5EBF139D" />
+        <AssociationConnector Association="KarnelTravelModel.FK__ImgHotels__Hotel__60A75C0F" />
+        <AssociationConnector Association="KarnelTravelModel.FK__Rooms__Hotel_Id__6383C8BA" />
+        <AssociationConnector Association="KarnelTravelModel.FK__ImgRestau__Resta__571DF1D5" />
+        <AssociationConnector Association="KarnelTravelModel.FK__ImgRooms__Room_I__656C112C" />
+        <AssociationConnector Association="KarnelTravelModel.FK_ImgTouristSpot_TouristSpot" />
+        <AssociationConnector Association="KarnelTravelModel.FK__TouristSp__Locat__5070F446" />
+        <AssociationConnector Association="KarnelTravelModel.FK_Trip_PaymentMethod" />
+        <AssociationConnector Association="KarnelTravelModel.FK__Restauran__Touri__5535A963" />
+        <AssociationConnector Association="KarnelTravelModel.FK__Transport__Touri__6EF57B66" />
+        <AssociationConnector Association="KarnelTravelModel.FK_TripDetails_TouristSpot" />
+        <AssociationConnector Association="KarnelTravelModel.FK_Vehicle_Transportations" />
+        <AssociationConnector Association="KarnelTravelModel.FK_TripDetails_Trip" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

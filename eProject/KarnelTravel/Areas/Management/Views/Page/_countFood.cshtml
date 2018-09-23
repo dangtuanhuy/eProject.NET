@@ -1,0 +1,10 @@
+﻿@using KarnelTravel.Models;
+@{
+    IEnumerable<Food> countFoods = ViewBag.countFoods as IEnumerable<Food>;
+}
+<div class="info-box red-bg">
+    <i class="fa fa-free-code-camp"></i>
+    <div class="count">@ViewBag.countFoods</div>
+    <div class="title"><a href="@Url.Action("Index","Foods")">Foods</a></div>
+
+</div>

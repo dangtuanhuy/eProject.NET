@@ -1,0 +1,72 @@
+﻿@model KarnelTravel.Models.Restaurant
+@{
+    ViewBag.Title = "UploadRestaurants";
+    Layout = "~/Areas/Management/Views/Shared/_AdministratorLayout.cshtml";
+}
+<h2 class=" text-center">Upload Hình Sản Phẩm</h2>
+@using (Html.BeginForm("UploadRestaurants", "Restaurants", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <article class="panel panel-info">
+        @Html.HiddenFor(model => model.Restaurant_Code)
+        <div class="panel-heading icon">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Sort</th>
+                        <th>Img</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                @foreach (var item in @Model.ImgRestaurants)
+                {
+
+                    <tbody>
+                        <tr>
+                            <th>@item.Restaurant_Code</th>
+                            <th>@item.Img_Restaurants</th>
+                            <th>@item.Img_Restaurants_Sort</th>
+                            <th><img src="~/myImg/Restaurants/@item.Img_Restaurants" width="150" height="150" /></th>
+                            <th>@Html.ActionLink("X", "DeleteImg", new { id = item.Img_Restaurants_Id, Restaurant_Coded = item.Restaurant_Code }, htmlAttributes: new { onclick = "return confirm('Are you sure Delete Img?');", @class = "btn btn-circle brn-danger" })</th>
+                        </tr>
+                    </tbody>
+
+                }
+            </table>
+        </div>
+        <div class="panel-heading">
+
+        </div>
+        <div class="panel-body">
+            <div class="form-horizontal">
+                <div class="form-group">
+                    <label class="control-label col-md-2">File 1:</label>
+                    <div class="col-md-10">
+                        <input type="file" name="files" id="file1" class="form-control" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-2">File 2:</label>
+                    <div class="col-md-10">
+                        <input type="file" name="files" id="file2" class="form-control" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-2">File 3:</label>
+                    <div class="col-md-10">
+                        <input type="file" name="files" id="file3" class="form-control" />
+                    </div>
+                </div>
+            </div>
+            <input type="hidden" name="id" value="@Model.Restaurant_Code" id="spID" />
+            <input type="submit" value="Upload" class="btn btn-primary btn-block" />
+        </div>
+    </article>
+
+
+}
+
+
+
+

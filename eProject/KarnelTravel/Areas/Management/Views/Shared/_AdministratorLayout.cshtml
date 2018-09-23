@@ -1,0 +1,367 @@
+﻿@using KarnelTravel.Models;
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Creative - Bootstrap 3 Responsive Admin Template">
+    <meta name="author" content="GeeksLabs">
+    <meta name="keyword" content="Creative, Dashboard, Admin, Template, Theme, Bootstrap, Responsive, Retina, Minimal">
+
+
+    <title>Karnel - Travels</title>
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="~/Content/User/images/favicon.ico">
+    <!-- Bootstrap CSS -->
+    <link href="~/Content/Admin/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- bootstrap theme -->
+    <link href="~/Content/Admin/css/bootstrap-theme.css" rel="stylesheet">
+    <!--external css-->
+    <link href=" https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- font icon -->
+    <link href="~/Content/Admin/css/elegant-icons-style.css" rel="stylesheet" />
+    <link href="~/Content/Admin/css/font-awesome.min.css" rel="stylesheet" />
+    <!-- full calendar css-->
+    <link href="~/Content/Admin/assets/fullcalendar/fullcalendar/bootstrap-fullcalendar.css" rel="stylesheet" />
+    <link href="~/Content/Admin/assets/fullcalendar/fullcalendar/fullcalendar.css" rel="stylesheet" />
+    <!-- easy pie chart-->
+    <link href="~/Content/Admin/assets/jquery-easy-pie-chart/jquery.easy-pie-chart.css" rel="stylesheet" type="text/css" media="screen" />
+    <!-- owl carousel -->
+    <link rel="stylesheet" href="~/Content/Admin/css/owl.carousel.css" type="text/css">
+    <link href="~/Content/Admin/css/jquery-jvectormap-1.2.2.css" rel="stylesheet">
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="~/Content/Admin/css/fullcalendar.css">
+    <link href="~/Content/Admin/css/widgets.css" rel="stylesheet">
+    <link href="~/Content/Admin/css/style.css" rel="stylesheet">
+    <link href="~/Content/Admin/css/style-responsive.css" rel="stylesheet" />
+    <link href="~/Content/Admin/css/xcharts.min.css" rel=" stylesheet">
+    <link href="~/Content/Admin/css/jquery-ui-1.10.4.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- container section start -->
+    <section id="container" class="">
+
+
+        <header class="header dark-bg">
+            <div class="toggle-nav">
+                <div class="icon-reorder tooltips" data-original-title="Toggle Navigation" data-placement="bottom"><i class="icon_menu"></i></div>
+            </div>
+
+            <!--logo start-->
+            <a href="@Url.Action("Index", "Page")" class="logo">Karnel <span class="lite">Travel</span></a>
+            <!--logo end-->
+
+            <div class="nav search-row" id="top_menu">
+                <!--  search form start -->
+                <ul class="nav top-menu">
+                    <li>
+                        <form class="navbar-form">
+                            <input class="form-control" placeholder="Search" type="text">
+                        </form>
+                    </li>
+                </ul>
+                <!--  search form end -->
+            </div>
+
+            <div class="top-nav notification-row">
+                <!-- notificatoin dropdown start-->
+                <ul class="nav pull-right top-menu">
+                    <li class="dropdown">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <span class="profile-ava">
+                                <img alt="" src="~/Content/Admin/img/avatar-mini2.jpg">
+                            </span>
+                            <span class="username">@Session["username"]</span>
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu extended logout">
+                            <div class="log-arrow-up"></div>
+                            <li>
+                                <a href="#"><i class="icon_mail_alt"></i> Update Password</a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Login","Login")"><i class="icon_key_alt"></i> Log Out</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- user login dropdown end -->
+                </ul>
+                <!-- notificatoin dropdown end-->
+            </div>
+        </header>
+        <!--header end-->
+        <!--sidebar start-->
+        <aside>
+            <div id="sidebar" class="nav-collapse ">
+                <!-- sidebar menu start-->
+                <ul class="sidebar-menu">
+                    <li class="active">
+                        <a class="" href="@Url.Action("Index","Page")">
+                            <i class="icon_house_alt"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="sub-menu">
+                        <a href="javascript:;" class="">
+                            <i class="fa fa-address-book"></i>
+                            <span>About Us</span>
+                            <span class="menu-arrow arrow_carrot-right"></span>
+                        </a>
+                        <ul class="sub">
+                            <li><a class="" href="@Url.Action("Index", "Admins")">Account</a></li>
+                            <li><a class="" href="@Url.Action("Index", "Abouts")">Abouts</a></li>
+                        </ul>
+                    </li>
+                    <li class="sub-menu">
+                        <a href="javascript:;" class="">
+                            <i class="fa fa-car"></i>
+                            <span>Touris Spot</span>
+                            <span class="menu-arrow arrow_carrot-right"></span>
+                        </a>
+                        <ul class="sub">
+                            <li><a class="" href="@Url.Action("Index", "Locations")">Locations</a></li>
+                            <li><a class="" href="@Url.Action("Index", "Transportations")">Transportations</a></li>
+                            <li><a class="" href="@Url.Action("Index", "Vehicles")">Vehicles</a></li>
+                            <li><a class="" href="@Url.Action("Index", "Hotels")">Hotels</a></li>
+                            <li><a class="" href="@Url.Action("Index", "Foods")">Foods</a></li>
+                            <li><a class="" href="@Url.Action("Index", "TouristSpots")">TouristSpots</a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a class="" href="@Url.Action("Index", "Feedbacks")">
+                            <i class="fa fa-file-image-o"></i>
+                            <span>Feedbacks</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="" href="@Url.Action("Index", "Customers")">
+                            <i class="fa fa-users"></i>
+                            <span>Customer</span>
+
+                        </a>
+
+                    </li>
+
+                    <li class="sub-menu">
+                        <a href="javascript:;" class="">
+                            <i class="fa fa-cart-plus"></i>
+                            <span>Book</span>
+                            <span class="menu-arrow arrow_carrot-right"></span>
+                        </a>
+                        <ul class="sub">
+                            <li><a class="" href="#">Book Details</a></li>
+                            <li><a class="" href="#">Statistics</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+                <!-- sidebar menu end-->
+            </div>
+        </aside>
+        <!--sidebar end-->
+        <!--main content start-->
+        <section id="main-content">
+            <section class="wrapper">
+                <!--overview start-->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h3 class="page-header"><i class="fa fa-laptop"></i> Dashboard</h3>
+                        <ol class="breadcrumb">
+                            <li><i class="fa fa-home"></i><a href="@Url.Action("Index", "Page")">Home</a></li>
+                            <li><i class="fa fa-laptop"></i>Dashboard</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                        @Html.Action("_countRestaurant", "Page")
+
+                    </div>
+                    <!--/.col-->
+
+                    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                        @Html.Action("_countVehicle", "Page")
+
+
+                    </div>
+                    <!--/.col-->
+
+                    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                        @Html.Action("_countCustomer", "Page")
+                        <!--/.info-box-->
+                    </div>
+                    <!--/.col-->
+
+                    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                        @Html.Action("_statusFeedBack", "Page")
+                        <!--/.info-box-->
+                    </div>
+                    <!--/.col-->
+
+                </div>
+                <!--/.row-->
+                <div class="row">
+                    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                        @Html.Action("_countHotel", "Page")
+
+                    </div>
+                    <!--/.col-->
+
+                    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                        @Html.Action("_countLocation", "Page")
+
+
+                    </div>
+                    <!--/.col-->
+
+                    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                        @Html.Action("_countFood", "Page")
+                        <!--/.info-box-->
+                    </div>
+                    <!--/.col-->
+
+                    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                        @Html.Action("_countBook", "Page")
+                        <!--/.info-box-->
+                    </div>
+                    <!--/.col-->
+
+                </div>
+                @RenderBody()
+
+
+                <!-- project team & activity end -->
+            </section>
+            <div class="text-center">
+                @{ Html.RenderAction("_FooterPage", "Page");}
+            </div>
+        </section>
+        <!--main content end-->
+    </section>
+    <!-- container section start -->
+    <!-- javascripts -->
+    <script src="~/Content/Admin/js/jquery.js"></script>
+    <script src="~/Content/Admin/js/jquery-ui-1.10.4.min.js"></script>
+    <script src="~/Content/Admin/js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="~/Content/Admin/js/jquery-ui-1.9.2.custom.min.js"></script>
+    <!-- bootstrap -->
+    <script src="~/Content/Admin/js/bootstrap.min.js"></script>
+    <!-- nice scroll -->
+    <script src="~/Content/Admin/js/jquery.scrollTo.min.js"></script>
+    <script src="~/Content/Admin/js/jquery.nicescroll.js" type="text/javascript"></script>
+    <!-- charts scripts -->
+    <script src="~/Content/Admin/assets/jquery-knob/js/jquery.knob.js"></script>
+    <script src="~/Content/Admin/js/jquery.sparkline.js" type="text/javascript"></script>
+    <script src="~/Content/Admin/assets/jquery-easy-pie-chart/jquery.easy-pie-chart.js"></script>
+    <script src="~/Content/Admin/js/owl.carousel.js"></script>
+    <!-- jQuery full calendar -->
+    <
+    <script src="~/Content/Admin/js/fullcalendar.min.js"></script>
+    <!-- Full Google Calendar - Calendar -->
+    <script src="~/Content/Admin/assets/fullcalendar/fullcalendar/fullcalendar.js"></script>
+    <!--script for this page only-->
+    <script src="~/Content/Admin/js/calendar-custom.js"></script>
+    <script src="~/Content/Admin/js/jquery.rateit.min.js"></script>
+    <!-- custom select -->
+    <script src="~/Content/Admin/js/jquery.customSelect.min.js"></script>
+    <script src="~/Content/Admin/assets/chart-master/Chart.js"></script>
+
+    <!--custome script for all page-->
+    <script src="~/Content/Admin/js/scripts.js"></script>
+    <!-- custom script for this page-->
+    <script src="~/Content/Admin/js/sparkline-chart.js"></script>
+    <script src="~/Content/Admin/js/easy-pie-chart.js"></script>
+    <script src="~/Content/Admin/js/jquery-jvectormap-1.2.2.min.js"></script>
+    <script src="~/Content/Admin/js/jquery-jvectormap-world-mill-en.js"></script>
+    <script src="~/Content/Admin/js/xcharts.min.js"></script>
+    <script src="~/Content/Admin/js/jquery.autosize.min.js"></script>
+    <script src="~/Content/Admin/js/jquery.placeholder.min.js"></script>
+    <script src="~/Content/Admin/js/gdp-data.js"></script>
+    <script src="~/Content/Admin/js/morris.min.js"></script>
+    <script src="~/Content/Admin/js/sparklines.js"></script>
+    <script src="~/Content/Admin/js/charts.js"></script>
+    <script src="~/Content/Admin/js/jquery.slimscroll.min.js"></script>
+    <!-- Datatable-->
+    <script src="~/Content/Admin/DataTables/datatables.min.js"></script>
+    <link href="~/Content/Admin/DataTables/datatables.min.css" rel="stylesheet" />
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#tablefillset').DataTable(
+                {
+                    "language": {
+                        "infoEmpty": "Data null",
+                        "emptyTable": "Null Data",
+                        "processing": "Access...",
+                        "search": "Search:",
+                        "loadingRecords": "load...",
+                        "zeroRecords": "Data cannot find",
+                        "paginate": {
+                            "first": "|<",
+                            "last": ">|",
+                            "next": ">>",
+                            "previous": "<<"
+                        }
+                    },
+                    "lengthMenu": [[5, 10, 15, 20, 25, 30, -1], [5, 10, 15, 20, 25, 30, "All"]]
+                }
+
+            );
+
+
+        });
+    </script>
+    <script>
+        //knob
+        $(function () {
+            $(".knob").knob({
+                'draw': function () {
+                    $(this.i).val(this.cv + '%')
+                }
+            })
+        });
+
+        //carousel
+        $(document).ready(function () {
+            $("#owl-slider").owlCarousel({
+                navigation: true,
+                slideSpeed: 300,
+                paginationSpeed: 400,
+                singleItem: true
+
+            });
+        });
+
+        //custom select box
+
+        $(function () {
+            $('select.styled').customSelect();
+        });
+
+        /* ---------- Map ---------- */
+        $(function () {
+            $('#map').vectorMap({
+                map: 'world_mill_en',
+                series: {
+                    regions: [{
+                        values: gdpData,
+                        scale: ['#000', '#000'],
+                        normalizeFunction: 'polynomial'
+                    }]
+                },
+                backgroundColor: '#eef3f7',
+                onLabelShow: function (e, el, code) {
+                    el.html(el.html() + ' (GDP - ' + gdpData[code] + ')');
+                }
+            });
+        });
+    </script>
+
+</body>
+@RenderSection("scripts", required: false)
+</html>

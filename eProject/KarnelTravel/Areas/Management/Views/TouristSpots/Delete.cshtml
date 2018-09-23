@@ -1,0 +1,74 @@
+﻿@model KarnelTravel.Models.TouristSpot
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Management/Views/Shared/_AdministratorLayout.cshtml";
+}
+
+
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TouristSpot_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TouristSpot_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TouristSpot_Limit)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TouristSpot_Limit)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TouristSpot_Price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TouristSpot_Price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TouristSpot_Specific)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TouristSpot_Specific)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TouristSpot_Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TouristSpot_Status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Location.Location_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Location.Location_Name)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-danger" /> |
+            <a href="@Url.Action("Index", "TouristSpots")" class="btn btn-info">Manage</a>
+        </div>
+    }
+</div>
