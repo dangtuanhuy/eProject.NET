@@ -7,7 +7,7 @@ namespace KarnelTravel.Models
 {
     public partial class Food
     {
-        [MetadataTypeAttribute(typeof(Food.FoodMetaData))]
+        [MetadataType(typeof(Food.FoodMetaData))]
         internal sealed class FoodMetaData
         {
             [Display(Name ="Code")]
