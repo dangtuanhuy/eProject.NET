@@ -1,0 +1,28 @@
+﻿@using KarnelTravel.Models;
+@model IEnumerable<TouristSpot>
+
+@foreach (var item in Model.Take(2))
+{
+    <div class="col-md-4 col-sm-6">
+        <div class="single-package">
+            <div class="package-image">
+                <a href="#">
+                    <img src="~/myImg/TouristSpot/@item.ImgTouristSpots.FirstOrDefault().Img_TouristSpot" alt="">
+                </a>
+            </div>
+            <div class="package-content">
+                <h3>Dubai – All Stunning Places</h3>
+                <p>
+                    4 Days, 5 Nights Start From <span>$500</span>
+                </p>
+            </div>
+            <div class="package-calto-action">
+                <ul class="ct-action">
+                    <li>
+                        <a href="#" class="travel-booking-btn hvr-shutter-out-horizontal">Book Now</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+}

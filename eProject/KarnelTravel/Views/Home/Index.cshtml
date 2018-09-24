@@ -1,7 +1,12 @@
-﻿@{
+﻿@using KarnelTravel.Models;
+@model IEnumerable<TouristSpot>
+
+@{
     ViewBag.Title = "Home Page";
 }
-
+@{ 
+    IEnumerable<TouristSpot> TouristSpots1 = ViewBag.TouristSpots1 as IEnumerable<TouristSpot>;
+}
 <section class="slider-area">
     <div class="rev_slider_wrapper">
         <div id="rev_slider_1" class="rev_slider" style="display:none">
@@ -280,183 +285,11 @@
                 </div>
             </div>
         </div>
+        kkkkkkkkkkkkkkkkkkk
         <div class="row">
-            <div class="col-md-4 col-sm-6">
-                <div class="single-package">
-                    <div class="package-image">
-                        <a href="#">
-                            <img src="~/Content/User/images/packages/1.jpg" alt="">
-                        </a>
-                    </div>
-                    <div class="package-content">
-                        <h3>Dubai – All Stunning Places</h3>
-                        <p>
-                            4 Days, 5 Nights Start From <span>$500</span>
-                        </p>
-                    </div>
-                    <div class="package-calto-action">
-                        <ul class="ct-action">
-                            <li>
-                                <a href="#" class="travel-booking-btn hvr-shutter-out-horizontal">Book Now</a>
-                            </li>
-                            <li>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div> <!-- single package end -->
-            <div class="col-md-4 col-sm-6">
-                <div class="single-package">
-                    <div class="package-image">
-                        <a href="#">
-                            <img src="~/Content/User/images/packages/2.jpg" alt="">
-                        </a>
-                    </div>
-                    <div class="package-content">
-                        <h3>Thailand – All Stunning Places</h3>
-                        <p>
-                            4 Days, 5 Nights Start From <span>$500</span>
-                        </p>
-                    </div>
-                    <div class="package-calto-action">
-                        <ul class="ct-action">
-                            <li>
-                                <a href="#" class="travel-booking-btn hvr-shutter-out-horizontal">Book Now</a>
-                            </li>
-                            <li>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div> <!-- single package end -->
-            <div class="col-md-4 col-sm-6">
-                <div class="single-package">
-                    <div class="package-image">
-                        <a href="#">
-                            <img src="~/Content/User/images/packages/3.jpg" alt="">
-                        </a>
-                    </div>
-                    <div class="package-content">
-                        <h3>England – All Stunning Places</h3>
-                        <p>
-                            4 Days, 5 Nights Start From <span>$500</span>
-                        </p>
-                    </div>
-                    <div class="package-calto-action">
-                        <ul class="ct-action">
-                            <li>
-                                <a href="#" class="travel-booking-btn hvr-shutter-out-horizontal">Book Now</a>
-                            </li>
-                            <li>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div> <!-- single package end -->
-            <div class="col-md-4 col-sm-6">
-                <div class="single-package">
-                    <div class="package-image">
-                        <a href="#">
-                            <img src="~/Content/User/images/packages/4.jpg" alt="">
-                        </a>
-                    </div>
-                    <div class="package-content">
-                        <h3>Italy – All Stunning Places</h3>
-                        <p>
-                            4 Days, 5 Nights Start From <span>$500</span>
-                        </p>
-                    </div>
-                    <div class="package-calto-action">
-                        <ul class="ct-action">
-                            <li>
-                                <a href="#" class="travel-booking-btn hvr-shutter-out-horizontal">Book Now</a>
-                            </li>
-                            <li>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div> <!-- single package end -->
-            <div class="col-md-4 col-sm-6">
-                <div class="single-package">
-                    <div class="package-image">
-                        <a href="#">
-                            <img src="~/Content/User/images/packages/5.jpg" alt="">
-                        </a>
-                    </div>
-                    <div class="package-content">
-                        <h3>Brazil – All Stunning Places</h3>
-                        <p>
-                            4 Days, 5 Nights Start From <span>$500</span>
-                        </p>
-                    </div>
-                    <div class="package-calto-action">
-                        <ul class="ct-action">
-                            <li>
-                                <a href="#" class="travel-booking-btn hvr-shutter-out-horizontal">Book Now</a>
-                            </li>
-                            <li>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div> <!-- single package end -->
-            <div class="col-md-4 col-sm-6">
-                <div class="single-package">
-                    <div class="package-image">
-                        <a href="#">
-                            <img src="~/Content/User/images/packages/6.jpg" alt="">
-                        </a>
-                    </div>
-                    <div class="package-content">
-                        <h3>India – All Stunning Places</h3>
-                        <p>
-                            4 Days, 5 Nights Start From <span>$500</span>
-                        </p>
-                    </div>
-                    <div class="package-calto-action">
-                        <ul class="ct-action">
-                            <li>
-                                <a href="#" class="travel-booking-btn hvr-shutter-out-horizontal">Book Now</a>
-                            </li>
-                            <li>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div> <!-- single package end -->
+            @Html.Partial("~/Views/Home/_TourisSpot.cshtml", TouristSpots1)
         </div>
-    </div>
+        </div>
 </section> <!--end  popular packajge -->
 <section class="countdown count-down-bg image-bg-padding-100">
     <div class="container">
