@@ -1185,6 +1185,9 @@
     <Content Include="Areas\Management\Views\Page\_countLocation.cshtml" />
     <Content Include="Areas\Management\Views\Page\_countFood.cshtml" />
     <Content Include="Areas\Management\Views\Page\_countBook.cshtml" />
+    <Content Include="Areas\Management\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Management\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Management\Views\Page\_countTransportation.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

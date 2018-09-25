@@ -59,10 +59,10 @@ namespace KarnelTravel.Areas.Management.Controllers
             ViewBag.countFoods = countFoods;
             return PartialView();
         }
-        public ActionResult _countBook()
+        public ActionResult _countTransportation()
         {
-            var countBooks = (from p in db.TripDetails select p).Count();
-            ViewBag.countBooks = countBooks;
+            var countTransportations = db.Transportations.Count();
+            ViewBag.countTransportations = countTransportations;
             return PartialView();
         }
         public ActionResult _footerPage()
