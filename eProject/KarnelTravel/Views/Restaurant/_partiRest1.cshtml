@@ -1,0 +1,22 @@
+﻿
+@using KarnelTravel.Models;
+@model IEnumerable<Restaurant>
+
+@foreach (var item in Model.Take(3))
+{
+    <div class="col-md-4 col-sm-6 co-lxs-12 single-item">
+        <div class="single-hotels">
+            <div class="hotel-image">
+                <img src="~/myImg/Hotels/@item.ImgRestaurants.FirstOrDefault().Img_Restaurants" alt="" class="border-raduis-3">
+            </div>
+            <div class="hotel-description">
+                <h4>@item.Restaurant_Name</h4>
+                <p>@item.Restaurant_Address</p>
+
+                <div class="hotet-book-btn">
+                    <a href="#" class="travel-primary-btn hvr-shutter-out-horizontal">show details</a>
+                </div>
+            </div>
+        </div>
+    </div>
+}

@@ -1,0 +1,39 @@
+﻿@using KarnelTravel.Models;
+@model IEnumerable<Restaurant>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+@{
+    IEnumerable<Restaurant> lstRest1 = ViewBag.lstRest1 as IEnumerable<Restaurant>;
+}
+<!-- blog breadcrumb version one strat here -->
+<section class="breadcrumb-blog-version-one">
+    <div class="single-bredcurms" style="background-image:url('../../Content/User/images/bercums/Hotels-Version-02.jpg');">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="bredcrums-content">
+                        <h2>Restaurant</h2>
+                        <ul>
+                            <li><a href="index-2.html">Home</a></li>
+                            <li class="active"><a href="hotel-version-one.html">Restaurant</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section><!-- blog breadcrumb version one end here -->
+<!-- popular destination strat -->
+<section class="blog-contents-version-one pt-100 pb-70">
+    <div class="container">
+        <div class="row">
+            <!-- single restaurant -->
+            @Html.Partial("~/Views/Restaurant/_partiRest1.cshtml", lstRest1)
+            <!--End single restaurant -->
+        </div>
+    </div>
+</section><!-- single popular destination  end-->

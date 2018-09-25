@@ -6,16 +6,16 @@ using System.Web.Mvc;
 using KarnelTravel.Models;
 namespace KarnelTravel.Controllers
 {
-    public class HomeController : Controller
+    public class RestaurantController : Controller
     {
         KarnelTravelEntities db = new KarnelTravelEntities();
         public ActionResult Index()
         {
-            var TouristSpots1 = db.TouristSpots.Where(u => u.Location_Id == "LC1");
-            ViewBag.TouristSpots1 = TouristSpots1;
+            var lstRest1 = db.Restaurants.Where(u => u.TouristSpot_Id == "TS1");
+            ViewBag.lstRest1 = lstRest1;
             return View();
         }
-        public ActionResult _TourisSpot()
+        public ActionResult _partiRest1()
         {
             return PartialView();
         }
