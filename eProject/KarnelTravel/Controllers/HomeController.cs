@@ -11,7 +11,7 @@ namespace KarnelTravel.Controllers
         KarnelTravelEntities db = new KarnelTravelEntities();
         public ActionResult Index()
         {
-            var TouristSpots1 = db.TouristSpots;
+            var TouristSpots1 = db.TouristSpots.Where(u => u.Location_Id == "LC1");
             ViewBag.TouristSpots1 = TouristSpots1;
             return View();
         }
