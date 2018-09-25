@@ -176,7 +176,9 @@
     <Compile Include="Areas\Management\ManagementAreaRegistration.cs" />
     <Compile Include="Areas\Management\Models\LoginModel.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\HotelController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
+    <Compile Include="Controllers\RestaurantController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -1031,6 +1033,9 @@
       <DependentUpon>KarnelTravel.edmx</DependentUpon>
       <LastGenOutput>KarnelTravel.cs</LastGenOutput>
     </Content>
+    <Content Include="myImg\Hotels\1.jpg" />
+    <Content Include="myImg\Hotels\2.jpg" />
+    <Content Include="myImg\Hotels\3.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
@@ -1213,6 +1218,10 @@
     <Content Include="Views\Shared\_UserLayout.cshtml" />
     <Content Include="Views\Register\Register.cshtml" />
     <Content Include="Views\Home\_TourisSpot.cshtml" />
+    <Content Include="Views\Hotel\Index.cshtml" />
+    <Content Include="Views\Hotel\_partiHotel1.cshtml" />
+    <Content Include="Views\Restaurant\Index.cshtml" />
+    <Content Include="Views\Restaurant\_partiRest1.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -1220,7 +1229,6 @@
     <Folder Include="Content\Admin\assets\jquery-file-upload\server\php\files\thumbnail\" />
     <Folder Include="myImg\Abouts\" />
     <Folder Include="myImg\Foods\" />
-    <Folder Include="myImg\Hotels\" />
     <Folder Include="myImg\Restaurants\" />
     <Folder Include="myImg\Rooms\" />
     <Folder Include="myImg\TouristSpot\" />
