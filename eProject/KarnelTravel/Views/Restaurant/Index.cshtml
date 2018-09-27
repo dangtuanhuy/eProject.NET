@@ -1,6 +1,7 @@
 ﻿@using KarnelTravel.Models;
-@model IEnumerable<Restaurant>
 
+@model PagedList.IPagedList<KarnelTravel.Models.Restaurant>
+@using PagedList.Mvc;
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_UserLayout.cshtml";
@@ -31,9 +32,20 @@
 <section class="blog-contents-version-one pt-100 pb-70">
     <div class="container">
         <div class="row">
+            @using (Html.BeginForm())
+            {
+                <p>
+                    Find by Title or by name: @Html.TextBox("SearchString")
+                    <input type="submit" value="Search" />
+                </p>
+            }
             <!-- single restaurant -->
             @Html.Partial("~/Views/Restaurant/_partiRest1.cshtml", lstRest1)
             <!--End single restaurant -->
+            <div class="content-pagenation">
+                @Html.PagedListPager(Model, page => Url.Action("Index",
+                 new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+            </div>
         </div>
     </div>
 </section><!-- single popular destination  end-->
