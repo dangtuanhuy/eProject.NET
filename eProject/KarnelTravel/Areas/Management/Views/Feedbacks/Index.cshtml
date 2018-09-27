@@ -69,11 +69,11 @@
             <td>
                 @if (@item.State == true)
                 {
-                    <button id="@item.FeedbackId" class="btn btn-info" onclick="UpdateStatus(this.id)">@item.AboutGender</button>
+                    <button id="@item.FeedbackId" class="btn btn-info" onclick="UpdateStatus(this.id)">@item.State</button>
                 }
                 else
                 {
-                    <button id="@item.FeedbackId" class="btn btn-danger" onclick="UpdateStatus(this.id)">@item.AboutGender</button>
+                    <button id="@item.FeedbackId" class="btn btn-danger" onclick="UpdateStatus(this.id)">@item.State</button>
                 }
             </td>
             </td>
