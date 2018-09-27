@@ -33,41 +33,70 @@
     <tbody>
         @foreach (var item in Model)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.SenderName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.SenderMail)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.FeedBackTitle)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.FeedBackContent)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.State)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Create_on)
-                </td>
-                <td>
-                    <a href="@Url.Action("Edit", "Feedbacks", new { id = item.FeedbackId })" class="btn btn-success">
-                        <i class="fa fa-flash"></i>
-                        <span>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SenderName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SenderMail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FeedBackTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FeedBackContent)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.State)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Create_on)
+            </td>
+            <td>
+                <a href="@Url.Action("Edit", "Feedbacks", new { id = item.FeedbackId })" class="btn btn-success">
+                    <i class="fa fa-flash"></i>
+                    <span>
 
-                        </span>
-                    </a>
-                    |
-                    <a href="@Url.Action("Delete", "Feedbacks", new { id = item.FeedbackId})" class="btn btn-danger">
-                        <i class="fa fa-trash-o"></i>
-                        <span>
+                    </span>
+                </a>
+                |
+                <a href="@Url.Action("Delete", "Feedbacks", new { id = item.FeedbackId})" class="btn btn-danger">
+                    <i class="fa fa-trash-o"></i>
+                    <span>
 
-                        </span>
-                    </a>
-                </td>
-            </tr>
+                    </span>
+                </a>
+            <td>
+                @if (@item.State == true)
+                {
+                    <button id="@item.FeedbackId" class="btn btn-info" onclick="UpdateStatus(this.id)">@item.AboutGender</button>
+                }
+                else
+                {
+                    <button id="@item.FeedbackId" class="btn btn-danger" onclick="UpdateStatus(this.id)">@item.AboutGender</button>
+                }
+            </td>
+            </td>
+        </tr>
         }
     </tbody>
 </table>
+
+<script type="text/javascript">
+    function UpdateStatus(id) {
+        $.ajax({
+            url: "/Feedbacks/UpdateStatus",
+            data: { id: id },
+            type: "POST",
+            success: function (data) {
+                //$("#"+id).attr("disabled","disabled");
+                $("#" + id).prop('disabled', true);//disabled is a property not an attribute
+                alert("Cập nhật status thành công!");
+                window.location.reload();
+            },
+            error: function (e) {
+                bootbox.alert(e.responseText);
+            }
+        });
+    }
+</script>

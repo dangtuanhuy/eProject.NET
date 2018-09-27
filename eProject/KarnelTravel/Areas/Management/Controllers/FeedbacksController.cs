@@ -123,5 +123,45 @@ namespace KarnelTravel.Areas.Management.Controllers
             }
             base.Dispose(disposing);
         }
+
+        public ActionResult UpdateStatus(int id)
+        {
+            try
+            {
+                Feedback ab = db.Feedbacks.Where(c => c.FeedbackId == id).SingleOrDefault();
+
+                if (ab.State == false)
+                {
+
+                    ab.State = true;
+                }
+                else if (ab.State == true)
+                {
+                    ab.State = false;
+                }
+                db.SaveChanges();
+
+                return Json(ab, JsonRequestBehavior.AllowGet);
+            }
+            catch
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.InternalServerError);
+            }
+        }
+
+        public ActionResult IndexStatus()
+        {
+            List<Feedback> listFeedback = new List<Feedback>();
+            try
+            {
+                listFeedback = db.Feedbacks.Where(u => u.State == false).ToList();
+
+            }
+            catch
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.InternalServerError);
+            }
+            return View(listFeedback);
+        }
     }
 }
