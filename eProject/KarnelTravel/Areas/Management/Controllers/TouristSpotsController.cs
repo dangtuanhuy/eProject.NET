@@ -124,47 +124,47 @@ namespace KarnelTravel.Areas.Management.Controllers
             return RedirectToAction("Index");
         }
         //Upload Multi File
-        public ActionResult UploadTouristSpots(string id)
+        public ActionResult UploadTouristSpot(string id)
         {
             if (id == null)
             {
                 return RedirectToAction("Index");
             }
-            var TouristSpots = db.TouristSpots.Include(s => s.ImgTouristSpots).SingleOrDefault(p => p.TouristSpot_Id == id);
-            if (TouristSpots == null)
+            var products = db.TouristSpots.Include(s => s.ImgTouristSpots).SingleOrDefault(p => p.TouristSpot_Id == id);
+            if (products == null)
             {
                 object Err = "Information not find";
                 return View("Error", Err);
             }
-            return View(TouristSpots);
+            return View(products);
         }
         [HttpPost]
-        public ActionResult UploadTouristSpots(string id, HttpPostedFileBase[] files)
+        public ActionResult UploadTouristSpot(string id, HttpPostedFileBase[] files)
         {
             byte max = 0;
-            var listImg = db.ImgTouristSpots.Where(p => p.TouristSpot_Id == id).ToList();
-            if (listImg.Count > 0)
-                max = listImg.Max(p => p.Img_TouristSpot_Sort);
+            var listImgs = db.ImgTouristSpots.Where(p => p.TouristSpot_Id == id).ToList();
+            if (listImgs.Count > 0)
+                max = listImgs.Max(p => p.Img_TouristSpot_Sort);
             var listFile = files.Where(p => p != null);
             foreach (var f in listFile)
             {
-                //Tạo một đối tượng
+
                 var img = new ImgTouristSpot();
                 img.TouristSpot_Id = id;
                 img.Img_TouristSpot = f.FileName;
-                img.Img_TouristSpot_Sort= ++max;
+                img.Img_TouristSpot_Sort = ++max;
                 db.ImgTouristSpots.Add(img);
                 var path = Server.MapPath("~/myImg/TouristSpot/" + f.FileName);
                 f.SaveAs(path);
             }
             if (listFile.Any())
                 db.SaveChanges();
-            return RedirectToAction("UploadTouristSpots");
+            return RedirectToAction("UploadTouristSpot");
         }
 
-        public ActionResult DeleteImg(int id, string TouristSpot_Id)
+        public ActionResult DeleteImg(int id, string TouristSpot)
         {
-            if (TouristSpot_Id == null)
+            if (TouristSpot == null)
             {
                 try
                 {
@@ -182,7 +182,7 @@ namespace KarnelTravel.Areas.Management.Controllers
                     }
 
                     db.SaveChanges();
-                    return RedirectToAction("UploadTouristSpots");
+                    return RedirectToAction("UploadTouristSpot");
                 }
 
                 catch (Exception ex)
@@ -193,7 +193,7 @@ namespace KarnelTravel.Areas.Management.Controllers
             }
 
             TempData["Success_Mess"] = "<script>alert('Delete Success')</script>";
-            return Redirect("~/TouristSpots/UploadTouristSpots/" + TouristSpot_Id);
+            return Redirect("~/TouristSpots/UploadTouristSpot/" + TouristSpot);
         }
 
         protected override void Dispose(bool disposing)

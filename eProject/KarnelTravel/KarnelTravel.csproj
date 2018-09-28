@@ -1171,7 +1171,6 @@
     <Content Include="Areas\Management\Views\Feedbacks\Delete.cshtml" />
     <Content Include="Areas\Management\Views\Feedbacks\Edit.cshtml" />
     <Content Include="Areas\Management\Views\Feedbacks\Index.cshtml" />
-    <Content Include="Areas\Management\Views\TouristSpots\UploadTouristSpots.cshtml" />
     <Content Include="Areas\Management\Views\Page\_countCustomer.cshtml" />
     <Content Include="Areas\Management\Views\Page\_statusFeedBack.cshtml" />
     <Content Include="Areas\Management\Views\Shared\_FooterPage.cshtml" />
@@ -1188,6 +1187,7 @@
     <Content Include="Areas\Management\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Management\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Management\Views\Page\_countTransportation.cshtml" />
+    <Content Include="Areas\Management\Views\TouristSpots\UploadTouristSpot.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

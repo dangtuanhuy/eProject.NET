@@ -1,11 +1,12 @@
 ﻿@model KarnelTravel.Models.TouristSpot
 @{
-    ViewBag.Title = "UploadTouristSpots";
+    ViewBag.Title = "UploadTouristSpot";
     Layout = "~/Areas/Management/Views/Shared/_AdministratorLayout.cshtml";
 }
 
-<h2 class=" text-center">Upload TouristSpots</h2>
-@using (Html.BeginForm("UploadTouristSpots", "TouristSpots", FormMethod.Post, new { enctype = "multipart/form-data" }))
+<h2>UploadTouristSpot</h2>
+<h2 class=" text-center">Upload Hình Food</h2>
+@using (Html.BeginForm("UploadTouristSpot", "TouristSpots", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     <article class="panel panel-info">
         @Html.HiddenFor(model => model.TouristSpot_Id)
@@ -29,7 +30,7 @@
                             <th>@item.Img_TouristSpot</th>
                             <th>@item.Img_TouristSpot_Sort</th>
                             <th><img src="~/myImg/TouristSpot/@item.Img_TouristSpot" width="150" height="150" /></th>
-                            <th>@Html.ActionLink("Xóa", "DeleteImg", new { id = item.Img_TouristSpot_Id, TouristSpot_Id = item.TouristSpot_Id }, htmlAttributes: new { onclick = "return confirm('Are you sure Delete Img?');", @class = "btn btn-circle brn-danger" })</th>
+                            <th>@Html.ActionLink("Xóa", "DeleteImg", new { id = item.Img_TouristSpot_Id, TouristSpot = item.TouristSpot_Id }, htmlAttributes: new { onclick = "return confirm('Are you sure Delete Img?');", @class = "btn btn-circle brn-danger" })</th>
                         </tr>
                     </tbody>
 
@@ -67,5 +68,4 @@
 
 
 }
-
 
