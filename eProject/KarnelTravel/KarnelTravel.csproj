@@ -1227,11 +1227,10 @@
     <Content Include="Views\Register\Register.cshtml" />
     <Content Include="Views\Home\_TourisSpot.cshtml" />
     <Content Include="Views\Hotel\Index.cshtml" />
-    <Content Include="Views\Hotel\_partiHotel1.cshtml" />
     <Content Include="Views\Restaurant\Index.cshtml" />
-    <Content Include="Views\Restaurant\_partiRest1.cshtml" />
+    <Content Include="Views\DetailsTourisSpot\Index.cshtml" />
+    <Content Include="Views\DetailsTourisSpot\_ImgTravel.cshtml" />
     <Content Include="Views\TourisSpot\Index.cshtml" />
-    <Content Include="Views\TourisSpot\_ImgTravel.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
