@@ -14,11 +14,8 @@ namespace KarnelTravel.Controllers
         public ActionResult Index(string sortOrder, string searchString, int? page, string currentFilter)
         {
             var lstRest1 = db.Restaurants.Where(u => u.TouristSpot_Id == "TS1");
-            ViewBag.lstRest1 = lstRest1;
-
             ViewBag.CurrentSort = sortOrder;
             ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
-            ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
             if (searchString != null)
             {
                 page = 1;
@@ -28,22 +25,14 @@ namespace KarnelTravel.Controllers
                 searchString = currentFilter;
             }
             ViewBag.CurrentFilter = searchString;
-            var lstNew = from s in db.Restaurants
-                         select s;
             if (!String.IsNullOrEmpty(searchString))
             {
-                lstNew = lstNew.Where(s => s.Restaurant_Name.Contains(searchString)
+                lstRest1 = lstRest1.Where(s => s.Restaurant_Name.Contains(searchString)
                                        || s.Restaurant_Address.Contains(searchString));
-            }
-
-            lstNew = lstNew.OrderBy(s => s.Restaurant_Code);
-            int pageSize = 3;
-            int pageNumber = (page ?? 1);
-            return View(lstNew.ToPagedList(pageNumber, pageSize));
-        }
-        public ActionResult _partiRest1()
-        {
-            return PartialView();
+            }   
+            int PageSize = 6;
+            int PageNumber = (page ?? 1);
+            return View(lstRest1.OrderBy(n => n.Restaurant_Code).ToPagedList(PageNumber, PageSize));
         }
     }
 }

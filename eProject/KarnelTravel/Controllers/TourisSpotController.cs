@@ -3,19 +3,35 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-
+using KarnelTravel.Models;
+using PagedList;
 namespace KarnelTravel.Controllers
 {
     public class TourisSpotController : Controller
     {
-        // GET: TourisSpot
-        public ActionResult Index()
+        KarnelTravelEntities db = new KarnelTravelEntities();
+        public ActionResult Index(string sortOrder, string searchString, int? page, string currentFilter)
         {
-            return View();
-        }
-        public ActionResult _ImgTravel()
-        {
-            return PartialView();
+            var lstTouris = db.TouristSpots.Where(u => u.Location_Id == "LC1");
+            ViewBag.CurrentSort = sortOrder;
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            if (searchString != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+            ViewBag.CurrentFilter = searchString;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                lstTouris = lstTouris.Where(s => s.TouristSpot_Name.Contains(searchString)
+                                       || s.TouristSpot_Specific.Contains(searchString));
+            }
+            int PageSize = 6;
+            int PageNumber = (page ?? 1);
+            return View(lstTouris.OrderBy(n => n.TouristSpot_Id).ToPagedList(PageNumber, PageSize));
         }
     }
 }

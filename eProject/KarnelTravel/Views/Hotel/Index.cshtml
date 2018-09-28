@@ -1,5 +1,7 @@
 ﻿@using KarnelTravel.Models;
-@model IEnumerable<Hotel>
+@using PagedList.Mvc;
+
+@model PagedList.IPagedList<Hotel>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_UserLayout.cshtml";
@@ -29,9 +31,37 @@
 <section class="blog-contents-version-one pt-100 pb-70">
     <div class="container">
         <div class="row">
+            @using (Html.BeginForm())
+            {
+                <p>
+                    Find by Name or by Address: @Html.TextBox("SearchString")
+                    <input type="submit" value="Search" />
+                </p>
+            }
             <!-- single hotels -->
-            @Html.Partial("~/Views/Hotel/_partiHotel1.cshtml", lstHotel1)
+            @foreach (var item in Model.Take(3))
+            {
+                <div class="col-md-4 col-sm-6 co-lxs-12 single-item">
+                    <div class="single-hotels">
+                        <div class="hotel-image">
+                            @*<img src="~/myImg/Hotels/@item.ImgHotels.FirstOrDefault().Img_Hotels" alt="" class="border-raduis-3">*@
+                        </div>
+                        <div class="hotel-description">
+                            <h4>@item.Hotel_Name</h4>
+                            <p>@item.Hotel_Address</p>
+
+                            <div class="hotet-book-btn">
+                                <a href="#" class="travel-primary-btn hvr-shutter-out-horizontal">show details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
             <!--End single hotels -->
         </div>
     </div>
 </section><!-- single popular destination  end-->
+<div class="content-pagenation">
+    @Html.PagedListPager(Model, page => Url.Action("Index",
+     new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+</div>
