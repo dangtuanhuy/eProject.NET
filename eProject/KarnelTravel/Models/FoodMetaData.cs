@@ -5,9 +5,10 @@ using System.Web;
 using System.ComponentModel.DataAnnotations;
 namespace KarnelTravel.Models
 {
+    [MetadataType(typeof(Food.FoodMetaData))]
     public partial class Food
     {
-        [MetadataType(typeof(Food.FoodMetaData))]
+       
         internal sealed class FoodMetaData
         {
             [Display(Name ="Code")]

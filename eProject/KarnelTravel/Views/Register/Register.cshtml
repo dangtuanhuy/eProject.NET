@@ -1,4 +1,6 @@
 ﻿@model KarnelTravel.Models.Customer
+@using CaptchaMvc.HtmlHelpers;
+@using CaptchaMvc;
 @{
     ViewBag.Title = "Register";
     Layout = "~/Views/Shared/_UserLayout.cshtml";
@@ -51,24 +53,72 @@
                         <div id="message"></div>
                         @using (Html.BeginForm())
                         {
-                        <!-- Contact Form -->
-                       
+                            @Html.AntiForgeryToken()
+                            <!-- Register Form -->
+                            <hr />
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                             <div class="form-group">
-                                <input type="text" placeholder="Name" required="required" name="name" id="name">
+
+                                @Html.LabelFor(model => model.Customer_Id, htmlAttributes: new { @class = "control-label col-md-2" })
+
+                                @Html.EditorFor(model => model.Customer_Id, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Customer_Id, "", new { @class = "text-danger" })
+
+
                             </div>
                             <div class="form-group">
-                                <input type="email" placeholder="Email" required="required" name="email" id="email">
+                                @Html.LabelFor(model => model.Customer_Password, htmlAttributes: new { @class = "control-label col-md-2" })
+                                @Html.EditorFor(model => model.Customer_Password, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Customer_Password, "", new { @class = "text-danger" })
+
                             </div>
                             <div class="form-group">
-                                <input type="text" placeholder="Subject" required="required" name="subject" id="subject">
+                                @Html.LabelFor(model => model.Customer_LastName, htmlAttributes: new { @class = "control-label col-md-2" })
+                                @Html.EditorFor(model => model.Customer_LastName, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Customer_LastName, "", new { @class = "text-danger" })
                             </div>
                             <div class="form-group">
-                                <textarea name="message" rows="6" placeholder="Message" id="comments"></textarea>
+                                @Html.LabelFor(model => model.Customer_FirstName, htmlAttributes: new { @class = "control-label col-md-2" })
+                                @Html.EditorFor(model => model.Customer_FirstName, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Customer_FirstName, "", new { @class = "text-danger" })
                             </div>
                             <div class="form-group">
-                                <button type="submit" class="button primary"><i class="fa fa-send"></i>Submit</button>
+                                @Html.LabelFor(model => model.Customer_Bithday, htmlAttributes: new { @class = "control-label col-md-2" })
+                                @Html.EditorFor(model => model.Customer_Bithday, new { htmlAttributes = new { @id = "datepicker", @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Customer_Bithday, "", new { @class = "text-danger" })
                             </div>
-                       
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Customer_Gender, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="checkbox">
+                                    @Html.EditorFor(model => model.Customer_Gender, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Customer_Gender, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Customer_Phone, htmlAttributes: new { @class = "control-label col-md-2" })
+                                @Html.EditorFor(model => model.Customer_Phone, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Customer_Phone, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Customer_Address, htmlAttributes: new { @class = "control-label col-md-2" })
+                                @Html.EditorFor(model => model.Customer_Address, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Customer_Address, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Customer_Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                                @Html.EditorFor(model => model.Customer_Email, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Customer_Email, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Customer_Possport, htmlAttributes: new { @class = "control-label col-md-2" })
+                                @Html.EditorFor(model => model.Customer_Possport, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Customer_Possport, "", new { @class = "text-danger" })
+                            </div>
+
+                            <div class="form-group">
+                                <button type="submit" class="button primary"><i class="fa fa-send"></i>Register</button>
+                            </div>
+
                         }
                     </div>
                 </div>

@@ -14,6 +14,7 @@ namespace KarnelTravel.Controllers
         private KarnelTravelEntities db = new KarnelTravelEntities();
         public ActionResult Register()
         {
+           
             return View();
         }
         [HttpPost]
@@ -42,6 +43,10 @@ namespace KarnelTravel.Controllers
             }
 
             return View(customer);
+        }
+        public JsonResult CheckCustomer(string Customer)
+        {
+            return Json(!db.Customers.Any(x => x.Customer_Id == Customer), JsonRequestBehavior.AllowGet);
         }
     }
 }

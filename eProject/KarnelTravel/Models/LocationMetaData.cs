@@ -7,5 +7,6 @@ namespace KarnelTravel.Models
 {
     public class LocationMetaData
     {
+
     }
 }

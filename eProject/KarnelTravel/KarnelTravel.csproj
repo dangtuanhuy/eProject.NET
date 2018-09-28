@@ -199,6 +199,7 @@
     <Compile Include="Models\Customer.cs">
       <DependentUpon>KarnelTravel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\CustomerMetaData.cs" />
     <Compile Include="Models\Encrypt.cs" />
     <Compile Include="Models\Feedback.cs">
       <DependentUpon>KarnelTravel.tt</DependentUpon>
@@ -1164,9 +1165,6 @@
     <Content Include="Areas\Management\Views\Foods\UploadFoods.cshtml" />
     <Content Include="Areas\Management\Views\Page\_countRestaurant.cshtml" />
     <Content Include="Areas\Management\Views\Page\_countVehicle.cshtml" />
-    <Content Include="Areas\Management\Views\Customers\Create.cshtml" />
-    <Content Include="Areas\Management\Views\Customers\Delete.cshtml" />
-    <Content Include="Areas\Management\Views\Customers\Edit.cshtml" />
     <Content Include="Areas\Management\Views\Customers\Index.cshtml" />
     <Content Include="Areas\Management\Views\Abouts\Create.cshtml" />
     <Content Include="Areas\Management\Views\Abouts\Delete.cshtml" />

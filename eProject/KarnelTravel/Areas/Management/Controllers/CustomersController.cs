@@ -36,27 +36,27 @@ namespace KarnelTravel.Areas.Management.Controllers
         }
 
         // GET: Management/Customers/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
+        //public ActionResult Create()
+        //{
+        //    return View();
+        //}
 
         // POST: Management/Customers/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Customer_Id,Customer_Password,Customer_LastName,Customer_FirstName,Customer_Bithday,Customer_Gender,Customer_Phone,Customer_Address,Customer_Email,Customer_Possport")] Customer customer)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Customers.Add(customer);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult Create([Bind(Include = "Customer_Id,Customer_Password,Customer_LastName,Customer_FirstName,Customer_Bithday,Customer_Gender,Customer_Phone,Customer_Address,Customer_Email,Customer_Possport")] Customer customer)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        db.Customers.Add(customer);
+        //        db.SaveChanges();
+        //        return RedirectToAction("Index");
+        //    }
 
-            return View(customer);
-        }
+        //    return View(customer);
+        //}
 
         // GET: Management/Customers/Edit/5
         public ActionResult Edit(string id)
