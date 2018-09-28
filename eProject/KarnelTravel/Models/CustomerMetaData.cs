@@ -14,7 +14,7 @@ namespace KarnelTravel.Models
         {
             [Display(Name = "Username")]
             [Required(ErrorMessage ="Username can not null")]
-            [Remote("CheckCustomer", "Register", "Tên đăng nhập đã tồn tại")]
+            [Remote("CheckCustomer", controller: "Register",ErrorMessage ="Username is Exits")]
             public string Customer_Id { get; set; }
 
             [Display(Name = "Password")]
