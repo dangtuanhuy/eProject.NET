@@ -1201,7 +1201,6 @@
     <Content Include="Areas\Management\Views\Page\_countBook.cshtml" />
     <Content Include="Areas\Management\Views\PaymentMethods\Create.cshtml" />
     <Content Include="Areas\Management\Views\PaymentMethods\Delete.cshtml" />
-    <Content Include="Areas\Management\Views\PaymentMethods\Details.cshtml" />
     <Content Include="Areas\Management\Views\PaymentMethods\Edit.cshtml" />
     <Content Include="Areas\Management\Views\PaymentMethods\Index.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
