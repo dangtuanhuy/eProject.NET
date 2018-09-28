@@ -39,7 +39,7 @@ namespace KarnelTravel.Controllers
                         }
                     }
                 }
-                return RedirectToAction("Index");
+                return RedirectToAction("Home","Index");
             }
 
             return View(customer);

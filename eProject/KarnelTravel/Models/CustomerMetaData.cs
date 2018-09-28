@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations;
+using System.Web.Mvc;
+
 namespace KarnelTravel.Models
 {
     [MetadataType(typeof(Customer.CustomerMetaData))]
@@ -12,6 +14,7 @@ namespace KarnelTravel.Models
         {
             [Display(Name = "Username")]
             [Required(ErrorMessage ="Username can not null")]
+            [Remote("CheckCustomer", "Register", "Tên đăng nhập đã tồn tại")]
             public string Customer_Id { get; set; }
 
             [Display(Name = "Password")]
