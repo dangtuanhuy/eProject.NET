@@ -9,12 +9,13 @@
 @using (Html.BeginForm("UploadTransportations", "Transportations", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
-    <div class="form-inline">
+    <div class="form-inline text-center">
         <!-- File Upload -->
         <div class="form-group">
 
             <input type="file" class="form-control" name="file" />
-
+            <br />
+            <br />
             <input type="submit" value="Upload" class="btn btn-primary" />
 
         </div>

@@ -28,7 +28,7 @@
                             <th>@item.Img_Restaurants</th>
                             <th>@item.Img_Restaurants_Sort</th>
                             <th><img src="~/myImg/Restaurants/@item.Img_Restaurants" width="150" height="150" /></th>
-                            <th>@Html.ActionLink("X", "DeleteImg", new { id = item.Img_Restaurants_Id, Restaurant_Coded = item.Restaurant_Code }, htmlAttributes: new { onclick = "return confirm('Are you sure Delete Img?');", @class = "btn btn-circle brn-danger" })</th>
+                            <th>@Html.ActionLink("Delete", "DeleteImg", new { id = item.Img_Restaurants_Id, Restaurant_Coded = item.Restaurant_Code }, htmlAttributes: new { onclick = "return confirm('Are you sure Delete Img?');", @class = "btn btn-circle brn-danger" })</th>
                         </tr>
                     </tbody>
 

@@ -4,17 +4,18 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace KarnelTravel.Models
 {
-    [MetadataType(typeof(Hotel.HotelMetaData))]
+    [MetadataTypeAttribute(typeof(Hotel.HotelMetaData))]
     public partial class Hotel
     {
         internal sealed class HotelMetaData
         {
             [DisplayName("Hotel ID")]
             [Required]
-
+            [Remote("CheckHotel", controller: "Hotels", ErrorMessage = "Username is Exits")]
             public string Hotel_Id { get; set; }
 
             [DisplayName("Hotel Name")]
@@ -28,6 +29,7 @@ namespace KarnelTravel.Models
 
             [DisplayName("Hotel Details")]
             [Required]
+            [DataType(DataType.MultilineText)]
             public string Hotel_Details { get; set; }
 
             [DisplayName("TouristSpot ID")]

@@ -11,7 +11,9 @@ namespace KarnelTravel.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+    using System.Web.Mvc;
+
     public partial class Hotel
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -20,7 +22,9 @@ namespace KarnelTravel.Models
             this.ImgHotels = new HashSet<ImgHotel>();
             this.Rooms = new HashSet<Room>();
         }
-    
+
+        [Required]
+        [Remote("CheckHotel", "Hotels", ErrorMessage = "Username is Exits")]
         public string Hotel_Id { get; set; }
         public string Hotel_Name { get; set; }
         public string Hotel_Address { get; set; }

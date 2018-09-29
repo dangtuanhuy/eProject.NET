@@ -192,6 +192,12 @@ namespace KarnelTravel.Areas.Management.Controllers
             TempData["Success_Mess"] = "<script>alert('Delete Success')</script>";
             return Redirect("~/Hotels/UploadHotels/" + Hotel_Id);
         }
+        [AllowAnonymous]
+        [HttpGet]
+        public JsonResult CheckHotel(string Hotel)
+        {
+            return Json(!db.Hotels.Any(x => x.Hotel_Id == Hotel), JsonRequestBehavior.AllowGet);
+        }
 
         protected override void Dispose(bool disposing)
         {

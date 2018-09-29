@@ -29,7 +29,7 @@
                             <th>@item.Img_TouristSpot</th>
                             <th>@item.Img_TouristSpot_Sort</th>
                             <th><img src="~/myImg/TouristSpot/@item.Img_TouristSpot" width="150" height="150" /></th>
-                            <th>@Html.ActionLink("Xóa", "DeleteImg", new { id = item.Img_TouristSpot_Id, TouristSpot_Id = item.TouristSpot_Id }, htmlAttributes: new { onclick = "return confirm('Are you sure Delete Img?');", @class = "btn btn-circle brn-danger" })</th>
+                            <th>@Html.ActionLink("Delete", "DeleteImg", new { id = item.Img_TouristSpot_Id, TouristSpot_Id = item.TouristSpot_Id }, htmlAttributes: new { onclick = "return confirm('Are you sure Delete Img?');", @class = "btn btn-circle brn-danger" })</th>
                         </tr>
                     </tbody>
 

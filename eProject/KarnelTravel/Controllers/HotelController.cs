@@ -39,5 +39,6 @@ namespace KarnelTravel.Controllers
         {
             return PartialView();
         }
+
     }
 }
