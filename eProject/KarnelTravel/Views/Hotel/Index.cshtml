@@ -7,7 +7,7 @@
     Layout = "~/Views/Shared/_UserLayout.cshtml";
 }
 @{
-    IEnumerable<Hotel> lstHotel1 = ViewBag.lstHotel1 as IEnumerable<Hotel>;
+    IEnumerable<Hotel> lstRest1 = ViewBag.lstRest1 as IEnumerable<Hotel>;
 }
 <!-- blog breadcrumb version one strat here -->
 <section class="breadcrumb-blog-version-one">
@@ -30,38 +30,47 @@
 <!-- popular destination strat -->
 <section class="blog-contents-version-one pt-100 pb-70">
     <div class="container">
-        <div class="row">
-            @using (Html.BeginForm())
-            {
-                <p>
-                    Find by Name or by Address: @Html.TextBox("SearchString")
-                    <input type="submit" value="Search" />
-                </p>
-            }
-            <!-- single hotels -->
-            @foreach (var item in Model.Take(3))
-            {
-                <div class="col-md-4 col-sm-6 co-lxs-12 single-item">
-                    <div class="single-hotels">
-                        <div class="hotel-image">
-                            @*<img src="~/myImg/Hotels/@item.ImgHotels.FirstOrDefault().Img_Hotels" alt="" class="border-raduis-3">*@
-                        </div>
-                        <div class="hotel-description">
-                            <h4>@item.Hotel_Name</h4>
-                            <p>@item.Hotel_Address</p>
+        @using (Html.BeginForm())
+        {
+            <div class="form-group row ">
+                <div class="col-md-4">
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="fa fa-search">      </i>
+                        </span>
+                        @Html.TextBox("SearchString", null, new { @class = "form-control", data_toggle = "tooltip", @title = "Enter Information Restaurant with Name" })
+                    </div>
+                </div>
 
-                            <div class="hotet-book-btn">
-                                <a href="#" class="travel-primary-btn hvr-shutter-out-horizontal">show details</a>
-                            </div>
+                <div class="col-md-8">
+
+                </div>
+            </div>
+        }
+        <!-- single hotels -->
+        @foreach (var item in Model)
+        {
+            <div class="col-md-4 col-sm-6 co-lxs-12 single-item">
+                <div class="single-hotels" style="width: 345px;height: 347px;">
+                    <div class="hotel-image" style="width: 345px;height: 229px;">
+                        <img src="~/myImg/Hotels/@item.ImgHotels.FirstOrDefault().Img_Hotels" alt="" class="border-raduis-3">
+                    </div>
+                    <div class="hotel-description">
+                        <h4>@item.Hotel_Name</h4>
+                        <p>@item.Hotel_Address</p>
+
+                        <div class="hotet-book-btn">
+                            <a href="#" class="travel-primary-btn hvr-shutter-out-horizontal">Show Details</a>
                         </div>
                     </div>
                 </div>
-            }
-            <!--End single hotels -->
-        </div>
+            </div>
+        }
+        <!--End single hotels -->
+    </div>
     </div>
 </section><!-- single popular destination  end-->
-<div class="content-pagenation">
+<div class="content-pagenation text-center">
     @Html.PagedListPager(Model, page => Url.Action("Index",
      new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
 </div>

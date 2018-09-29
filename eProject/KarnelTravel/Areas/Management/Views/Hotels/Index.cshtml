@@ -23,6 +23,9 @@
                 @Html.DisplayNameFor(model => model.Hotel_Address)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.Hotel_Status)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.TouristSpot.TouristSpot_Name)
             </th>
             <th></th>
@@ -40,6 +43,9 @@
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Hotel_Address)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Hotel_Status)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.TouristSpot.TouristSpot_Name)
