@@ -38,7 +38,6 @@ namespace KarnelTravel.Models
         public virtual DbSet<ImgTouristSpot> ImgTouristSpots { get; set; }
         public virtual DbSet<Location> Locations { get; set; }
         public virtual DbSet<PaymentMethod> PaymentMethods { get; set; }
-        public virtual DbSet<Restaurant> Restaurants { get; set; }
         public virtual DbSet<Room> Rooms { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<TouristSpot> TouristSpots { get; set; }
@@ -46,5 +45,6 @@ namespace KarnelTravel.Models
         public virtual DbSet<Trip> Trips { get; set; }
         public virtual DbSet<TripDetail> TripDetails { get; set; }
         public virtual DbSet<Vehicle> Vehicles { get; set; }
+        public virtual DbSet<Restaurant> Restaurants { get; set; }
     }
 }

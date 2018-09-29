@@ -24,6 +24,7 @@ namespace KarnelTravel.Models
         public string Restaurant_Code { get; set; }
         public string Restaurant_Name { get; set; }
         public string Restaurant_Address { get; set; }
+        public Nullable<bool> Restaurant_Status { get; set; }
         public string Restaurant_Description { get; set; }
         public string TouristSpot_Id { get; set; }
     

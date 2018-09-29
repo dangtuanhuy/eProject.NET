@@ -26,8 +26,8 @@ namespace KarnelTravel.Models
         public string Food_Specific { get; set; }
         public string Restaurant_Code { get; set; }
     
-        public virtual Restaurant Restaurant { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ImgFood> ImgFoods { get; set; }
+        public virtual Restaurant Restaurant { get; set; }
     }
 }

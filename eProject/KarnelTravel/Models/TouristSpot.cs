@@ -19,9 +19,9 @@ namespace KarnelTravel.Models
         {
             this.Hotels = new HashSet<Hotel>();
             this.ImgTouristSpots = new HashSet<ImgTouristSpot>();
-            this.Restaurants = new HashSet<Restaurant>();
             this.Transportations = new HashSet<Transportation>();
             this.TripDetails = new HashSet<TripDetail>();
+            this.Restaurants = new HashSet<Restaurant>();
         }
     
         public string TouristSpot_Id { get; set; }
@@ -38,10 +38,10 @@ namespace KarnelTravel.Models
         public virtual ICollection<ImgTouristSpot> ImgTouristSpots { get; set; }
         public virtual Location Location { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Restaurant> Restaurants { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Transportation> Transportations { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TripDetail> TripDetails { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Restaurant> Restaurants { get; set; }
     }
 }
