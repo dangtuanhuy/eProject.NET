@@ -16,6 +16,10 @@ namespace KarnelTravel.Controllers
 
             var Restaurant1 = db.Restaurants.Where(n => n.Restaurant_Status == true).OrderByDescending(n => n.Restaurant_Create);
             ViewBag.Restaurant1 = Restaurant1;
+
+            var Hotel1 = db.Hotels.Where(u => u.Hotel_Status == true).OrderByDescending(u => u.Hotel_Create);
+            ViewBag.Hotel1 = Hotel1;
+
             return View();
         }
         public ActionResult _TourisSpot()
