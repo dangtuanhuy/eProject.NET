@@ -5,9 +5,6 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_UserLayout.cshtml";
 }
-@{
-    IEnumerable<TouristSpot> lstRest1 = ViewBag.lstRest1 as IEnumerable<TouristSpot>;
-}
 <!-- blog breadcrumb version one strat here -->
 <section class="breadcrumb-blog-version-one">
     <div class="single-bredcurms" style="background-image:url('../../Content/User/images/bercums/Hotels-Version-02.jpg');">
@@ -36,7 +33,7 @@
             <div class="form-group row ">
                 <div class="col-md-4">
                     <div class="input-group">
-                        @Html.TextBox("SearchString", null, new { @class = "form-control", data_toggle = "tooltip", @title = "Enter Information Restaurant with Name" })
+                        @Html.TextBox("SearchString", null, new { @class = "form-control", data_toggle = "tooltip"})
                         <span class="input-group-addon">
                             <i class="fa fa-search"></i>
                             <input type="submit" value="Search" />

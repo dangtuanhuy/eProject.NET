@@ -35,10 +35,7 @@ namespace KarnelTravel.Controllers
             int PageNumber = (page ?? 1);
             return View(lstHotel1.OrderBy(n => n.Hotel_Id).ToPagedList(PageNumber, PageSize));
         }
-        public ActionResult _partiHotel1()
-        {
-            return PartialView();
-        }
+
 
     }
 }

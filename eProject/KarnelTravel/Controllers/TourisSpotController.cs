@@ -12,7 +12,8 @@ namespace KarnelTravel.Controllers
         KarnelTravelEntities db = new KarnelTravelEntities();
         public ActionResult Index(string sortOrder, string searchString, int? page, string currentFilter)
         {
-            var lstTouris = db.TouristSpots.Include("Location")
+            var lstTouris = db.TouristSpots
+                .Include("Location")
                 .Where(u => u.TouristSpot_Status == true);
             ViewBag.CurrentSort = sortOrder;
             ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
