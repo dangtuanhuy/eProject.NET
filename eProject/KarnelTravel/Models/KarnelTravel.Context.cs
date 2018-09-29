@@ -41,10 +41,10 @@ namespace KarnelTravel.Models
         public virtual DbSet<Room> Rooms { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<TouristSpot> TouristSpots { get; set; }
-        public virtual DbSet<Transportation> Transportations { get; set; }
         public virtual DbSet<Trip> Trips { get; set; }
         public virtual DbSet<TripDetail> TripDetails { get; set; }
-        public virtual DbSet<Vehicle> Vehicles { get; set; }
         public virtual DbSet<Restaurant> Restaurants { get; set; }
+        public virtual DbSet<Transportation> Transportations { get; set; }
+        public virtual DbSet<Vehicle> Vehicles { get; set; }
     }
 }
