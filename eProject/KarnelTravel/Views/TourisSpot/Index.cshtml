@@ -31,13 +31,16 @@
     <div class="container">
         @using (Html.BeginForm())
         {
+
+            <div>Find by Name, by Address or by Region:</div>
             <div class="form-group row ">
                 <div class="col-md-4">
                     <div class="input-group">
-                        <span class="input-group-addon">
-                            <i class="fa fa-search">      </i>
-                        </span>
                         @Html.TextBox("SearchString", null, new { @class = "form-control", data_toggle = "tooltip", @title = "Enter Information Restaurant with Name" })
+                        <span class="input-group-addon">
+                            <i class="fa fa-search"></i>
+                            <input type="submit" value="Search" />
+                        </span>
                     </div>
                 </div>
 
@@ -57,6 +60,7 @@
                     <div class="hotel-description">
                         <h4>@item.TouristSpot_Name</h4>
                         <p>@item.TouristSpot_Specific</p>
+                        <p>@item.Location.Location_Name</p>
 
                         <div class="hotet-book-btn">
                             <a href="#" class="travel-primary-btn hvr-shutter-out-horizontal">Show Details</a>

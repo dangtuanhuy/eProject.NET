@@ -12,7 +12,8 @@ namespace KarnelTravel.Controllers
         KarnelTravelEntities db = new KarnelTravelEntities();
         public ActionResult Index(string sortOrder, string searchString, int? page, string currentFilter)
         {
-            var lstTouris = db.TouristSpots.Where(u => u.TouristSpot_Status == true);
+            var lstTouris = db.TouristSpots.Include("Location")
+                .Where(u => u.TouristSpot_Status == true);
             ViewBag.CurrentSort = sortOrder;
             ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             if (searchString != null)
@@ -27,7 +28,8 @@ namespace KarnelTravel.Controllers
             if (!String.IsNullOrEmpty(searchString))
             {
                 lstTouris = lstTouris.Where(s => s.TouristSpot_Name.Contains(searchString)
-                                       || s.TouristSpot_Specific.Contains(searchString));
+                                       || s.TouristSpot_Specific.Contains(searchString) 
+                                       || s.Location.Location_Name.Contains(searchString));
             }
             int PageSize = 9;
             int PageNumber = (page ?? 1);
