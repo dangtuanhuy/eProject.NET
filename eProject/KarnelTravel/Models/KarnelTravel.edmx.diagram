@@ -10,7 +10,6 @@
         <EntityTypeShape EntityType="KarnelTravelModel.Customer" Width="1.5" PointX="3.75" PointY="2.25" />
         <EntityTypeShape EntityType="KarnelTravelModel.Feedback" Width="1.5" PointX="0.75" PointY="7.25" />
         <EntityTypeShape EntityType="KarnelTravelModel.Food" Width="1.5" PointX="7.5" PointY="18.5" />
-        <EntityTypeShape EntityType="KarnelTravelModel.Hotel" Width="1.5" PointX="5.25" PointY="11" />
         <EntityTypeShape EntityType="KarnelTravelModel.ImgFood" Width="1.5" PointX="9.75" PointY="18.625" />
         <EntityTypeShape EntityType="KarnelTravelModel.ImgHotel" Width="1.5" PointX="7.5" PointY="9.5" />
         <EntityTypeShape EntityType="KarnelTravelModel.ImgRestaurant" Width="1.5" PointX="7.5" PointY="15.75" />
@@ -25,9 +24,6 @@
         <EntityTypeShape EntityType="KarnelTravelModel.TripDetail" Width="1.5" PointX="8.25" PointY="6.375" />
         <AssociationConnector Association="KarnelTravelModel.FK_Trip_Customer" />
         <AssociationConnector Association="KarnelTravelModel.FK__ImgFoods__Food_C__5BE2A6F2" />
-        <AssociationConnector Association="KarnelTravelModel.FK__Hotels__TouristS__5EBF139D" />
-        <AssociationConnector Association="KarnelTravelModel.FK__ImgHotels__Hotel__60A75C0F" />
-        <AssociationConnector Association="KarnelTravelModel.FK__Rooms__Hotel_Id__6383C8BA" />
         <AssociationConnector Association="KarnelTravelModel.FK__ImgRooms__Room_I__656C112C" />
         <AssociationConnector Association="KarnelTravelModel.FK_ImgTouristSpot_TouristSpot" />
         <AssociationConnector Association="KarnelTravelModel.FK__TouristSp__Locat__5070F446" />
@@ -42,6 +38,10 @@
         <EntityTypeShape EntityType="KarnelTravelModel.Vehicle" Width="1.5" PointX="7.5" PointY="28.25" />
         <AssociationConnector Association="KarnelTravelModel.FK_Transportations_TouristSpot" />
         <AssociationConnector Association="KarnelTravelModel.FK_Vehicle_Transportations" />
+        <EntityTypeShape EntityType="KarnelTravelModel.Hotel" Width="1.5" PointX="5.25" PointY="11" />
+        <AssociationConnector Association="KarnelTravelModel.FK__Hotels__TouristS__5EBF139D" />
+        <AssociationConnector Association="KarnelTravelModel.FK__ImgHotels__Hotel__60A75C0F" />
+        <AssociationConnector Association="KarnelTravelModel.FK__Rooms__Hotel_Id__6383C8BA" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

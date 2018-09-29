@@ -28,8 +28,8 @@ namespace KarnelTravel.Models
         public Nullable<decimal> Room_Cost { get; set; }
         public string Hotel_Id { get; set; }
     
-        public virtual Hotel Hotel { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ImgRoom> ImgRooms { get; set; }
+        public virtual Hotel Hotel { get; set; }
     }
 }
