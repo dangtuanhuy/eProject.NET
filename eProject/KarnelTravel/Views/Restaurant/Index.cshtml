@@ -33,10 +33,24 @@
         <div class="row">
             @using (Html.BeginForm())
             {
-            <p>
-                Find by Name or by Address: @Html.TextBox("SearchString",null ,new { @class = "form-control" })
-                <input type="submit" value="Search" />
-            </p>
+
+                <div class="form-group row ">
+                    <div class="col-md-4">
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <i class="fa fa-search">      </i>
+                            </span>
+                            @Html.TextBox("SearchString", null, new { @class = "form-control", data_toggle = "tooltip", @title = "Enter Information Restaurant with Name" })
+
+
+                        </div>
+                    </div>
+
+                    <div class="col-md-8">
+
+                    </div>
+                </div>
+
             }
             <!-- single restaurant -->
             @foreach (var item in Model)
@@ -66,8 +80,8 @@
     @Html.PagedListPager(Model, page => Url.Action("Index",
      new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
 </div>
-@*<div class="dlink"> 
-    Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount 
-    @Html.PagedListPager(Model, page => Url.Action("Restaurant", new { page = page, @MaLoaiSP = 
-    ViewBag.MaLoaiSP, @MaNSX = ViewBag.MaNSX })) 
-</div>*@
+@*<div class="dlink">
+        Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+        @Html.PagedListPager(Model, page => Url.Action("Restaurant", new { page = page, @MaLoaiSP =
+        ViewBag.MaLoaiSP, @MaNSX = ViewBag.MaNSX }))
+    </div>*@
