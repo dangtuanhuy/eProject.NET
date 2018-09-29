@@ -1239,6 +1239,7 @@
     <Content Include="Views\DetailsTourisSpot\_ImgTravel.cshtml" />
     <Content Include="Views\TourisSpot\Index.cshtml" />
     <Content Include="Views\Register\Success.cshtml" />
+    <Content Include="Views\Home\_Restaurant.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

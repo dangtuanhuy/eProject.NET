@@ -4,8 +4,9 @@
 @{
     ViewBag.Title = "Home Page";
 }
-@{ 
+@{
     IEnumerable<TouristSpot> TouristSpots1 = ViewBag.TouristSpots1 as IEnumerable<TouristSpot>;
+    IEnumerable<Restaurant> Restaurant1 = ViewBag.Restaurant1 as IEnumerable<Restaurant>;
 }
 <section class="slider-area">
     <div class="rev_slider_wrapper">
@@ -278,18 +279,18 @@
 <section class="popular-packages pb-70 pt-100">
     <div class="container">
         <div class="row">
-            <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="section-title text-center">
-                    <h2>Our most popular packges</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipiscing elit Etiam at ipsum at ligula vestibulum sodales Sed luctus orci vel nibh aliquam laoreet Aenean accumsan </p>
-                </div>
-            </div>
-        </div>
-        <div class="row">
             @Html.Partial("~/Views/Home/_TourisSpot.cshtml", TouristSpots1)
         </div>
-        </div>
+    </div>
 </section> <!--end  popular packajge -->
+<section class="popular-packages pb-65 pt-90">
+    <div class="container">
+        <div class="row">
+            @Html.Partial("~/Views/Home/_Restaurant.cshtml", Restaurant1)
+        </div>
+    </div>
+</section> <!--end  popular packajge -->
+
 <section class="countdown count-down-bg image-bg-padding-100">
     <div class="container">
         <div class="row">
