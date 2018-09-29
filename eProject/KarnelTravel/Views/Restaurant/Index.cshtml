@@ -34,7 +34,7 @@
             @using (Html.BeginForm())
             {
             <p>
-                Find by Name or by Address: @Html.TextBox("SearchString")
+                Find by Name or by Address: @Html.TextBox("SearchString",null ,new { @class = "form-control" })
                 <input type="submit" value="Search" />
             </p>
             }
@@ -62,7 +62,7 @@
         </div>
     </div>
 </section>
-<div class="content-pagenation">
+<div class="content-pagenation text-center">
     @Html.PagedListPager(Model, page => Url.Action("Index",
      new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
 </div>
