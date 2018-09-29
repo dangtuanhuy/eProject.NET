@@ -48,5 +48,9 @@ namespace KarnelTravel.Controllers
         {
             return Json(!db.Customers.Any(x => x.Customer_Id == Customer), JsonRequestBehavior.AllowGet);
         }
+        public ActionResult Success()
+        {
+            return View();
+        }
     }
 }
