@@ -116,6 +116,7 @@ namespace KarnelTravel.Areas.Management.Controllers
         public ActionResult DeleteConfirmed(string id)
         {
             Vehicle vehicle = db.Vehicles.Find(id);
+            TempData["msg"] = "<script>alert('Can not Delete Vehicles');</script>";
             db.Vehicles.Remove(vehicle);
             db.SaveChanges();
             return RedirectToAction("Index");
