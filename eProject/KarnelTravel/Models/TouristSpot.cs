@@ -17,11 +17,11 @@ namespace KarnelTravel.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public TouristSpot()
         {
+            this.Hotels = new HashSet<Hotel>();
             this.ImgTouristSpots = new HashSet<ImgTouristSpot>();
-            this.TripDetails = new HashSet<TripDetail>();
             this.Restaurants = new HashSet<Restaurant>();
             this.Transportations = new HashSet<Transportation>();
-            this.Hotels = new HashSet<Hotel>();
+            this.TripDetails = new HashSet<TripDetail>();
         }
     
         public string TouristSpot_Id { get; set; }
@@ -31,17 +31,18 @@ namespace KarnelTravel.Models
         public string TouristSpot_Specific { get; set; }
         public Nullable<bool> TouristSpot_Status { get; set; }
         public string Location_Id { get; set; }
+        public Nullable<System.DateTime> TouristSpot_Create { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Hotel> Hotels { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ImgTouristSpot> ImgTouristSpots { get; set; }
         public virtual Location Location { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TripDetail> TripDetails { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Restaurant> Restaurants { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Transportation> Transportations { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Hotel> Hotels { get; set; }
+        public virtual ICollection<TripDetail> TripDetails { get; set; }
     }
 }

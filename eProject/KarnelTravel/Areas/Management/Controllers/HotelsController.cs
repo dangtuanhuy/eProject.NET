@@ -49,7 +49,7 @@ namespace KarnelTravel.Areas.Management.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Hotel_Id,Hotel_Name,Hotel_Address,Hotel_Status,Hotel_Details,TouristSpot_Id")] Hotel hotel)
+        public ActionResult Create([Bind(Include = "Hotel_Id,Hotel_Name,Hotel_Address,Hotel_Status,Hotel_Details,TouristSpot_Id,Hotel_Create")] Hotel hotel)
         {
             if (ModelState.IsValid)
             {
@@ -83,7 +83,7 @@ namespace KarnelTravel.Areas.Management.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Hotel_Id,Hotel_Name,Hotel_Address,Hotel_Status,Hotel_Details,TouristSpot_Id")] Hotel hotel)
+        public ActionResult Edit([Bind(Include = "Hotel_Id,Hotel_Name,Hotel_Address,Hotel_Status,Hotel_Details,TouristSpot_Id,Hotel_Create")] Hotel hotel)
         {
             if (ModelState.IsValid)
             {

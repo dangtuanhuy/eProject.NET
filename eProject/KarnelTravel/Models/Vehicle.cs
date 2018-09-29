@@ -20,6 +20,7 @@ namespace KarnelTravel.Models
         public Nullable<int> Vehicle_Weight { get; set; }
         public string Vehicle_Img { get; set; }
         public string Transportation_Id { get; set; }
+        public Nullable<System.DateTime> Vehicle_Create { get; set; }
     
         public virtual Transportation Transportation { get; set; }
     }

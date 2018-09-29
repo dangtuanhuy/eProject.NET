@@ -52,7 +52,7 @@ namespace KarnelTravel.Areas.Management.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "TouristSpot_Id,TouristSpot_Name,TouristSpot_Limit,TouristSpot_Price,TouristSpot_Specific,TouristSpot_Status,Location_Id")] TouristSpot touristSpot)
+        public ActionResult Create([Bind(Include = "TouristSpot_Id,TouristSpot_Name,TouristSpot_Limit,TouristSpot_Price,TouristSpot_Specific,TouristSpot_Status,Location_Id,TouristSpot_Create")] TouristSpot touristSpot)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +86,7 @@ namespace KarnelTravel.Areas.Management.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "TouristSpot_Id,TouristSpot_Name,TouristSpot_Limit,TouristSpot_Price,TouristSpot_Specific,TouristSpot_Status,Location_Id")] TouristSpot touristSpot)
+        public ActionResult Edit([Bind(Include = "TouristSpot_Id,TouristSpot_Name,TouristSpot_Limit,TouristSpot_Price,TouristSpot_Specific,TouristSpot_Status,Location_Id,TouristSpot_Create")] TouristSpot touristSpot)
         {
             if (ModelState.IsValid)
             {
