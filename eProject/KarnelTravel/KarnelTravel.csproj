@@ -262,9 +262,11 @@
     <Compile Include="Models\TouristSpot.cs">
       <DependentUpon>KarnelTravel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\TouristSpotMetaData.cs" />
     <Compile Include="Models\Transportation.cs">
       <DependentUpon>KarnelTravel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\TransportationMetaData.cs" />
     <Compile Include="Models\Trip.cs">
       <DependentUpon>KarnelTravel.tt</DependentUpon>
     </Compile>
@@ -274,6 +276,7 @@
     <Compile Include="Models\Vehicle.cs">
       <DependentUpon>KarnelTravel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\VehiclesMetaData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
