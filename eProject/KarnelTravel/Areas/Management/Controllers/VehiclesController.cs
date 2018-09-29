@@ -117,9 +117,20 @@ namespace KarnelTravel.Areas.Management.Controllers
         {
             Vehicle vehicle = db.Vehicles.Find(id);
             TempData["msg"] = "<script>alert('Can not Delete Vehicles');</script>";
-            db.Vehicles.Remove(vehicle);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            try
+            {
+                db.Vehicles.Remove(vehicle);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            catch (Exception ex)
+            {
+
+                ex.ToString();
+
+                return RedirectToAction("Index");
+            }
+           
         }
         public ActionResult UploadVihicles(string id)
         {
