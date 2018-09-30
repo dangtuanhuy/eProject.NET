@@ -49,7 +49,7 @@ namespace KarnelTravel.Areas.Management.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Transportation_Id,Transportation_Name,Transportation_Details,Transportation_Img,TouristSpot_Id")] Transportation transportation)
+        public ActionResult Create([Bind(Include = "Transportation_Id,Transportation_Name,Transportation_Details,Transportation_Img,TouristSpot_Id,Transportation_Create")] Transportation transportation)
         {
             if (ModelState.IsValid)
             {
@@ -83,7 +83,7 @@ namespace KarnelTravel.Areas.Management.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Transportation_Id,Transportation_Name,Transportation_Details,Transportation_Img,TouristSpot_Id")] Transportation transportation)
+        public ActionResult Edit([Bind(Include = "Transportation_Id,Transportation_Name,Transportation_Details,Transportation_Img,TouristSpot_Id,Transportation_Create")] Transportation transportation)
         {
             if (ModelState.IsValid)
             {
@@ -116,9 +116,19 @@ namespace KarnelTravel.Areas.Management.Controllers
         public ActionResult DeleteConfirmed(string id)
         {
             Transportation transportation = db.Transportations.Find(id);
-            db.Transportations.Remove(transportation);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            try
+            {
+                db.Transportations.Remove(transportation);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            catch (Exception ex)
+            {
+                TempData["msg"] = "<script>alert('Can not delete Record because Vehicels use Transportation');</script>";
+                ex.ToString();
+
+                return RedirectToAction("Index");
+            }
         }
         public ActionResult UploadTransportations(string id)
         {

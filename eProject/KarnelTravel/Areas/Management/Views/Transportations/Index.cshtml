@@ -12,6 +12,7 @@
         Create
     </a>
 </p>
+@Html.Raw(TempData["msg"])
 <table class="table table-striped table-bordered" id="tablefillset">
     <thead>
         <tr>
@@ -32,50 +33,50 @@
             </th>
             <th></th>
         </tr>
-        </thead>
+    </thead>
     <tbody>
         @foreach (var item in Model)
         {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Transportation_Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Transportation_Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Transportation_Details)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Transportation_Img)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TouristSpot.TouristSpot_Name)
-            </td>
-            <td>
-                <a href="@Url.Action("UploadTransportations", "Transportations", new { id = item.Transportation_Id })" class="btn btn-info">
-                    <i class="fa fa-image"></i>
-                    <span>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Transportation_Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Transportation_Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Transportation_Details)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Transportation_Img)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TouristSpot.TouristSpot_Name)
+                </td>
+                <td>
+                    <a href="@Url.Action("UploadTransportations", "Transportations", new { id = item.Transportation_Id })" class="btn btn-info">
+                        <i class="fa fa-image"></i>
+                        <span>
 
-                    </span>
-                </a>
-                |
-                <a href="@Url.Action("Edit", "Transportations", new { id = item.Transportation_Id })" class="btn btn-success">
-                    <i class="fa fa-pencil"></i>
-                    <span>
+                        </span>
+                    </a>
+                    |
+                    <a href="@Url.Action("Edit", "Transportations", new { id = item.Transportation_Id })" class="btn btn-success">
+                        <i class="fa fa-pencil"></i>
+                        <span>
 
-                    </span>
-                </a>
-                |
+                        </span>
+                    </a>
+                    |
 
-                <a href="@Url.Action("Delete", "Transportations", new { id = item.Transportation_Id })" class="btn btn-danger">
-                    <i class="fa fa-trash-o"></i>
-                    <span>
+                    <a href="@Url.Action("Delete", "Transportations", new { id = item.Transportation_Id })" class="btn btn-danger">
+                        <i class="fa fa-trash-o"></i>
+                        <span>
 
-                    </span>
-                </a>
-            </td>
-        </tr>
+                        </span>
+                    </a>
+                </td>
+            </tr>
         }
     </tbody>
 </table>

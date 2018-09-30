@@ -13,26 +13,27 @@
 <table class="table table-striped table-bordered" id="tablefillset">
     <thead>
         <tr>
-            <th>
+            <th class="col-md-1">
                 @Html.DisplayNameFor(model => model.Restaurant_Name)
             </th>
-            <th>
+            <th class="col-md-1">
                 @Html.DisplayNameFor(model => model.Restaurant_Address)
             </th>
-            <th>
+            <th class="col-md-1">
+                @Html.DisplayNameFor(model => model.Restaurant_Status)
+            </th>
+            <th class="col-md-2">
                 @Html.DisplayNameFor(model => model.Restaurant_Description)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TouristSpot.TouristSpot_Name)
-            </th>
-            <th></th>
+
+            <th class="col-md-2"></th>
         </tr>
     </thead>
 
     <tbody>
         @foreach (var item in Model)
         {
-            <tr>
+            <tr class="text-center">
                 <td>
                     @Html.DisplayFor(modelItem => item.Restaurant_Name)
                 </td>
@@ -40,11 +41,13 @@
                     @Html.DisplayFor(modelItem => item.Restaurant_Address)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Restaurant_Description)
+                    @Html.DisplayFor(modelItem => item.Restaurant_Status)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.TouristSpot.TouristSpot_Name)
+                    @Html.DisplayFor(modelItem => item.Restaurant_Description)
                 </td>
+                
+
                 <td>
                     <a href="@Url.Action("UploadRestaurants", "Restaurants", new { id = item.Restaurant_Code })" class="btn btn-info">
                         <i class="fa fa-image"></i>

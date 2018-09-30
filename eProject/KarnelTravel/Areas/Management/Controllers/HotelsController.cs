@@ -49,7 +49,7 @@ namespace KarnelTravel.Areas.Management.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Hotel_Id,Hotel_Name,Hotel_Address,Hotel_Details,TouristSpot_Id")] Hotel hotel)
+        public ActionResult Create([Bind(Include = "Hotel_Id,Hotel_Name,Hotel_Address,Hotel_Status,Hotel_Details,TouristSpot_Id,Hotel_Create")] Hotel hotel)
         {
             if (ModelState.IsValid)
             {
@@ -83,7 +83,7 @@ namespace KarnelTravel.Areas.Management.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Hotel_Id,Hotel_Name,Hotel_Address,Hotel_Details,TouristSpot_Id")] Hotel hotel)
+        public ActionResult Edit([Bind(Include = "Hotel_Id,Hotel_Name,Hotel_Address,Hotel_Status,Hotel_Details,TouristSpot_Id,Hotel_Create")] Hotel hotel)
         {
             if (ModelState.IsValid)
             {
@@ -191,6 +191,12 @@ namespace KarnelTravel.Areas.Management.Controllers
 
             TempData["Success_Mess"] = "<script>alert('Delete Success')</script>";
             return Redirect("~/Hotels/UploadHotels/" + Hotel_Id);
+        }
+        [AllowAnonymous]
+        [HttpGet]
+        public JsonResult CheckHotel(string Hotel)
+        {
+            return Json(!db.Hotels.Any(x => x.Hotel_Id == Hotel), JsonRequestBehavior.AllowGet);
         }
 
         protected override void Dispose(bool disposing)

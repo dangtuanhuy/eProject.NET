@@ -67,8 +67,10 @@
           <Property Name="Hotel_Id" Type="nvarchar" MaxLength="20" Nullable="false" />
           <Property Name="Hotel_Name" Type="nvarchar" MaxLength="120" />
           <Property Name="Hotel_Address" Type="nvarchar" MaxLength="255" />
+          <Property Name="Hotel_Status" Type="bit" />
           <Property Name="Hotel_Details" Type="nvarchar(max)" />
           <Property Name="TouristSpot_Id" Type="nvarchar" MaxLength="20" />
+          <Property Name="Hotel_Create" Type="date" />
         </EntityType>
         <EntityType Name="ImgFoods">
           <Key>
@@ -137,8 +139,10 @@
           <Property Name="Restaurant_Code" Type="nvarchar" MaxLength="20" Nullable="false" />
           <Property Name="Restaurant_Name" Type="nvarchar" MaxLength="20" />
           <Property Name="Restaurant_Address" Type="nvarchar" MaxLength="150" />
+          <Property Name="Restaurant_Status" Type="bit" />
           <Property Name="Restaurant_Description" Type="ntext" />
           <Property Name="TouristSpot_Id" Type="nvarchar" MaxLength="20" />
+          <Property Name="Restaurant_Create" Type="date" />
         </EntityType>
         <EntityType Name="Rooms">
           <Key>
@@ -173,16 +177,18 @@
           <Property Name="TouristSpot_Specific" Type="nvarchar" MaxLength="20" />
           <Property Name="TouristSpot_Status" Type="bit" />
           <Property Name="Location_Id" Type="nvarchar" MaxLength="20" />
+          <Property Name="TouristSpot_Create" Type="date" />
         </EntityType>
         <EntityType Name="Transportations">
           <Key>
             <PropertyRef Name="Transportation_Id" />
           </Key>
           <Property Name="Transportation_Id" Type="nvarchar" MaxLength="20" Nullable="false" />
-          <Property Name="Transportation_Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Transportation_Name" Type="nvarchar" MaxLength="100" />
           <Property Name="Transportation_Details" Type="nvarchar" MaxLength="255" />
           <Property Name="Transportation_Img" Type="nvarchar" MaxLength="150" />
           <Property Name="TouristSpot_Id" Type="nvarchar" MaxLength="20" />
+          <Property Name="Transportation_Create" Type="date" />
         </EntityType>
         <EntityType Name="Trip">
           <Key>
@@ -218,6 +224,7 @@
           <Property Name="Vehicle_Weight" Type="int" />
           <Property Name="Vehicle_Img" Type="nvarchar" MaxLength="50" />
           <Property Name="Transportation_Id" Type="nvarchar" MaxLength="20" />
+          <Property Name="Vehicle_Create" Type="date" />
         </EntityType>
         <Association Name="FK__Foods__Restauran__59FA5E80">
           <End Role="Restaurants" Type="Self.Restaurants" Multiplicity="0..1">
@@ -295,20 +302,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Restauran__Touri__5535A963">
-          <End Role="TouristSpot" Type="Self.TouristSpot" Multiplicity="0..1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="Restaurants" Type="Self.Restaurants" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TouristSpot">
-              <PropertyRef Name="TouristSpot_Id" />
-            </Principal>
-            <Dependent Role="Restaurants">
-              <PropertyRef Name="TouristSpot_Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__Rooms__Hotel_Id__6383C8BA">
           <End Role="Hotels" Type="Self.Hotels" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
@@ -337,20 +330,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Transport__Touri__6EF57B66">
-          <End Role="TouristSpot" Type="Self.TouristSpot" Multiplicity="0..1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="Transportations" Type="Self.Transportations" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TouristSpot">
-              <PropertyRef Name="TouristSpot_Id" />
-            </Principal>
-            <Dependent Role="Transportations">
-              <PropertyRef Name="TouristSpot_Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_ImgTouristSpot_TouristSpot">
           <End Role="TouristSpot" Type="Self.TouristSpot" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
@@ -361,6 +340,34 @@
               <PropertyRef Name="TouristSpot_Id" />
             </Principal>
             <Dependent Role="ImgTouristSpot">
+              <PropertyRef Name="TouristSpot_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Restaurants_TouristSpot">
+          <End Role="TouristSpot" Type="Self.TouristSpot" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Restaurants" Type="Self.Restaurants" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TouristSpot">
+              <PropertyRef Name="TouristSpot_Id" />
+            </Principal>
+            <Dependent Role="Restaurants">
+              <PropertyRef Name="TouristSpot_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Transportations_TouristSpot">
+          <End Role="TouristSpot" Type="Self.TouristSpot" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Transportations" Type="Self.Transportations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TouristSpot">
+              <PropertyRef Name="TouristSpot_Id" />
+            </Principal>
+            <Dependent Role="Transportations">
               <PropertyRef Name="TouristSpot_Id" />
             </Dependent>
           </ReferentialConstraint>
@@ -414,9 +421,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Vehicle_Transportations">
-          <End Role="Transportations" Type="Self.Transportations" Multiplicity="0..1">
-            <OnDelete Action="Cascade" />
-          </End>
+          <End Role="Transportations" Type="Self.Transportations" Multiplicity="0..1" />
           <End Role="Vehicle" Type="Self.Vehicle" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Transportations">
@@ -473,10 +478,6 @@
             <End Role="Rooms" EntitySet="Rooms" />
             <End Role="ImgRooms" EntitySet="ImgRooms" />
           </AssociationSet>
-          <AssociationSet Name="FK__Restauran__Touri__5535A963" Association="Self.FK__Restauran__Touri__5535A963">
-            <End Role="TouristSpot" EntitySet="TouristSpot" />
-            <End Role="Restaurants" EntitySet="Restaurants" />
-          </AssociationSet>
           <AssociationSet Name="FK__Rooms__Hotel_Id__6383C8BA" Association="Self.FK__Rooms__Hotel_Id__6383C8BA">
             <End Role="Hotels" EntitySet="Hotels" />
             <End Role="Rooms" EntitySet="Rooms" />
@@ -485,13 +486,17 @@
             <End Role="Location" EntitySet="Location" />
             <End Role="TouristSpot" EntitySet="TouristSpot" />
           </AssociationSet>
-          <AssociationSet Name="FK__Transport__Touri__6EF57B66" Association="Self.FK__Transport__Touri__6EF57B66">
-            <End Role="TouristSpot" EntitySet="TouristSpot" />
-            <End Role="Transportations" EntitySet="Transportations" />
-          </AssociationSet>
           <AssociationSet Name="FK_ImgTouristSpot_TouristSpot" Association="Self.FK_ImgTouristSpot_TouristSpot">
             <End Role="TouristSpot" EntitySet="TouristSpot" />
             <End Role="ImgTouristSpot" EntitySet="ImgTouristSpot" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Restaurants_TouristSpot" Association="Self.FK_Restaurants_TouristSpot">
+            <End Role="TouristSpot" EntitySet="TouristSpot" />
+            <End Role="Restaurants" EntitySet="Restaurants" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Transportations_TouristSpot" Association="Self.FK_Transportations_TouristSpot">
+            <End Role="TouristSpot" EntitySet="TouristSpot" />
+            <End Role="Transportations" EntitySet="Transportations" />
           </AssociationSet>
           <AssociationSet Name="FK_Trip_Customer" Association="Self.FK_Trip_Customer">
             <End Role="Customer" EntitySet="Customer" />
@@ -584,11 +589,11 @@
             <End Role="PaymentMethod" EntitySet="PaymentMethods" />
             <End Role="Trip" EntitySet="Trips" />
           </AssociationSet>
-          <AssociationSet Name="FK__Restauran__Touri__5535A963" Association="KarnelTravelModel.FK__Restauran__Touri__5535A963">
+          <AssociationSet Name="FK_Restaurants_TouristSpot" Association="KarnelTravelModel.FK_Restaurants_TouristSpot">
             <End Role="TouristSpot" EntitySet="TouristSpots" />
             <End Role="Restaurant" EntitySet="Restaurants" />
           </AssociationSet>
-          <AssociationSet Name="FK__Transport__Touri__6EF57B66" Association="KarnelTravelModel.FK__Transport__Touri__6EF57B66">
+          <AssociationSet Name="FK_Transportations_TouristSpot" Association="KarnelTravelModel.FK_Transportations_TouristSpot">
             <End Role="TouristSpot" EntitySet="TouristSpots" />
             <End Role="Transportation" EntitySet="Transportations" />
           </AssociationSet>
@@ -670,8 +675,10 @@
           <Property Name="Hotel_Id" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="Hotel_Name" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
           <Property Name="Hotel_Address" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Hotel_Status" Type="Boolean" />
           <Property Name="Hotel_Details" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="TouristSpot_Id" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Hotel_Create" Type="DateTime" Precision="0" />
           <NavigationProperty Name="TouristSpot" Relationship="KarnelTravelModel.FK__Hotels__TouristS__5EBF139D" FromRole="Hotel" ToRole="TouristSpot" />
           <NavigationProperty Name="ImgHotels" Relationship="KarnelTravelModel.FK__ImgHotels__Hotel__60A75C0F" FromRole="Hotel" ToRole="ImgHotel" />
           <NavigationProperty Name="Rooms" Relationship="KarnelTravelModel.FK__Rooms__Hotel_Id__6383C8BA" FromRole="Hotel" ToRole="Room" />
@@ -750,11 +757,13 @@
           <Property Name="Restaurant_Code" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="Restaurant_Name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="Restaurant_Address" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Restaurant_Status" Type="Boolean" />
           <Property Name="Restaurant_Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="TouristSpot_Id" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Restaurant_Create" Type="DateTime" Precision="0" />
           <NavigationProperty Name="Foods" Relationship="KarnelTravelModel.FK__Foods__Restauran__59FA5E80" FromRole="Restaurant" ToRole="Food" />
           <NavigationProperty Name="ImgRestaurants" Relationship="KarnelTravelModel.FK__ImgRestau__Resta__571DF1D5" FromRole="Restaurant" ToRole="ImgRestaurant" />
-          <NavigationProperty Name="TouristSpot" Relationship="KarnelTravelModel.FK__Restauran__Touri__5535A963" FromRole="Restaurant" ToRole="TouristSpot" />
+          <NavigationProperty Name="TouristSpot" Relationship="KarnelTravelModel.FK_Restaurants_TouristSpot" FromRole="Restaurant" ToRole="TouristSpot" />
         </EntityType>
         <EntityType Name="Room">
           <Key>
@@ -791,11 +800,12 @@
           <Property Name="TouristSpot_Specific" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="TouristSpot_Status" Type="Boolean" />
           <Property Name="Location_Id" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="TouristSpot_Create" Type="DateTime" Precision="0" />
           <NavigationProperty Name="Hotels" Relationship="KarnelTravelModel.FK__Hotels__TouristS__5EBF139D" FromRole="TouristSpot" ToRole="Hotel" />
           <NavigationProperty Name="ImgTouristSpots" Relationship="KarnelTravelModel.FK_ImgTouristSpot_TouristSpot" FromRole="TouristSpot" ToRole="ImgTouristSpot" />
           <NavigationProperty Name="Location" Relationship="KarnelTravelModel.FK__TouristSp__Locat__5070F446" FromRole="TouristSpot" ToRole="Location" />
-          <NavigationProperty Name="Restaurants" Relationship="KarnelTravelModel.FK__Restauran__Touri__5535A963" FromRole="TouristSpot" ToRole="Restaurant" />
-          <NavigationProperty Name="Transportations" Relationship="KarnelTravelModel.FK__Transport__Touri__6EF57B66" FromRole="TouristSpot" ToRole="Transportation" />
+          <NavigationProperty Name="Restaurants" Relationship="KarnelTravelModel.FK_Restaurants_TouristSpot" FromRole="TouristSpot" ToRole="Restaurant" />
+          <NavigationProperty Name="Transportations" Relationship="KarnelTravelModel.FK_Transportations_TouristSpot" FromRole="TouristSpot" ToRole="Transportation" />
           <NavigationProperty Name="TripDetails" Relationship="KarnelTravelModel.FK_TripDetails_TouristSpot" FromRole="TouristSpot" ToRole="TripDetail" />
         </EntityType>
         <EntityType Name="Transportation">
@@ -803,11 +813,12 @@
             <PropertyRef Name="Transportation_Id" />
           </Key>
           <Property Name="Transportation_Id" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="Transportation_Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Transportation_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Transportation_Details" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="Transportation_Img" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
           <Property Name="TouristSpot_Id" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="TouristSpot" Relationship="KarnelTravelModel.FK__Transport__Touri__6EF57B66" FromRole="Transportation" ToRole="TouristSpot" />
+          <Property Name="Transportation_Create" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="TouristSpot" Relationship="KarnelTravelModel.FK_Transportations_TouristSpot" FromRole="Transportation" ToRole="TouristSpot" />
           <NavigationProperty Name="Vehicles" Relationship="KarnelTravelModel.FK_Vehicle_Transportations" FromRole="Transportation" ToRole="Vehicle" />
         </EntityType>
         <EntityType Name="Trip">
@@ -849,6 +860,7 @@
           <Property Name="Vehicle_Weight" Type="Int32" />
           <Property Name="Vehicle_Img" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Transportation_Id" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Vehicle_Create" Type="DateTime" Precision="0" />
           <NavigationProperty Name="Transportation" Relationship="KarnelTravelModel.FK_Vehicle_Transportations" FromRole="Vehicle" ToRole="Transportation" />
         </EntityType>
         <Association Name="FK_Trip_Customer">
@@ -993,7 +1005,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Restauran__Touri__5535A963">
+        <Association Name="FK_Restaurants_TouristSpot">
           <End Type="KarnelTravelModel.TouristSpot" Role="TouristSpot" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
@@ -1007,7 +1019,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Transport__Touri__6EF57B66">
+        <Association Name="FK_Transportations_TouristSpot">
           <End Type="KarnelTravelModel.TouristSpot" Role="TouristSpot" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
@@ -1034,9 +1046,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Vehicle_Transportations">
-          <End Type="KarnelTravelModel.Transportation" Role="Transportation" Multiplicity="0..1">
-            <OnDelete Action="Cascade" />
-          </End>
+          <End Type="KarnelTravelModel.Transportation" Role="Transportation" Multiplicity="0..1" />
           <End Type="KarnelTravelModel.Vehicle" Role="Vehicle" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Transportation">
@@ -1128,8 +1138,10 @@
           <EntitySetMapping Name="Hotels">
             <EntityTypeMapping TypeName="KarnelTravelModel.Hotel">
               <MappingFragment StoreEntitySet="Hotels">
+                <ScalarProperty Name="Hotel_Create" ColumnName="Hotel_Create" />
                 <ScalarProperty Name="TouristSpot_Id" ColumnName="TouristSpot_Id" />
                 <ScalarProperty Name="Hotel_Details" ColumnName="Hotel_Details" />
+                <ScalarProperty Name="Hotel_Status" ColumnName="Hotel_Status" />
                 <ScalarProperty Name="Hotel_Address" ColumnName="Hotel_Address" />
                 <ScalarProperty Name="Hotel_Name" ColumnName="Hotel_Name" />
                 <ScalarProperty Name="Hotel_Id" ColumnName="Hotel_Id" />
@@ -1206,8 +1218,10 @@
           <EntitySetMapping Name="Restaurants">
             <EntityTypeMapping TypeName="KarnelTravelModel.Restaurant">
               <MappingFragment StoreEntitySet="Restaurants">
+                <ScalarProperty Name="Restaurant_Create" ColumnName="Restaurant_Create" />
                 <ScalarProperty Name="TouristSpot_Id" ColumnName="TouristSpot_Id" />
                 <ScalarProperty Name="Restaurant_Description" ColumnName="Restaurant_Description" />
+                <ScalarProperty Name="Restaurant_Status" ColumnName="Restaurant_Status" />
                 <ScalarProperty Name="Restaurant_Address" ColumnName="Restaurant_Address" />
                 <ScalarProperty Name="Restaurant_Name" ColumnName="Restaurant_Name" />
                 <ScalarProperty Name="Restaurant_Code" ColumnName="Restaurant_Code" />
@@ -1241,6 +1255,7 @@
           <EntitySetMapping Name="TouristSpots">
             <EntityTypeMapping TypeName="KarnelTravelModel.TouristSpot">
               <MappingFragment StoreEntitySet="TouristSpot">
+                <ScalarProperty Name="TouristSpot_Create" ColumnName="TouristSpot_Create" />
                 <ScalarProperty Name="Location_Id" ColumnName="Location_Id" />
                 <ScalarProperty Name="TouristSpot_Status" ColumnName="TouristSpot_Status" />
                 <ScalarProperty Name="TouristSpot_Specific" ColumnName="TouristSpot_Specific" />
@@ -1254,6 +1269,7 @@
           <EntitySetMapping Name="Transportations">
             <EntityTypeMapping TypeName="KarnelTravelModel.Transportation">
               <MappingFragment StoreEntitySet="Transportations">
+                <ScalarProperty Name="Transportation_Create" ColumnName="Transportation_Create" />
                 <ScalarProperty Name="TouristSpot_Id" ColumnName="TouristSpot_Id" />
                 <ScalarProperty Name="Transportation_Img" ColumnName="Transportation_Img" />
                 <ScalarProperty Name="Transportation_Details" ColumnName="Transportation_Details" />
@@ -1290,6 +1306,7 @@
           <EntitySetMapping Name="Vehicles">
             <EntityTypeMapping TypeName="KarnelTravelModel.Vehicle">
               <MappingFragment StoreEntitySet="Vehicle">
+                <ScalarProperty Name="Vehicle_Create" ColumnName="Vehicle_Create" />
                 <ScalarProperty Name="Transportation_Id" ColumnName="Transportation_Id" />
                 <ScalarProperty Name="Vehicle_Img" ColumnName="Vehicle_Img" />
                 <ScalarProperty Name="Vehicle_Weight" ColumnName="Vehicle_Weight" />

@@ -31,6 +31,7 @@ namespace KarnelTravel.Models
         public string TouristSpot_Specific { get; set; }
         public Nullable<bool> TouristSpot_Status { get; set; }
         public string Location_Id { get; set; }
+        public Nullable<System.DateTime> TouristSpot_Create { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Hotel> Hotels { get; set; }

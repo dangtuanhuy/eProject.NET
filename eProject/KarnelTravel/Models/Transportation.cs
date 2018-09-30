@@ -25,6 +25,7 @@ namespace KarnelTravel.Models
         public string Transportation_Details { get; set; }
         public string Transportation_Img { get; set; }
         public string TouristSpot_Id { get; set; }
+        public Nullable<System.DateTime> Transportation_Create { get; set; }
     
         public virtual TouristSpot TouristSpot { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -49,7 +49,7 @@ namespace KarnelTravel.Areas.Management.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Vehicle_Id,Vehicle_Name,Vehicle_Price,Vehicle_Weight,Vehicle_Img,Transportation_Id")] Vehicle vehicle)
+        public ActionResult Create([Bind(Include = "Vehicle_Id,Vehicle_Name,Vehicle_Price,Vehicle_Weight,Vehicle_Img,Transportation_Id,Vehicle_Create")] Vehicle vehicle)
         {
             if (ModelState.IsValid)
             {
@@ -83,7 +83,7 @@ namespace KarnelTravel.Areas.Management.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Vehicle_Id,Vehicle_Name,Vehicle_Price,Vehicle_Weight,Vehicle_Img,Transportation_Id")] Vehicle vehicle)
+        public ActionResult Edit([Bind(Include = "Vehicle_Id,Vehicle_Name,Vehicle_Price,Vehicle_Weight,Vehicle_Img,Transportation_Id,Vehicle_Create")] Vehicle vehicle)
         {
             if (ModelState.IsValid)
             {
@@ -116,9 +116,21 @@ namespace KarnelTravel.Areas.Management.Controllers
         public ActionResult DeleteConfirmed(string id)
         {
             Vehicle vehicle = db.Vehicles.Find(id);
-            db.Vehicles.Remove(vehicle);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            TempData["msg"] = "<script>alert('Can not Delete Vehicles');</script>";
+            try
+            {
+                db.Vehicles.Remove(vehicle);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            catch (Exception ex)
+            {
+
+                ex.ToString();
+
+                return RedirectToAction("Index");
+            }
+           
         }
         public ActionResult UploadVihicles(string id)
         {

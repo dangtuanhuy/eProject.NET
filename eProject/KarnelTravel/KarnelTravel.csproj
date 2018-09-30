@@ -55,6 +55,12 @@
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -168,6 +174,7 @@
     <Compile Include="Areas\Management\Controllers\LocationsController.cs" />
     <Compile Include="Areas\Management\Controllers\LoginController.cs" />
     <Compile Include="Areas\Management\Controllers\PageController.cs" />
+    <Compile Include="Areas\Management\Controllers\PaymentMethodsController.cs" />
     <Compile Include="Areas\Management\Controllers\RestaurantsController.cs" />
     <Compile Include="Areas\Management\Controllers\RoomsController.cs" />
     <Compile Include="Areas\Management\Controllers\TouristSpotsController.cs" />
@@ -176,7 +183,10 @@
     <Compile Include="Areas\Management\ManagementAreaRegistration.cs" />
     <Compile Include="Areas\Management\Models\LoginModel.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\HotelController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
+    <Compile Include="Controllers\RestaurantController.cs" />
+    <Compile Include="Controllers\TourisSpotController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -189,6 +199,7 @@
     <Compile Include="Models\Customer.cs">
       <DependentUpon>KarnelTravel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\CustomerMetaData.cs" />
     <Compile Include="Models\Encrypt.cs" />
     <Compile Include="Models\Feedback.cs">
       <DependentUpon>KarnelTravel.tt</DependentUpon>
@@ -244,15 +255,18 @@
     <Compile Include="Models\Room.cs">
       <DependentUpon>KarnelTravel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\RoomMetaData.cs" />
     <Compile Include="Models\sysdiagram.cs">
       <DependentUpon>KarnelTravel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TouristSpot.cs">
       <DependentUpon>KarnelTravel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\TouristSpotMetaData.cs" />
     <Compile Include="Models\Transportation.cs">
       <DependentUpon>KarnelTravel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\TransportationMetaData.cs" />
     <Compile Include="Models\Trip.cs">
       <DependentUpon>KarnelTravel.tt</DependentUpon>
     </Compile>
@@ -262,6 +276,7 @@
     <Compile Include="Models\Vehicle.cs">
       <DependentUpon>KarnelTravel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\VehiclesMetaData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -804,6 +819,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="Content\User\css\animate.css" />
     <Content Include="Content\User\css\assets\revolution\layers.css" />
     <Content Include="Content\User\css\assets\revolution\navigation.css" />
@@ -1031,6 +1047,9 @@
       <DependentUpon>KarnelTravel.edmx</DependentUpon>
       <LastGenOutput>KarnelTravel.cs</LastGenOutput>
     </Content>
+    <Content Include="myImg\Hotels\1.jpg" />
+    <Content Include="myImg\Hotels\2.jpg" />
+    <Content Include="myImg\Hotels\3.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
@@ -1150,9 +1169,6 @@
     <Content Include="Areas\Management\Views\Foods\UploadFoods.cshtml" />
     <Content Include="Areas\Management\Views\Page\_countRestaurant.cshtml" />
     <Content Include="Areas\Management\Views\Page\_countVehicle.cshtml" />
-    <Content Include="Areas\Management\Views\Customers\Create.cshtml" />
-    <Content Include="Areas\Management\Views\Customers\Delete.cshtml" />
-    <Content Include="Areas\Management\Views\Customers\Edit.cshtml" />
     <Content Include="Areas\Management\Views\Customers\Index.cshtml" />
     <Content Include="Areas\Management\Views\Abouts\Create.cshtml" />
     <Content Include="Areas\Management\Views\Abouts\Delete.cshtml" />
@@ -1185,6 +1201,10 @@
     <Content Include="Areas\Management\Views\Page\_countLocation.cshtml" />
     <Content Include="Areas\Management\Views\Page\_countFood.cshtml" />
     <Content Include="Areas\Management\Views\Page\_countBook.cshtml" />
+    <Content Include="Areas\Management\Views\PaymentMethods\Create.cshtml" />
+    <Content Include="Areas\Management\Views\PaymentMethods\Delete.cshtml" />
+    <Content Include="Areas\Management\Views\PaymentMethods\Edit.cshtml" />
+    <Content Include="Areas\Management\Views\PaymentMethods\Index.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -1212,6 +1232,15 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_UserLayout.cshtml" />
     <Content Include="Views\Register\Register.cshtml" />
+    <Content Include="Views\Home\_TourisSpot.cshtml" />
+    <Content Include="Views\Hotel\Index.cshtml" />
+    <Content Include="Views\Restaurant\Index.cshtml" />
+    <Content Include="Views\DetailsTourisSpot\Index.cshtml" />
+    <Content Include="Views\DetailsTourisSpot\_ImgTravel.cshtml" />
+    <Content Include="Views\TourisSpot\Index.cshtml" />
+    <Content Include="Views\Register\Success.cshtml" />
+    <Content Include="Views\Home\_Restaurant.cshtml" />
+    <Content Include="Views\Home\_Hotel.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -1219,7 +1248,6 @@
     <Folder Include="Content\Admin\assets\jquery-file-upload\server\php\files\thumbnail\" />
     <Folder Include="myImg\Abouts\" />
     <Folder Include="myImg\Foods\" />
-    <Folder Include="myImg\Hotels\" />
     <Folder Include="myImg\Restaurants\" />
     <Folder Include="myImg\Rooms\" />
     <Folder Include="myImg\TouristSpot\" />

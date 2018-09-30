@@ -49,7 +49,7 @@ namespace KarnelTravel.Areas.Management.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Restaurant_Code,Restaurant_Name,Restaurant_Address,Restaurant_Description,TouristSpot_Id")] Restaurant restaurant)
+        public ActionResult Create([Bind(Include = "Restaurant_Code,Restaurant_Name,Restaurant_Address,Restaurant_Status,Restaurant_Description,TouristSpot_Id,Restaurant_Create")] Restaurant restaurant)
         {
             if (ModelState.IsValid)
             {
@@ -83,7 +83,7 @@ namespace KarnelTravel.Areas.Management.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Restaurant_Code,Restaurant_Name,Restaurant_Address,Restaurant_Description,TouristSpot_Id")] Restaurant restaurant)
+        public ActionResult Edit([Bind(Include = "Restaurant_Code,Restaurant_Name,Restaurant_Address,Restaurant_Status,Restaurant_Description,TouristSpot_Id,Restaurant_Create")] Restaurant restaurant)
         {
             if (ModelState.IsValid)
             {

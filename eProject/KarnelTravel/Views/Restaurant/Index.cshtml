@@ -1,0 +1,83 @@
+﻿@using KarnelTravel.Models;
+@using PagedList.Mvc;
+@model PagedList.IPagedList<Restaurant>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+<!-- blog breadcrumb version one strat here -->
+<section class="breadcrumb-blog-version-one">
+    <div class="single-bredcurms" style="background-image:url('../../Content/User/images/bercums/Hotels-Version-02.jpg');">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="bredcrums-content">
+                        <h2>Restaurant</h2>
+                        <ul>
+                            <li><a href="index-2.html">Home</a></li>
+                            <li class="active"><a href="hotel-version-one.html">Restaurant</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section><!-- blog breadcrumb version one end here -->
+<!-- popular destination strat -->
+<section class="blog-contents-version-one pt-100 pb-70">
+    <div class="container">
+        <div class="row">
+            @using (Html.BeginForm())
+            {
+                <div>Find by Name, by Address:</div>
+                <div class="form-group row ">
+                    <div class="col-md-4">
+                        <div class="input-group">
+                            @Html.TextBox("SearchString", null, new { @class = "form-control", data_toggle = "tooltip"})
+                            <span class="input-group-addon">
+                                <i class="fa fa-search"></i>
+                                <input type="submit" value="Search" />
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-8">
+
+                    </div>
+                </div>
+
+            }
+            <!-- single restaurant -->
+            @foreach (var item in Model)
+            {
+                <div class="col-md-4 col-sm-6 co-lxs-12 single-item">
+                    <div class="single-hotels" style="width: 345px;height: 347px;">
+                        <div class="hotel-image" style="width: 345px;height: 229px;">
+                            <img src="~/myImg/Restaurants/@item.ImgRestaurants.FirstOrDefault().Img_Restaurants" alt="" class="border-raduis-3">
+                        </div>
+                        <div class="hotel-description">
+                            <h4>@item.Restaurant_Name</h4>
+                            <p>@item.Restaurant_Address</p>
+                            <p>@item.TouristSpot.TouristSpot_Name</p>
+
+                            <div class="hotet-book-btn">
+                                <a href="#" class="travel-primary-btn hvr-shutter-out-horizontal">Show Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+            <!--End single restaurant -->
+
+        </div>
+    </div>
+</section>
+<div class="content-pagenation text-center">
+    @Html.PagedListPager(Model, page => Url.Action("Index",
+     new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+</div>
+@*<div class="dlink">
+        Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+        @Html.PagedListPager(Model, page => Url.Action("Restaurant", new { page = page, @MaLoaiSP =
+        ViewBag.MaLoaiSP, @MaNSX = ViewBag.MaNSX }))
+    </div>*@

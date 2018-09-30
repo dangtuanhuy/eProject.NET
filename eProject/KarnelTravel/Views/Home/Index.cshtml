@@ -1,7 +1,14 @@
-﻿@{
+﻿@using KarnelTravel.Models;
+@model IEnumerable<TouristSpot>
+
+@{
     ViewBag.Title = "Home Page";
 }
-
+@{
+    IEnumerable<TouristSpot> TouristSpots1 = ViewBag.TouristSpots1 as IEnumerable<TouristSpot>;
+    IEnumerable<Restaurant> Restaurant1 = ViewBag.Restaurant1 as IEnumerable<Restaurant>;
+    IEnumerable<Hotel> Hotel1 = ViewBag.Hotel1 as IEnumerable<Hotel>;
+}
 <section class="slider-area">
     <div class="rev_slider_wrapper">
         <div id="rev_slider_1" class="rev_slider" style="display:none">
@@ -71,13 +78,13 @@
                 <div class="tabbable-menu">
                     <ul class="tab-menu" id="myTab1">
                         <li class="active">
-                            <h6><a href="#hotels" data-easein="fadeIn">Hotels<img src="~/Content/User/images/icon/hotel.png" alt=""></a></h6>
+                            <h6><a href="@Url.Action("Index","Hotel")" data-easein="fadeIn">Hotels<img src="~/Content/User/images/icon/hotel.png" alt=""></a></h6>
                         </li>
                         <li>
                             <h6><a href="#tour" data-easein="fadeIn">Tour<img src="~/Content/User/images/icon/tour.png" alt=""></a></h6>
                         </li>
                         <li>
-                            <h6><a href="#flights" data-easein="fadeIn">Flights<img src="~/Content/User/images/icon/fly.png" alt=""></a></h6>
+                            <h6><a href="@Url.Action("Index","Restaurant")" data-easein="fadeIn">Restaurants<img src="~/Content/User/images/icon/fly.png" alt=""></a></h6>
                         </li>
                         <li>
                             <h6><a href="#vehicles" data-easein="fadeIn">Vehicles<img src="~/Content/User/images/icon/car.png" alt=""></a></h6>
@@ -273,191 +280,27 @@
 <section class="popular-packages pb-70 pt-100">
     <div class="container">
         <div class="row">
-            <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="section-title text-center">
-                    <h2>Our most popular packges</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipiscing elit Etiam at ipsum at ligula vestibulum sodales Sed luctus orci vel nibh aliquam laoreet Aenean accumsan </p>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-4 col-sm-6">
-                <div class="single-package">
-                    <div class="package-image">
-                        <a href="#">
-                            <img src="~/Content/User/images/packages/1.jpg" alt="">
-                        </a>
-                    </div>
-                    <div class="package-content">
-                        <h3>Dubai – All Stunning Places</h3>
-                        <p>
-                            4 Days, 5 Nights Start From <span>$500</span>
-                        </p>
-                    </div>
-                    <div class="package-calto-action">
-                        <ul class="ct-action">
-                            <li>
-                                <a href="#" class="travel-booking-btn hvr-shutter-out-horizontal">Book Now</a>
-                            </li>
-                            <li>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div> <!-- single package end -->
-            <div class="col-md-4 col-sm-6">
-                <div class="single-package">
-                    <div class="package-image">
-                        <a href="#">
-                            <img src="~/Content/User/images/packages/2.jpg" alt="">
-                        </a>
-                    </div>
-                    <div class="package-content">
-                        <h3>Thailand – All Stunning Places</h3>
-                        <p>
-                            4 Days, 5 Nights Start From <span>$500</span>
-                        </p>
-                    </div>
-                    <div class="package-calto-action">
-                        <ul class="ct-action">
-                            <li>
-                                <a href="#" class="travel-booking-btn hvr-shutter-out-horizontal">Book Now</a>
-                            </li>
-                            <li>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div> <!-- single package end -->
-            <div class="col-md-4 col-sm-6">
-                <div class="single-package">
-                    <div class="package-image">
-                        <a href="#">
-                            <img src="~/Content/User/images/packages/3.jpg" alt="">
-                        </a>
-                    </div>
-                    <div class="package-content">
-                        <h3>England – All Stunning Places</h3>
-                        <p>
-                            4 Days, 5 Nights Start From <span>$500</span>
-                        </p>
-                    </div>
-                    <div class="package-calto-action">
-                        <ul class="ct-action">
-                            <li>
-                                <a href="#" class="travel-booking-btn hvr-shutter-out-horizontal">Book Now</a>
-                            </li>
-                            <li>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div> <!-- single package end -->
-            <div class="col-md-4 col-sm-6">
-                <div class="single-package">
-                    <div class="package-image">
-                        <a href="#">
-                            <img src="~/Content/User/images/packages/4.jpg" alt="">
-                        </a>
-                    </div>
-                    <div class="package-content">
-                        <h3>Italy – All Stunning Places</h3>
-                        <p>
-                            4 Days, 5 Nights Start From <span>$500</span>
-                        </p>
-                    </div>
-                    <div class="package-calto-action">
-                        <ul class="ct-action">
-                            <li>
-                                <a href="#" class="travel-booking-btn hvr-shutter-out-horizontal">Book Now</a>
-                            </li>
-                            <li>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div> <!-- single package end -->
-            <div class="col-md-4 col-sm-6">
-                <div class="single-package">
-                    <div class="package-image">
-                        <a href="#">
-                            <img src="~/Content/User/images/packages/5.jpg" alt="">
-                        </a>
-                    </div>
-                    <div class="package-content">
-                        <h3>Brazil – All Stunning Places</h3>
-                        <p>
-                            4 Days, 5 Nights Start From <span>$500</span>
-                        </p>
-                    </div>
-                    <div class="package-calto-action">
-                        <ul class="ct-action">
-                            <li>
-                                <a href="#" class="travel-booking-btn hvr-shutter-out-horizontal">Book Now</a>
-                            </li>
-                            <li>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div> <!-- single package end -->
-            <div class="col-md-4 col-sm-6">
-                <div class="single-package">
-                    <div class="package-image">
-                        <a href="#">
-                            <img src="~/Content/User/images/packages/6.jpg" alt="">
-                        </a>
-                    </div>
-                    <div class="package-content">
-                        <h3>India – All Stunning Places</h3>
-                        <p>
-                            4 Days, 5 Nights Start From <span>$500</span>
-                        </p>
-                    </div>
-                    <div class="package-calto-action">
-                        <ul class="ct-action">
-                            <li>
-                                <a href="#" class="travel-booking-btn hvr-shutter-out-horizontal">Book Now</a>
-                            </li>
-                            <li>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div> <!-- single package end -->
+            @Html.Partial("~/Views/Home/_TourisSpot.cshtml", TouristSpots1)
         </div>
     </div>
 </section> <!--end  popular packajge -->
+
+<section class="popular-packages pb-65 pt-90">
+    <div class="container">
+        <div class="row">
+            @Html.Partial("~/Views/Home/_Restaurant.cshtml", Restaurant1)
+        </div>
+    </div>
+</section> <!--end  popular packajge -->
+
+<section class="popular-packages pb-65 pt-90">
+    <div class="container">
+        <div class="row">
+            @Html.Partial("~/Views/Home/_Hotel.cshtml", Hotel1)
+        </div>
+    </div>
+</section> <!--end  popular packajge -->
+
 <section class="countdown count-down-bg image-bg-padding-100">
     <div class="container">
         <div class="row">

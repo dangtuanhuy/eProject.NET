@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="~/Content/User/css/hover-min.css">
     <!-- jquery-ui.min css -->
     <link rel="stylesheet" href="~/Content/User/css/jquery-ui.min.css">
+    
     <!-- meanmenu css -->
     <link rel="stylesheet" href="~/Content/User/css/meanmenu.min.css">
     <!-- owl.carousel css -->
@@ -125,15 +126,15 @@
                                     <a href="#">Hotels</a>
                                     <ul class="dropdown">
                                         <li>
-                                            <a href="#">Hotel One</a>
+                                            <a href="@Url.Action("Index","Hotel")">Hotel One</a>
                                         </li>
-                                        <li>
-                                            <a href="http://getnajmul.com/">Hotel Two</a>
-                                        </li>
+                                        @*<li>
+                                                <a href="http://getnajmul.com/">Hotel Two</a>
+                                            </li>*@
                                     </ul>
                                 </li>
                                 <li>
-                                    <a href="#">Flights</a>
+                                    <a href="@Url.Action("Index","Restaurant")">Restaurants</a>
                                 </li>
                                 <li>
                                     <a href="#">Blog</a>

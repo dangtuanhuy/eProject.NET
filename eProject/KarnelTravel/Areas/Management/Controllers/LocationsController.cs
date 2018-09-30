@@ -115,6 +115,7 @@ namespace KarnelTravel.Areas.Management.Controllers
             return RedirectToAction("Index");
         }
 
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
@@ -123,5 +124,11 @@ namespace KarnelTravel.Areas.Management.Controllers
             }
             base.Dispose(disposing);
         }
+
+        public JsonResult CheckLocation(string Location)
+        {
+            return Json(!db.Locations.Any(x => x.Location_Id == Location), JsonRequestBehavior.AllowGet);
+        }
+
     }
 }
