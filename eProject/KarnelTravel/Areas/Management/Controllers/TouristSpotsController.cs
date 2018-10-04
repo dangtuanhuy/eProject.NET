@@ -130,13 +130,13 @@ namespace KarnelTravel.Areas.Management.Controllers
             {
                 return RedirectToAction("Index");
             }
-            var TouristSpots = db.TouristSpots.Include(s => s.ImgTouristSpots).SingleOrDefault(p => p.TouristSpot_Id == id);
-            if (TouristSpots == null)
+            var products = db.TouristSpots.Include(s => s.ImgTouristSpots).SingleOrDefault(p => p.TouristSpot_Id == id);
+            if (products == null)
             {
                 object Err = "Information not find";
                 return View("Error", Err);
             }
-            return View(TouristSpots);
+            return View(products);
         }
         [HttpPost]
         public ActionResult UploadTouristSpots(string id, HttpPostedFileBase[] files)
@@ -148,11 +148,11 @@ namespace KarnelTravel.Areas.Management.Controllers
             var listFile = files.Where(p => p != null);
             foreach (var f in listFile)
             {
-                //Tạo một đối tượng
+                //T?o m?t d?i tu?ng
                 var img = new ImgTouristSpot();
                 img.TouristSpot_Id = id;
                 img.Img_TouristSpot = f.FileName;
-                img.Img_TouristSpot_Sort= ++max;
+                img.Img_TouristSpot_Sort = ++max;
                 db.ImgTouristSpots.Add(img);
                 var path = Server.MapPath("~/myImg/TouristSpot/" + f.FileName);
                 f.SaveAs(path);
@@ -162,9 +162,9 @@ namespace KarnelTravel.Areas.Management.Controllers
             return RedirectToAction("UploadTouristSpots");
         }
 
-        public ActionResult DeleteImg(int id, string TouristSpot_Id)
+        public ActionResult DeleteImg(int id, string Food_Code)
         {
-            if (TouristSpot_Id == null)
+            if (Food_Code == null)
             {
                 try
                 {
@@ -193,7 +193,7 @@ namespace KarnelTravel.Areas.Management.Controllers
             }
 
             TempData["Success_Mess"] = "<script>alert('Delete Success')</script>";
-            return Redirect("~/TouristSpots/UploadTouristSpots/" + TouristSpot_Id);
+            return Redirect("~/TouristSpots/UploadTouristSpots/" + Food_Code);
         }
 
         protected override void Dispose(bool disposing)
