@@ -54,6 +54,9 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.2\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
       <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
@@ -182,6 +185,7 @@
     <Compile Include="Areas\Management\Controllers\VehiclesController.cs" />
     <Compile Include="Areas\Management\ManagementAreaRegistration.cs" />
     <Compile Include="Areas\Management\Models\LoginModel.cs" />
+    <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HotelController.cs" />
     <Compile Include="Controllers\LoginUserController.cs" />
@@ -228,6 +232,7 @@
     <Compile Include="Models\ImgTouristSpot.cs">
       <DependentUpon>KarnelTravel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ItemGioHang.cs" />
     <Compile Include="Models\KarnelTravel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -1244,7 +1249,9 @@
     <Content Include="Views\Home\_Restaurant.cshtml" />
     <Content Include="Views\Home\_Hotel.cshtml" />
     <Content Include="Views\LoginUser\LoginU.cshtml" />
-    <Content Include="Views\LoginUser\L.cshtml" />
+    <Content Include="Views\Cart\ThongBao.cshtml" />
+    <Content Include="Views\Cart\XemGioHang.cshtml" />
+    <Content Include="Views\Cart\ConfirmCheckOut.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -1273,6 +1280,9 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
