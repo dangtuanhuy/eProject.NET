@@ -184,6 +184,7 @@
     <Compile Include="Areas\Management\Models\LoginModel.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HotelController.cs" />
+    <Compile Include="Controllers\LoginUserController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Controllers\RestaurantController.cs" />
     <Compile Include="Controllers\TourisSpotController.cs" />
@@ -246,6 +247,7 @@
       <DependentUpon>KarnelTravel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\LocationMetaData.cs" />
+    <Compile Include="Models\LoginU.cs" />
     <Compile Include="Models\PaymentMethod.cs">
       <DependentUpon>KarnelTravel.tt</DependentUpon>
     </Compile>
@@ -1241,6 +1243,8 @@
     <Content Include="Views\Register\Success.cshtml" />
     <Content Include="Views\Home\_Restaurant.cshtml" />
     <Content Include="Views\Home\_Hotel.cshtml" />
+    <Content Include="Views\LoginUser\LoginU.cshtml" />
+    <Content Include="Views\LoginUser\L.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

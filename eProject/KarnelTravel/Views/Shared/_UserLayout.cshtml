@@ -49,7 +49,6 @@
     <script src="~/Content/User/js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
 <body>
-    <!-- Preloader -->
     <div id="preloader">
         <div id="status">&nbsp;</div>
     </div>
@@ -66,13 +65,26 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="header-top-right text-right">
-                        <div class="col-md-3 col-xs-12 book-tab">
-                            <div class="book-btn">
-                                <a href="#">Book Online</a>
+                    @if (Session["username"] == null)
+                    {
+                        <div class="header-top-right text-right">
+                            <div class="col-md-3 col-xs-12 book-tab">
+                                <div class="book-btn">
+                                    <a href="@Url.Action("LoginU","LoginUser")">Login</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    }
+                    else
+                    {
+                        <div class="header-top-right text-right">
+                            <div class="col-md-3 col-xs-12 book-tab">
+                                <div class="book-btn">
+                                    <a href="#">Xin chào @Session["username"]</a>
+                                </div>
+                            </div>
+                        </div>
+                    }
                 </div>
             </div>
         </div> <!-- header top end -->
