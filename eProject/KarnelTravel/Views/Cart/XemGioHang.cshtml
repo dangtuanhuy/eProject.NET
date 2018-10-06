@@ -15,140 +15,116 @@
             </div>
         </div>
     </div>
-</section><!-- blog breadcrumb version one end here -->
-<section class="section-paddings">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="content-bottom">
-                    <div class="row">
-                        <div class="col-sm-12 col-md-10 col-md-offset-1">
-                            <table class="table table-hover">
-                                <thead>
-                                    <tr>
-                                        <th>Product</th>
-                                        <th>Quantity</th>
-                                        <th class="text-center">Price</th>
-                                        <th class="text-center">Total</th>
-                                        <th> </th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td class="col-sm-8 col-md-6">
-                                            <div class="media">
-                                                <a class="thumbnail pull-left" href="#">
-                                                    <span class="ion-card" style="font-size: 40pt; padding: 0px 13px;"></span>
-                                                </a>
-                                                <div class="media-body">
-                                                    <h4 class="media-heading"><a href="#" style="color: #f3f3f3; text-decoration: none;">Product name</a></h4>
-                                                    <h5 class="media-heading"> by <a href="#">Brand name</a></h5>
-                                                    <span>Status: </span><span class="text-success"><strong>In Stock</strong></span>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td class="col-sm-1 col-md-1" style="text-align: center">
-                                            <input type="email" class="form-control" id="exampleInputEmail1" value="3">
-                                        </td>
-                                        <td class="col-sm-1 col-md-1 text-center"><strong>$4.87</strong></td>
-                                        <td class="col-sm-1 col-md-1 text-center"><strong>$14.61</strong></td>
-                                        <td class="col-sm-1 col-md-1">
-                                            <button type="button" class="btn btn-danger">
-                                                <span class="glyphicon glyphicon-remove"></span> Remove
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="col-md-6">
-                                            <div class="media">
-                                                <a class="thumbnail pull-left" href="#">
-                                                    <span class="ion-card" style="font-size: 40pt; padding: 5px 13px;"></span>
-                                                </a>
-                                                <div class="media-body">
-                                                    <h4 class="media-heading"><a href="#" style="color: #f3f3f3; text-decoration: none;">Product name</a></h4>
-                                                    <h5 class="media-heading"> by <a href="#">Brand name</a></h5>
-                                                    <span>Status: </span><span class="text-warning"><strong>Leaves warehouse in 2 - 3 weeks</strong></span>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td class="col-md-1" style="text-align: center">
-                                            <input type="email" class="form-control" id="exampleInputEmail1" value="2">
-                                        </td>
-                                        <td class="col-md-1 text-center"><strong>$4.99</strong></td>
-                                        <td class="col-md-1 text-center"><strong>$9.98</strong></td>
-                                        <td class="col-md-1">
-                                            <button type="button" class="btn btn-danger">
-                                                <span class="glyphicon glyphicon-remove"></span> Remove
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>   </td>
-                                        <td>   </td>
-                                        <td>   </td>
-                                        <td>
-                                            <h5>Subtotal</h5>
-                                        </td>
-                                        <td class="text-right">
-                                            <h5><strong>$24.59</strong></h5>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>   </td>
-                                        <td>   </td>
-                                        <td>   </td>
-                                        <td>
-                                            <h5>Estimated shipping</h5>
-                                        </td>
-                                        <td class="text-right">
-                                            <h5><strong>$6.94</strong></h5>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>   </td>
-                                        <td>   </td>
-                                        <td>   </td>
-                                        <td>
-                                            <h3>Total</h3>
-                                        </td>
-                                        <td class="text-right">
-                                            <h3><strong>$31.53</strong></h3>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>   </td>
-                                        <td>   </td>
-                                        <td>   </td>
-                                        <td>
-                                            <a href="@Url.Action("Index","Home") " class="btn btn-info"><i class="fa fa-home"></i></a>
-                                        </td>
-                                        <td>
-                                            <!-- <button type="button" class="btn btn-success">
-                                                Checkout <span class="glyphicon glyphicon-play"></span>
-                                            </button> -->
-                                            <a href="@Url.Action("ConfirmCheckOut")" class="btn btn-info"><i class="fa fa-cc-visa"></i></a>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
+</section>
+<!-- blog breadcrumb version one end here -->
+@if (Model == null || Model.Count == 0)
+{
+    <p class="text-info text-center">
+        Giỏ hàng của bạn rỗng!
+    </p>
+}
+else
+{
+    <section class="section-paddings">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="content-bottom">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-10 col-md-offset-1">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Product</th>
+                                            <th>Quantity</th>
+                                            <th class="text-center">Price</th>
+                                            <th class="text-center">Total</th>
+                                            <th> </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (ItemGioHang item in Model)
+                                        {
+                                            <tr>
+                                                <td class="col-sm-8 col-md-6">
+                                                    <div class="media">
+                                                        <a class="thumbnail pull-left" href="#">
+                                                            <span class="ion-card" style="font-size: 40pt; padding: 0px 13px;">
+                                                                <img src="~/myImg/TouristSpot/@item.ImgTouris.FirstOrDefault().Img_TouristSpot" width="50" height="50" />
+                                                            </span>
+                                                        </a>
+                                                        <div class="media-body">
+                                                            <h4 class="media-heading"><a href="#" style="color: #f3f3f3; text-decoration: none;">@item.TouristSpot_Name</a></h4>
+                                                            <h5 class="media-heading"> by <a href="#">Brand name</a></h5>
+                                                            <span>Status: </span><span class="text-success"><strong>In Stock</strong></span>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="col-sm-1 col-md-1" style="text-align: center">
+                                                    <form action="@Url.Action("SuaSoLuong")" method="get">
+                                                        <input type="hidden" name="TouristSpotId" value="@item.TouristSpot_Id" />
+                                                        <input type="number" min="1" step="1" name="soluongmoi" value="@item.TourisQty" />
+                                                        <button type="submit" class="btn btn-primary btn-sm"> Cập nhật </button>
+                                                    </form>
+                                                </td>
+                                                <td class="col-sm-1 col-md-1 text-center"><strong>$@item.TouristSpot_Price</strong></td>
+                                                <td class="col-sm-1 col-md-1 text-center"><strong>$@item.ThanhTien</strong></td>
+                                                <td class="col-sm-1 col-md-1">
+                                                    <button type="button" class="btn btn-danger">
+                                                        <span class="glyphicon glyphicon-remove"></span> Remove
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        }
+                                        <tr>
+                                            <td>   </td>
+                                            <td>   </td>
+                                            <td>   </td>
+                                            <td>
+                                                <h3>Total</h3>
+                                            </td>
+                                            <td class="text-right">
+                                                <h3><strong>$@Model.Sum(m => m.ThanhTien)</strong></h3>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>   </td>
+                                            <td>   </td>
+                                            <td>   </td>
+                                            <td>
+                                                <a href="@Url.Action("Index", "Home") " class="btn btn-info"><i class="fa fa-home"></i></a>
+                                            </td>
+                                            <td>
+                                                <!-- <button type="button" class="btn btn-success">
+                                                    Checkout <span class="glyphicon glyphicon-play"></span>
+                                                </button> -->
+                                                <a href="@Url.Action("ConfirmCheckOut")" class="btn btn-info"><i class="fa fa-cc-visa"></i></a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
-                </div>
 
+                </div>
             </div>
         </div>
-    </div>
-    </div>
-    @*@using (Html.BeginForm("ConfirmCheckOut_Post", "Cart"))
+    </section>
+    <div>
+        @using (Html.BeginForm("ConfirmCheckOut_Post", "Cart"))
         {
-            <a class="btn btn-danger" href="@Url.Action("ConfirmCheckOut", "Cart")">Check Out</a>
-            //<input type="submit" value="ThanhToan" onclick="return confirm('Bạn có chắc muốn thanh toán giỏ hàng này không?');" class="btn btn-danger" />
-            @*<a class="btn btn-danger" href="@Url.Action("ConfirmCheckOut_Post", "Cart")">Thanh Toan</a>
+            if (@Session["username"] == null)
+            {
+                <a class="btn btn-danger" href="@Url.Action("LoginCart", "LoginUser")">Check Out</a>
+            }
+            else
+            {
+                <a class="btn btn-danger" href="@Url.Action("ConfirmCheckOut", "Cart")">Check Out</a>
+            }
             <a class="btn btn-primary" href="@Url.Action("Index", "Home")">Continue shopping</a>
+        }
 
-        }*@
+    </div>
 
-    </div>
-    </div>
-    </div>
-</section>
+}
