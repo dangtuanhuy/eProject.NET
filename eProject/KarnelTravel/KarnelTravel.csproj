@@ -189,6 +189,7 @@
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
+    <Compile Include="Controllers\Food2Controller.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HotelController.cs" />
     <Compile Include="Controllers\LoginUserController.cs" />
@@ -1268,6 +1269,7 @@
     <Content Include="Views\LoginUser\LoginCart.cshtml" />
     <Content Include="Views\Hotel\DetaislHotel.cshtml" />
     <Content Include="Views\About\About1.cshtml" />
+    <Content Include="Views\Food2\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
