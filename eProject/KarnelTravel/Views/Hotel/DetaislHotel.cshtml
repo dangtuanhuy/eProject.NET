@@ -1,4 +1,5 @@
-﻿@model KarnelTravel.Models.Hotel
+﻿
+@model KarnelTravel.Models.Hotel
 @{
     ViewBag.Title = "DetaislHotel";
     Layout = "~/Views/Shared/_UserLayout.cshtml";
@@ -12,8 +13,8 @@
                     <div class="bredcrums-content">
                         <h2>Details</h2>
                         <ul>
-                            <li><a href="@Url.Action("Index","Home")">Home</a></li>
-                            <li class="active"><a href="@Url.Action("Index","Hotel")">Register</a></li>
+                            <li><a href="@Url.Action(" Index","Home")">Home</a></li>
+                            <li class="active"><a href="@Url.Action(" Index","Hotel")">Register</a></li>
                         </ul>
                     </div>
                 </div>
@@ -55,15 +56,15 @@
                         <div class="product-title">@Html.DisplayFor(model => model.Hotel_Name)</div>
 
                         <div class="product-desc">@Html.DisplayFor(model => model.Hotel_Details)</div>
-                       
-                      
+
+
                         <hr>
                         <div class="btn-group cart">
-                            <a href="@Url.Action("Index", "Hotel")" class="btn btn-info">
+                            <a href="@Url.Action(" Index", "Hotel" )" class="btn btn-info">
                                 Views More
                             </a>
                         </div>
-                        
+
                     </div>
                 </div>
             </div>
@@ -86,10 +87,7 @@
                         </div>
                         <div class="tab-pane fade" id="service-two">
 
-                            <section class="container">
-                           
-
-                            </section>
+                            <section class="container"></section>
 
                         </div>
                         <div class="tab-pane fade" id="service-three">
@@ -105,3 +103,4 @@
 
 
 <link href="~/Content/User/myStyle.css" rel="stylesheet" />
+
