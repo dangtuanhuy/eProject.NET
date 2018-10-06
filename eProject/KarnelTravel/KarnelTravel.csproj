@@ -186,6 +186,7 @@
     <Compile Include="Areas\Management\ManagementAreaRegistration.cs" />
     <Compile Include="Areas\Management\Models\LoginModel.cs" />
     <Compile Include="Controllers\CartController.cs" />
+    <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HotelController.cs" />
     <Compile Include="Controllers\LoginUserController.cs" />
@@ -1253,6 +1254,7 @@
     <Content Include="Views\Cart\XemGioHang.cshtml" />
     <Content Include="Views\Cart\ConfirmCheckOut.cshtml" />
     <Content Include="Views\Register\UpdateAccout.cshtml" />
+    <Content Include="Views\Contact\Contact.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
