@@ -18,12 +18,14 @@ namespace KarnelTravel.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Contact([Bind(Include = "FeedbackId,SenderName,SenderMail,FeedBackTitle,FeedBackContent")] Feedback feedback)
+        public ActionResult Contact([Bind(Include = "FeedbackId,SenderName,SenderMail,FeedBackTitle,FeedBackContent,State,Create_on")] Feedback feedback)
         {
             if (ModelState.IsValid)
             {
                 try
                 {
+                    feedback.State = true;
+                    feedback.Create_on = DateTime.Now;
                     db.Feedbacks.Add(feedback);
                     db.SaveChanges();
                 }
