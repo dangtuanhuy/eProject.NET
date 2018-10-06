@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KarnelTravel.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,10 +9,13 @@ namespace KarnelTravel.Controllers
 {
     public class AboutController : Controller
     {
+        KarnelTravelEntities db = new KarnelTravelEntities();
         // GET: About
         public ActionResult About()
         {
-            return View();
+            var Persion = (from p in db.Abouts select p);
+            
+            return View(Persion.ToList());
         }
     }
 }
