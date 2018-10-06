@@ -19,9 +19,9 @@
 <!-- blog breadcrumb version one end here -->
 @if (Model == null || Model.Count == 0)
 {
-    <p class="text-info text-center">
-        Giỏ hàng của bạn rỗng!
-    </p>
+<p class="text-info text-center">
+    Empty cart!!!
+</p>
 }
 else
 {
@@ -54,7 +54,7 @@ else
                                                             </span>
                                                         </a>
                                                         <div class="media-body">
-                                                            <h4 class="media-heading"><a href="#" style="color: #f3f3f3; text-decoration: none;">@item.TouristSpot_Name</a></h4>
+                                                            <h4 class="media-heading"><a href="#" style="text-decoration: none;">@item.TouristSpot_Name</a></h4>
                                                             <h5 class="media-heading"> by <a href="#">Brand name</a></h5>
                                                             <span>Status: </span><span class="text-success"><strong>In Stock</strong></span>
                                                         </div>
@@ -64,14 +64,14 @@ else
                                                     <form action="@Url.Action("SuaSoLuong")" method="get">
                                                         <input type="hidden" name="TouristSpotId" value="@item.TouristSpot_Id" />
                                                         <input type="number" min="1" step="1" name="soluongmoi" value="@item.TourisQty" />
-                                                        <button type="submit" class="btn btn-primary btn-sm"> Cập nhật </button>
+                                                        <button type="submit" class="btn btn-primary btn-sm"> Update </button>
                                                     </form>
                                                 </td>
                                                 <td class="col-sm-1 col-md-1 text-center"><strong>$@item.TouristSpot_Price</strong></td>
                                                 <td class="col-sm-1 col-md-1 text-center"><strong>$@item.ThanhTien</strong></td>
                                                 <td class="col-sm-1 col-md-1">
                                                     <button type="button" class="btn btn-danger">
-                                                        <span class="glyphicon glyphicon-remove"></span> Remove
+                                                        <span class="fa fa-trash"></span> Remove
                                                     </button>
                                                 </td>
                                             </tr>
