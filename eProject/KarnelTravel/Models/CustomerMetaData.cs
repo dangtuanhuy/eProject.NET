@@ -22,11 +22,11 @@ namespace KarnelTravel.Models
             [DataType(DataType.Password)]
             public string Customer_Password { get; set; }
 
-            [Display(Name = "Last-Name")]
+            [Display(Name = "Last Name")]
             [Required(ErrorMessage = "First Name can not null")]
             public string Customer_LastName { get; set; }
 
-            [Display(Name = "First-Name")]
+            [Display(Name = "First Name")]
             [Required(ErrorMessage = "Last Name can not null")]
             public string Customer_FirstName { get; set; }
 
