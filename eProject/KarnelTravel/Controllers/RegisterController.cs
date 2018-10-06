@@ -1,4 +1,5 @@
-﻿using KarnelTravel.Models;
+﻿using CaptchaMvc.HtmlHelpers;
+using KarnelTravel.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -23,7 +24,7 @@ namespace KarnelTravel.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Register([Bind(Include = "Customer_Id,Customer_Password,Customer_LastName,Customer_FirstName,Customer_Bithday,Customer_Gender,Customer_Phone,Customer_Address,Customer_Email,Customer_Possport")] Customer customer)
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid && this.IsCaptchaValid("Capcha is not valid") )
             {
                 try
                 {
@@ -77,11 +78,12 @@ namespace KarnelTravel.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult UpdateAccout([Bind(Include = "Customer_Id,Customer_Password,Customer_LastName,Customer_FirstName,Customer_Bithday,Customer_Gender,Customer_Phone,Customer_Address,Customer_Email,Customer_Possport")] Customer customer)
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid && this.IsCaptchaValid("Capcha is not valid"))
             {
                 try
                 {
                     Session["username"] = customer.Customer_Id;
+                    customer.Customer_Password = Encrypt.MD5_Encode(customer.Customer_Password);
                     db.Entry(customer).State = EntityState.Modified;
                     db.SaveChanges();
                 }
@@ -95,7 +97,7 @@ namespace KarnelTravel.Controllers
                         }
                     }
                 }
-                return RedirectToAction("Index");
+                return RedirectToAction("Index","Home");
             }
             return View(customer);
         }
