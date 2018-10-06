@@ -211,6 +211,7 @@
     <Compile Include="Models\Feedback.cs">
       <DependentUpon>KarnelTravel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\FeedBackMetaDat.cs" />
     <Compile Include="Models\Food.cs">
       <DependentUpon>KarnelTravel.tt</DependentUpon>
     </Compile>

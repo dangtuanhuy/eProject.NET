@@ -1,4 +1,4 @@
-﻿
+﻿@model KarnelTravel.Models.Feedback
 @{
     ViewBag.Title = "Contact";
     Layout = "~/Views/Shared/_UserLayout.cshtml";
@@ -30,26 +30,33 @@
                 </div>
                 <div id="sendmessage">Your message has been sent. Thank you!</div>
                 <div id="errormessage"></div>
-                <form action="" method="post" role="form" class="contactForm">
+                @using (Html.BeginForm(new { @class = "contactForm" }))
+                {
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    @Html.AntiForgeryToken()
                     <div class="form-group">
-                        <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-                        <div class="validation"></div>
+
+                        @Html.EditorFor(model => model.SenderName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Sender Name" } })
+                        @Html.ValidationMessageFor(model => model.SenderName, "", new { @class = "text-danger" })
                     </div>
                     <div class="form-group">
-                        <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
-                        <div class="validation"></div>
+                        @Html.EditorFor(model => model.SenderMail, new { htmlAttributes = new { @class = "form-control", @placeholder = "Email" } })
+                        @Html.ValidationMessageFor(model => model.SenderMail, "", new { @class = "text-danger" })
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
-                        <div class="validation"></div>
+                        @Html.EditorFor(model => model.FeedBackTitle, new { htmlAttributes = new { @class = "form-control", @placeholder = "Subject" } })
+                        @Html.ValidationMessageFor(model => model.FeedBackTitle, "", new { @class = "text-danger" })
                     </div>
                     <div class="form-group">
-                        <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
-                        <div class="validation"></div>
+                        @Html.EditorFor(model => model.FeedBackContent, new { htmlAttributes = new { @class = "form-control", @placeholder = "Message" } })
+                        @Html.ValidationMessageFor(model => model.FeedBackContent, "", new { @class = "text-danger" })
                     </div>
 
-                    <div class="text-center"><button type="submit" class="btn btn-primary btn-lg">Send Message</button></div>
-                </form>
+                    <div class="form-group text-center">
+                        <button type="submit" class="button primary"><i class="fa fa-send"></i>Send Message</button>
+                    </div>
+
+                }
             </div>
 
             <div class="col-lg-6">
@@ -68,15 +75,15 @@
             </div>
         </div>
         <br />
-            <div class="contact_info">
-                <div class="map">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1168.035120759438!2d105.77910085841124!3d10.034495259022362!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31a0881fa2f86433%3A0xee52427c850bbc0d!2zMSBMw70gVOG7sSBUcuG7jW5nLCBOaW5oIEtp4buBdSwgQ-G6p24gVGjGoSwgVmlldG5hbQ!5e0!3m2!1sen!2s!4v1519738726079" width="100%" height="250px" frameborder="0" style="border:0" allowfullscreen></iframe>
-                    <br>
-                    <small>
-                        <!-- <a href="https://maps.google.co.in/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Lighthouse+Point,+FL,+United+States&amp;aq=4&amp;oq=light&amp;sll=26.275636,-80.087265&amp;sspn=0.04941,0.104628&amp;ie=UTF8&amp;hq=&amp;hnear=Lighthouse+Point,+Broward,+Florida,+United+States&amp;t=m&amp;z=14&amp;ll=26.275636,-80.087265" style="color:#666;text-align:left;font-size:12px">View Larger Map</a> -->
-                    </small>
-                </div>
+        <div class="contact_info">
+            <div class="map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1168.035120759438!2d105.77910085841124!3d10.034495259022362!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31a0881fa2f86433%3A0xee52427c850bbc0d!2zMSBMw70gVOG7sSBUcuG7jW5nLCBOaW5oIEtp4buBdSwgQ-G6p24gVGjGoSwgVmlldG5hbQ!5e0!3m2!1sen!2s!4v1519738726079" width="100%" height="250px" frameborder="0" style="border:0" allowfullscreen></iframe>
+                <br>
+                <small>
+                    <!-- <a href="https://maps.google.co.in/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Lighthouse+Point,+FL,+United+States&amp;aq=4&amp;oq=light&amp;sll=26.275636,-80.087265&amp;sspn=0.04941,0.104628&amp;ie=UTF8&amp;hq=&amp;hnear=Lighthouse+Point,+Broward,+Florida,+United+States&amp;t=m&amp;z=14&amp;ll=26.275636,-80.087265" style="color:#666;text-align:left;font-size:12px">View Larger Map</a> -->
+                </small>
             </div>
         </div>
     </div>
+
 </section>

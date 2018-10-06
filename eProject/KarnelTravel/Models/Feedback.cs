@@ -19,7 +19,7 @@ namespace KarnelTravel.Models
         public string SenderMail { get; set; }
         public string FeedBackTitle { get; set; }
         public string FeedBackContent { get; set; }
-        public bool State { get; set; }
-        public System.DateTime Create_on { get; set; }
+        public Nullable<bool> State { get; set; }
+        public Nullable<System.DateTime> Create_on { get; set; }
     }
 }
