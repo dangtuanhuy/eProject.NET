@@ -185,6 +185,7 @@
     <Compile Include="Areas\Management\Controllers\VehiclesController.cs" />
     <Compile Include="Areas\Management\ManagementAreaRegistration.cs" />
     <Compile Include="Areas\Management\Models\LoginModel.cs" />
+    <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -1255,6 +1256,7 @@
     <Content Include="Views\Cart\ConfirmCheckOut.cshtml" />
     <Content Include="Views\Register\UpdateAccout.cshtml" />
     <Content Include="Views\Contact\Contact.cshtml" />
+    <Content Include="Views\About\About.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
