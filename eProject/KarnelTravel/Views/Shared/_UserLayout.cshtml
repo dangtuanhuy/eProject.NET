@@ -65,32 +65,7 @@
                             </ul>
                         </div>
                     </div>
-                    @if (Session["username"] == null)
-                    {
-                        <div class="header-top-right text-right">
-                            <div class="col-md-3 col-xs-12 book-tab">
-                                @*<div class="book-btn">
-                                    <a href="@Url.Action("LoginU","LoginUser")">Login</a>
-                                </div>*@
-                                <div class="book-btn">
-                                    <a href="@Url.Action("XemGioHang", "Cart")">Gio Hang Cua Ban</a>
-                                </div>
-                            </div>
-                        </div>
-                    }
-                    else
-                    {
-                        <div class="header-top-right text-right">
-                            <div class="col-md-3 col-xs-12 book-tab">
-                                @*<div class="book-btn">
-                                    <a href="#">Xin chào @Session["username"]</a>
-                                </div>*@
-                                <div class="book-btn">
-                                    <a href="@Url.Action("XemGioHang", "Cart")">Gio Hang Cua Ban</a>
-                                </div>
-                            </div>
-                        </div>
-                    }
+                    
                 </div>
             </div>
         </div> <!-- header top end -->

@@ -47,8 +47,8 @@
           <Property Name="SenderMail" Type="nvarchar" MaxLength="50" />
           <Property Name="FeedBackTitle" Type="nvarchar" MaxLength="40" />
           <Property Name="FeedBackContent" Type="nvarchar" MaxLength="150" />
-          <Property Name="State" Type="bit" Nullable="false" />
-          <Property Name="Create_on" Type="datetime" Nullable="false" />
+          <Property Name="State" Type="bit" />
+          <Property Name="Create_on" Type="date" />
         </EntityType>
         <EntityType Name="Foods">
           <Key>
@@ -527,7 +527,6 @@
           <EntitySet Name="Abouts" EntityType="KarnelTravelModel.About" />
           <EntitySet Name="Admins" EntityType="KarnelTravelModel.Admin" />
           <EntitySet Name="Customers" EntityType="KarnelTravelModel.Customer" />
-          <EntitySet Name="Feedbacks" EntityType="KarnelTravelModel.Feedback" />
           <EntitySet Name="Foods" EntityType="KarnelTravelModel.Food" />
           <EntitySet Name="Hotels" EntityType="KarnelTravelModel.Hotel" />
           <EntitySet Name="ImgFoods" EntityType="KarnelTravelModel.ImgFood" />
@@ -609,6 +608,7 @@
             <End Role="Trip" EntitySet="Trips" />
             <End Role="TripDetail" EntitySet="TripDetails" />
           </AssociationSet>
+          <EntitySet Name="Feedbacks" EntityType="KarnelTravelModel.Feedback" />
         </EntityContainer>
         <EntityType Name="About">
           <Key>
@@ -643,18 +643,6 @@
           <Property Name="Customer_Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Customer_Possport" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Trips" Relationship="KarnelTravelModel.FK_Trip_Customer" FromRole="Customer" ToRole="Trip" />
-        </EntityType>
-        <EntityType Name="Feedback">
-          <Key>
-            <PropertyRef Name="FeedbackId" />
-          </Key>
-          <Property Name="FeedbackId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="SenderName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="SenderMail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="FeedBackTitle" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
-          <Property Name="FeedBackContent" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Name="State" Type="Boolean" Nullable="false" />
-          <Property Name="Create_on" Type="DateTime" Nullable="false" Precision="3" />
         </EntityType>
         <EntityType Name="Food">
           <Key>
@@ -1069,6 +1057,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Feedback">
+          <Key>
+            <PropertyRef Name="FeedbackId" />
+          </Key>
+          <Property Name="FeedbackId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SenderName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SenderMail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FeedBackTitle" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="FeedBackContent" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="State" Type="Boolean" />
+          <Property Name="Create_on" Type="DateTime" Precision="0" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1108,19 +1108,6 @@
                 <ScalarProperty Name="Customer_LastName" ColumnName="Customer_LastName" />
                 <ScalarProperty Name="Customer_Password" ColumnName="Customer_Password" />
                 <ScalarProperty Name="Customer_Id" ColumnName="Customer_Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Feedbacks">
-            <EntityTypeMapping TypeName="KarnelTravelModel.Feedback">
-              <MappingFragment StoreEntitySet="Feedback">
-                <ScalarProperty Name="Create_on" ColumnName="Create_on" />
-                <ScalarProperty Name="State" ColumnName="State" />
-                <ScalarProperty Name="FeedBackContent" ColumnName="FeedBackContent" />
-                <ScalarProperty Name="FeedBackTitle" ColumnName="FeedBackTitle" />
-                <ScalarProperty Name="SenderMail" ColumnName="SenderMail" />
-                <ScalarProperty Name="SenderName" ColumnName="SenderName" />
-                <ScalarProperty Name="FeedbackId" ColumnName="FeedbackId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1313,6 +1300,19 @@
                 <ScalarProperty Name="Vehicle_Price" ColumnName="Vehicle_Price" />
                 <ScalarProperty Name="Vehicle_Name" ColumnName="Vehicle_Name" />
                 <ScalarProperty Name="Vehicle_Id" ColumnName="Vehicle_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Feedbacks">
+            <EntityTypeMapping TypeName="KarnelTravelModel.Feedback">
+              <MappingFragment StoreEntitySet="Feedback">
+                <ScalarProperty Name="Create_on" ColumnName="Create_on" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="FeedBackContent" ColumnName="FeedBackContent" />
+                <ScalarProperty Name="FeedBackTitle" ColumnName="FeedBackTitle" />
+                <ScalarProperty Name="SenderMail" ColumnName="SenderMail" />
+                <ScalarProperty Name="SenderName" ColumnName="SenderName" />
+                <ScalarProperty Name="FeedbackId" ColumnName="FeedbackId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

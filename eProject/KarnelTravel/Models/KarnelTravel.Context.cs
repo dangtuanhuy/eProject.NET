@@ -28,7 +28,6 @@ namespace KarnelTravel.Models
         public virtual DbSet<About> Abouts { get; set; }
         public virtual DbSet<Admin> Admins { get; set; }
         public virtual DbSet<Customer> Customers { get; set; }
-        public virtual DbSet<Feedback> Feedbacks { get; set; }
         public virtual DbSet<Food> Foods { get; set; }
         public virtual DbSet<Hotel> Hotels { get; set; }
         public virtual DbSet<ImgFood> ImgFoods { get; set; }
@@ -46,5 +45,6 @@ namespace KarnelTravel.Models
         public virtual DbSet<Trip> Trips { get; set; }
         public virtual DbSet<TripDetail> TripDetails { get; set; }
         public virtual DbSet<Vehicle> Vehicles { get; set; }
+        public virtual DbSet<Feedback> Feedbacks { get; set; }
     }
 }

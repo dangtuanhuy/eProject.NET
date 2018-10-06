@@ -8,7 +8,6 @@
         <EntityTypeShape EntityType="KarnelTravelModel.About" Width="1.5" PointX="2.75" PointY="0.75" />
         <EntityTypeShape EntityType="KarnelTravelModel.Admin" Width="1.5" PointX="4.75" PointY="0.75" />
         <EntityTypeShape EntityType="KarnelTravelModel.Customer" Width="1.5" PointX="0.75" PointY="5.625" />
-        <EntityTypeShape EntityType="KarnelTravelModel.Feedback" Width="1.5" PointX="9.75" PointY="0.75" />
         <EntityTypeShape EntityType="KarnelTravelModel.Food" Width="1.5" PointX="7.5" PointY="6" />
         <EntityTypeShape EntityType="KarnelTravelModel.Hotel" Width="1.5" PointX="5.25" PointY="19.375" />
         <EntityTypeShape EntityType="KarnelTravelModel.ImgFood" Width="1.5" PointX="9.75" PointY="6.25" />
@@ -42,6 +41,7 @@
         <AssociationConnector Association="KarnelTravelModel.FK_TripDetails_TouristSpot" />
         <AssociationConnector Association="KarnelTravelModel.FK_Vehicle_Transportations" />
         <AssociationConnector Association="KarnelTravelModel.FK_TripDetails_Trip" />
+        <EntityTypeShape EntityType="KarnelTravelModel.Feedback" Width="1.5" PointX="10.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

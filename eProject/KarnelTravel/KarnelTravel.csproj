@@ -212,6 +212,7 @@
     <Compile Include="Models\Feedback.cs">
       <DependentUpon>KarnelTravel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\FeedBackMetaDat.cs" />
     <Compile Include="Models\Food.cs">
       <DependentUpon>KarnelTravel.tt</DependentUpon>
     </Compile>
@@ -1043,6 +1044,7 @@
     <Content Include="Content\User\js\vendor\jquery-3.2.0.min.js" />
     <Content Include="Content\User\js\vendor\modernizr-2.8.3.min.js" />
     <Content Include="Content\User\js\wow.min.js" />
+    <Content Include="Content\User\myStyle.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -1263,6 +1265,8 @@
     <Content Include="Views\Register\UpdateAccout.cshtml" />
     <Content Include="Views\Contact\Contact.cshtml" />
     <Content Include="Views\About\About.cshtml" />
+    <Content Include="Views\LoginUser\LoginCart.cshtml" />
+    <Content Include="Views\Hotel\DetaislHotel.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
