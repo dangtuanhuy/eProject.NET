@@ -1252,6 +1252,7 @@
     <Content Include="Views\Cart\ThongBao.cshtml" />
     <Content Include="Views\Cart\XemGioHang.cshtml" />
     <Content Include="Views\Cart\ConfirmCheckOut.cshtml" />
+    <Content Include="Views\Register\UpdateAccout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

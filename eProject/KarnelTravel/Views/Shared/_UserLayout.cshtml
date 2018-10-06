@@ -99,7 +99,7 @@
                 <div class="row">
                     <div class="col-md-2 col-sm-2 col-xs-12 tap-v-responsive">
                         <div class="logo-area">
-                            <a href="#">
+                            <a href="@Url.Action("Index","Home")">
                                 <img src="~/Content/User/images/logo.png" alt="">
                             </a>
                         </div>
@@ -108,37 +108,8 @@
                         <nav>
                             <ul class="main-menu text-right">
                                 <li class="active">
-                                    <a href="#">Home</a>
-                                    <ul class="dropdown">
-                                        <li>
-                                            <a href="#">Home V1</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Home V2</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Home V3</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Home V4</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Home V5</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="#">Package List</a>
-                                    <ul class="dropdown">
-                                        <li>
-                                            <a href="#">Package One</a>
-                                        </li>
-                                        <li>
-                                            <a href="#"></a>
-                                        <li>
-                                            <a href="#">Package Details</a>
-                                        </li>
-                                    </ul>
+                                    <a href="@Url.Action("Index","Home")">Home</a>
+
                                 </li>
                                 <li>
                                     <a href="#">Hotels</a>
@@ -146,63 +117,35 @@
                                         <li>
                                             <a href="@Url.Action("Index","Hotel")">Hotel One</a>
                                         </li>
-                                        @*<li>
-                                                <a href="http://getnajmul.com/">Hotel Two</a>
-                                            </li>*@
                                     </ul>
                                 </li>
                                 <li>
                                     <a href="@Url.Action("Index","Restaurant")">Restaurants</a>
                                 </li>
                                 <li>
-                                    <a href="#">Blog</a>
-                                    <ul class="dropdown">
-                                        <li>
-                                            <a href="#">Blog One</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Blog Two</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Blog Post</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="#">Pages</a>
-                                    <ul class="dropdown">
-                                        <li>
-                                            <a href="#">Package One</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Package Two</a>
-                                        </li>
-                                        <li>
-                                            <a href="#l">single package</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Hotel One</a>
-                                        </li>
-                                        <li>
-                                            <a href="http://getnajmul.com/">Hotel Two</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Blog One</a>
-                                        </li>
-                                        <li>
-                                            <a href="http://getnajmul.com/">Blog Two </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">FeebBacks</a>
-                                        </li>
+                                    <a href="#">Abouts</a>
 
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="#">Contact</a>
                                 </li>
                                 <li>
                                     <a href="@Url.Action("Register","Register")">Registers</a>
+                                </li>
+                                @if (@Session["username"] == null)
+                                {
+                                    <li>
+                                        <a href="@Url.Action("LoginU", "LoginUser")">Sign In</a>
+                                    </li>
+                                }
+                                else
+                                {
+                                    <li>
+                                        <a href="@Url.Action("LogOff", "LoginUser")">Sign Out</a>
+                                    </li>
+                                    <li>
+                                        <a href="@Url.Action("LoginU", "LoginUser")">Xin Chào,@Session["username"] </a>
+                                    </li>
+                                }
+                                <li>
+                                    <a href="#">Contact</a>
                                 </li>
                             </ul>
                         </nav>
