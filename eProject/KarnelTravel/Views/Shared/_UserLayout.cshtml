@@ -104,6 +104,9 @@
                                 <li>
                                     <a href="@Url.Action("Register","Register")">Registers</a>
                                 </li>
+                                <li>
+                                    <a href="#">Contact</a>
+                                </li>
                                 @if (@Session["username"] == null)
                                 {
                                     <li>
@@ -113,15 +116,21 @@
                                 else
                                 {
                                     <li>
-                                        <a href="@Url.Action("LogOff", "LoginUser")">Sign Out</a>
-                                    </li>
-                                    <li>
-                                        <a href="@Url.Action("UpdateAccout", "Register",new { id = @Session["username"] })">Xin Chào,@Session["username"] </a>
+                                        <a>Hi,@Session["username"] </a>
+                                        <ul class="dropdown">
+                                            <li>
+                                                <a href="@Url.Action("UpdateAccout", "Register",new { id = @Session["username"] })">Update infornation</a>
+                                            </li>
+                                            <li>
+                                                <a href="@Url.Action("XemGioHang", "Cart")">My Book</a>
+                                            </li>
+                                            <li>
+                                                <a href="single-package.html">Package Details</a>
+                                            </li>
+                                            <li><a href="@Url.Action("LogOff", "LoginUser")">Sign Out</a></li>
+                                        </ul>
                                     </li>
                                 }
-                                <li>
-                                    <a href="#">Contact</a>
-                                </li>
                             </ul>
                         </nav>
                     </div> <!-- main menu end here -->

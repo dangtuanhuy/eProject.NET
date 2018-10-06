@@ -70,7 +70,7 @@ namespace KarnelTravel.Controllers
         public ActionResult LogOff()
         {
             Session["username"] = null;
-            return View();
+            return RedirectToAction("Index", "Home");
         }
     }
 }
