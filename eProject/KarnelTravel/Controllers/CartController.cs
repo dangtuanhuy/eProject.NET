@@ -113,14 +113,14 @@ namespace KarnelTravel.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult ConfirmCheckOut([Bind(Include = "Trip_Address,Trip_Details")] Trip order)
+        public ActionResult ConfirmCheckOut([Bind(Include = "Trip_Name,Trip_Address,Trip_Details")] Trip order)
         {
             if (ModelState.IsValid)
             {
-                var userId = User.Identity.GetUserName();
+                var userId = Session["username"];
                 //Order order = new Order();
                 order.Trip_Date = DateTime.Now;
-                order.Customer_Id = userId;
+                order.Customer_Id = Convert.ToString(userId);
                 //order.UserId = null;
                 order.Trip_Status = false;
                 db.Trips.Add(order);

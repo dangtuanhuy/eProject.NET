@@ -111,4 +111,20 @@ else
             </div>
         </div>
     </section>
+    <div>
+        @using (Html.BeginForm("ConfirmCheckOut_Post", "Cart"))
+        {
+            if (@Session["username"] == null)
+            {
+                <a class="btn btn-danger" href="@Url.Action("LoginCart", "LoginUser")">Check Out</a>
+            }
+            else
+            {
+                <a class="btn btn-danger" href="@Url.Action("ConfirmCheckOut", "Cart")">Check Out</a>
+            }
+            <a class="btn btn-primary" href="@Url.Action("Index", "Home")">Continue shopping</a>
+        }
+
+    </div>
+
 }

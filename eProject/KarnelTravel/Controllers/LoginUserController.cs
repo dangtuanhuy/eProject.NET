@@ -42,6 +42,31 @@ namespace KarnelTravel.Controllers
             }
             return View("LoginU");
         }
+
+
+        public ActionResult LoginCart()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult LoginCart(LoginU model)
+        {
+            if (ModelState.IsValid)
+            {
+                var result = CheckRegisterU(model.Customer_Id, model.Customer_Password);
+                if (result)
+                {
+                    Session["username"] = model.Customer_Id;
+                    return RedirectToAction("ConfirmCheckOut", "Cart");
+                }
+                else
+                {
+                    return RedirectToAction("LoginCart");
+                }
+            }
+            return View("LoginCart");
+        }
+
         public ActionResult LogOff()
         {
             Session["username"] = null;
