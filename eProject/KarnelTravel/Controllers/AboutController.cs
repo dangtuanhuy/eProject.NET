@@ -17,5 +17,9 @@ namespace KarnelTravel.Controllers
             
             return View(Persion.ToList());
         }
+        public ActionResult About1()
+        {
+            return View();
+        }
     }
 }
