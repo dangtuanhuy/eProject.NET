@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Data.Entity.Validation;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -53,8 +54,22 @@ namespace KarnelTravel.Areas.Management.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Transportations.Add(transportation);
-                db.SaveChanges();
+                try
+                {
+                    transportation.Transportation_Create = DateTime.Now;
+                    db.Transportations.Add(transportation);
+                    db.SaveChanges();
+                }
+                catch (DbEntityValidationException dbEx)
+                {
+                    foreach (var validationErrors in dbEx.EntityValidationErrors)
+                    {
+                        foreach (var validationError in validationErrors.ValidationErrors)
+                        {
+                            System.Console.WriteLine("Property: {0} Error: {1}", validationError.PropertyName, validationError.ErrorMessage);
+                        }
+                    }
+                }
                 return RedirectToAction("Index");
             }
 
@@ -87,8 +102,22 @@ namespace KarnelTravel.Areas.Management.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(transportation).State = EntityState.Modified;
-                db.SaveChanges();
+                try
+                {
+                    transportation.Transportation_Create = DateTime.Now;
+                    db.Entry(transportation).State = EntityState.Modified;
+                    db.SaveChanges();
+                }
+                catch (DbEntityValidationException dbEx)
+                {
+                    foreach (var validationErrors in dbEx.EntityValidationErrors)
+                    {
+                        foreach (var validationError in validationErrors.ValidationErrors)
+                        {
+                            System.Console.WriteLine("Property: {0} Error: {1}", validationError.PropertyName, validationError.ErrorMessage);
+                        }
+                    }
+                }
                 return RedirectToAction("Index");
             }
             ViewBag.TouristSpot_Id = new SelectList(db.TouristSpots, "TouristSpot_Id", "TouristSpot_Name", transportation.TouristSpot_Id);

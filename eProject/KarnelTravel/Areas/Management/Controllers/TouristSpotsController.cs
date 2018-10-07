@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Data.Entity.Validation;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -56,8 +57,22 @@ namespace KarnelTravel.Areas.Management.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.TouristSpots.Add(touristSpot);
-                db.SaveChanges();
+                try
+                {
+                    touristSpot.TouristSpot_Create = DateTime.Now;
+                    db.TouristSpots.Add(touristSpot);
+                    db.SaveChanges();
+                }
+                catch (DbEntityValidationException dbEx)
+                {
+                    foreach (var validationErrors in dbEx.EntityValidationErrors)
+                    {
+                        foreach (var validationError in validationErrors.ValidationErrors)
+                        {
+                            System.Console.WriteLine("Property: {0} Error: {1}", validationError.PropertyName, validationError.ErrorMessage);
+                        }
+                    }
+                }
                 return RedirectToAction("Index");
             }
 
@@ -90,8 +105,22 @@ namespace KarnelTravel.Areas.Management.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(touristSpot).State = EntityState.Modified;
-                db.SaveChanges();
+                try
+                {
+                    touristSpot.TouristSpot_Create = DateTime.Now;
+                    db.Entry(touristSpot).State = EntityState.Modified;
+                    db.SaveChanges();
+                }
+                catch (DbEntityValidationException dbEx)
+                {
+                    foreach (var validationErrors in dbEx.EntityValidationErrors)
+                    {
+                        foreach (var validationError in validationErrors.ValidationErrors)
+                        {
+                            System.Console.WriteLine("Property: {0} Error: {1}", validationError.PropertyName, validationError.ErrorMessage);
+                        }
+                    }
+                }
                 return RedirectToAction("Index");
             }
             ViewBag.Location_Id = new SelectList(db.Locations, "Location_Id", "Location_Name", touristSpot.Location_Id);
