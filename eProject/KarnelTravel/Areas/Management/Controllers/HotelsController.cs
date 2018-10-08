@@ -147,9 +147,19 @@ namespace KarnelTravel.Areas.Management.Controllers
         public ActionResult DeleteConfirmed(string id)
         {
             Hotel hotel = db.Hotels.Find(id);
-            db.Hotels.Remove(hotel);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            try
+            {
+                db.Hotels.Remove(hotel);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            catch (Exception e)
+            {
+                TempData["msg2"] = "<script>alert('Can not Delete Record');</script>";
+                e.ToString();
+
+                return RedirectToAction("Index");
+            }
         }
 
         public ActionResult UploadHotels(string id)
