@@ -222,7 +222,7 @@
           <Property Name="Vehicle_Name" Type="nvarchar" MaxLength="50" />
           <Property Name="Vehicle_Price" Type="decimal" Precision="12" Scale="0" />
           <Property Name="Vehicle_Weight" Type="int" />
-          <Property Name="Vehicle_Img" Type="nvarchar" MaxLength="50" />
+          <Property Name="Vehicle_Img" Type="nvarchar" MaxLength="250" />
           <Property Name="Transportation_Id" Type="nvarchar" MaxLength="20" />
           <Property Name="Vehicle_Create" Type="date" />
         </EntityType>
@@ -349,7 +349,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Transportations_TouristSpot">
-          <End Role="TouristSpot" Type="Self.TouristSpot" Multiplicity="0..1" />
+          <End Role="TouristSpot" Type="Self.TouristSpot" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Transportations" Type="Self.Transportations" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TouristSpot">
@@ -409,7 +411,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Vehicle_Transportations">
-          <End Role="Transportations" Type="Self.Transportations" Multiplicity="0..1" />
+          <End Role="Transportations" Type="Self.Transportations" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Vehicle" Type="Self.Vehicle" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Transportations">
@@ -846,7 +850,7 @@
           <Property Name="Vehicle_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Vehicle_Price" Type="Decimal" Precision="12" Scale="0" />
           <Property Name="Vehicle_Weight" Type="Int32" />
-          <Property Name="Vehicle_Img" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Vehicle_Img" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="Transportation_Id" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="Vehicle_Create" Type="DateTime" Precision="0" />
           <NavigationProperty Name="Transportation" Relationship="KarnelTravelModel.FK_Vehicle_Transportations" FromRole="Vehicle" ToRole="Transportation" />
@@ -998,7 +1002,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Transportations_TouristSpot">
-          <End Type="KarnelTravelModel.TouristSpot" Role="TouristSpot" Multiplicity="0..1" />
+          <End Type="KarnelTravelModel.TouristSpot" Role="TouristSpot" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Type="KarnelTravelModel.Transportation" Role="Transportation" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TouristSpot">
@@ -1022,7 +1028,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Vehicle_Transportations">
-          <End Type="KarnelTravelModel.Transportation" Role="Transportation" Multiplicity="0..1" />
+          <End Type="KarnelTravelModel.Transportation" Role="Transportation" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Type="KarnelTravelModel.Vehicle" Role="Vehicle" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Transportation">
