@@ -31,7 +31,9 @@ namespace KarnelTravel.Models
             public string Customer_FirstName { get; set; }
 
             [Display(Name = "Birthday")]
-            [DataType(DataType.DateTime)]
+            [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+            [DataType(DataType.Date, ErrorMessage = "Input data must be a date type")]
+          
             public Nullable<System.DateTime> Customer_Bithday { get; set; }
 
             [Display(Name = "Gender")]

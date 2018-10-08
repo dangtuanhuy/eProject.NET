@@ -202,6 +202,7 @@
     <Compile Include="Models\About.cs">
       <DependentUpon>KarnelTravel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\AboutMetaData.cs" />
     <Compile Include="Models\Admin.cs">
       <DependentUpon>KarnelTravel.tt</DependentUpon>
     </Compile>
@@ -1517,7 +1518,6 @@
     <Content Include="Areas\Management\Views\Customers\Index.cshtml" />
     <Content Include="Areas\Management\Views\Abouts\Create.cshtml" />
     <Content Include="Areas\Management\Views\Abouts\Delete.cshtml" />
-    <Content Include="Areas\Management\Views\Abouts\Details.cshtml" />
     <Content Include="Areas\Management\Views\Abouts\Edit.cshtml" />
     <Content Include="Areas\Management\Views\Abouts\Index.cshtml" />
     <Content Include="Areas\Management\Views\Abouts\UploadAbout.cshtml" />
