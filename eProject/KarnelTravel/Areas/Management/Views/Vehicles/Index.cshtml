@@ -16,6 +16,7 @@
 <table class="table table-striped table-bordered" id="tablefillset">
     <thead>
         <tr>
+            <th></th>
             <th>
                 @Html.DisplayNameFor(model => model.Vehicle_Id)
             </th>
@@ -29,9 +30,6 @@
                 @Html.DisplayNameFor(model => model.Vehicle_Weight)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Vehicle_Img)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.Transportation.Transportation_Name)
             </th>
             <th></th>
@@ -41,25 +39,28 @@
         @foreach (var item in Model)
         {
             <tr>
-                <td>
+                <th class="text-center">
+                    @if (String.IsNullOrEmpty(item.Vehicle_Img) == false)
+                    {
+                        <img style="width: 100px" src="@Url.Content(item.Vehicle_Img)" />
+                    }
+                </th>
+                <td class="text-center">
                     @Html.DisplayFor(modelItem => item.Vehicle_Id)
                 </td>
-                <td>
+                <td class="text-center">
                     @Html.DisplayFor(modelItem => item.Vehicle_Name)
                 </td>
-                <td>
+                <td class="text-center">
                     @Html.DisplayFor(modelItem => item.Vehicle_Price)
                 </td>
-                <td>
+                <td class="text-center">
                     @Html.DisplayFor(modelItem => item.Vehicle_Weight)
                 </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Vehicle_Img)
-                </td>
-                <td>
+                <td class="text-center">
                     @Html.DisplayFor(modelItem => item.Transportation.Transportation_Name)
                 </td>
-                <td>
+                <td class="text-center">
                     <a href="@Url.Action("UploadVihicles", "Vehicles", new { id = item.Vehicle_Id })" class="btn btn-info">
                         <i class="fa fa-image"></i>
                         <span>
