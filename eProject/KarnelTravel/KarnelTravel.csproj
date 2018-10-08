@@ -1271,6 +1271,7 @@
     <Content Include="Views\Hotel\DetaislHotel.cshtml" />
     <Content Include="Views\About\About1.cshtml" />
     <Content Include="Views\Food2\Index.cshtml" />
+    <Content Include="Views\Restaurant\DetaislRestaurant.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
