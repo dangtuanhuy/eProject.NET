@@ -43,7 +43,7 @@ namespace KarnelTravel.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            TouristSpot touristSpot = db.TouristSpots.Include("ImgTouristSpot").SingleOrDefault(item => item.TouristSpot_Id == id);
+            TouristSpot touristSpot = db.TouristSpots.Include("ImgTouristSpots").SingleOrDefault(item => item.TouristSpot_Id == id);
             
             if (touristSpot == null)
             {
