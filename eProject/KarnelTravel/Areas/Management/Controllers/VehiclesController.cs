@@ -202,9 +202,10 @@ namespace KarnelTravel.Areas.Management.Controllers
                         var imageUrl = defaultFolderToSaveFile + fileName;
 
                         // Lưu thông tin image url vào product
-                        var vehicle = db.Vehicles.Find(id);
-                        vehicle.Vehicle_Img = imageUrl;
+                        var vehicles = db.Vehicles.Find(id);
+                        vehicles.Vehicle_Img = imageUrl;
                         db.SaveChanges();
+
 
                         return RedirectToAction("Index");
                     }
