@@ -56,10 +56,11 @@
 
                         <hr>
                         <div class="btn-group cart">
-                            <a href="@Url.Action("Index", "TourisSpot" )" class="btn btn-info">
-                                Views More
+                            <a href="@Url.Action("ThemGioHang", "Cart", new { @TouristSpotId = Model.TouristSpot_Id, strUrl = Request.Url.ToString()})" class="btn btn-info">
+                                ADD TO CART
                             </a>
                         </div>
+                        <a class="btn btn-primary" href="@Url.Action("Index", "Home")">Continue shopping</a>
 
                     </div>
                 </div>
