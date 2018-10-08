@@ -264,6 +264,7 @@
     <Compile Include="Models\Restaurant.cs">
       <DependentUpon>KarnelTravel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\RestaurantMetaData.cs" />
     <Compile Include="Models\Room.cs">
       <DependentUpon>KarnelTravel.tt</DependentUpon>
     </Compile>
