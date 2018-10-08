@@ -96,14 +96,15 @@
                                     <a href="@Url.Action("Index","Restaurant")">Restaurants</a>
                                 </li>
                                 <li>
-                                    <a href="#">Abouts</a>
+                                    <a href="@Url.Action("About","About")">Abouts</a>
+                                </li>About
+                                <li>
+                                    <a href="@Url.Action("Contact","Contact")">Contact</a>
                                 </li>
                                 <li>
                                     <a href="@Url.Action("Register","Register")">Registers</a>
                                 </li>
-                                <li>
-                                    <a href="#">Contact</a>
-                                </li>
+
                                 @if (@Session["username"] == null)
                                 {
                                     <li>

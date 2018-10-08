@@ -36,7 +36,7 @@
                     </div>
                     <!-- LAYER NR. 5 -->
                     <div class="tp-caption lfb tp-resizeme  header-btn" data-x="center" data-hoffset="0" data-y="center" data-voffset="120" data-frames='[{"from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","mask":"x:0px;y:[100%];s:inherit;e:inherit;","speed":2000,"to":"o:1;","delay":750,"ease":"Power4.easeInOut"},{"delay":"wait","speed":1000,"to":"y:[100%];","mask":"x:inherit;y:inherit;s:inherit;e:inherit;","ease":"Power2.easeInOut"}]' style="z-index: 8;">
-                        <a href="#" class="travel-primary-btn hvr-fade">Start Tour</a>
+                        <a href="@Url.Action("Index","TourisSpot")" class="travel-primary-btn hvr-fade">Start Tour</a>
                     </div>
                 </li>
                 <!-- first slider end -->
@@ -63,7 +63,7 @@
                     </div>
                     <!-- LAYER NR. 5 -->
                     <div class="tp-caption lfb tp-resizeme  header-btn" data-x="center" data-hoffset="0" data-y="center" data-voffset="120" data-frames='[{"from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","mask":"x:0px;y:[100%];s:inherit;e:inherit;","speed":2000,"to":"o:1;","delay":750,"ease":"Power4.easeInOut"},{"delay":"wait","speed":1000,"to":"y:[100%];","mask":"x:inherit;y:inherit;s:inherit;e:inherit;","ease":"Power2.easeInOut"}]' style="z-index: 8;">
-                        <a href="#" class="travel-primary-btn hvr-fade">Start Tour</a>
+                        <a href="@Url.Action("Index","TourisSpot")" class="travel-primary-btn hvr-fade">Start Tour</a>
                     </div>
                 </li>
                 <!-- first slider end -->
@@ -81,13 +81,13 @@
                             <h6><a href="@Url.Action("Index","Hotel")" data-easein="fadeIn">Hotels<img src="~/Content/User/images/icon/hotel.png" alt=""></a></h6>
                         </li>
                         <li>
-                            <h6><a href="#tour" data-easein="fadeIn">Tour<img src="~/Content/User/images/icon/tour.png" alt=""></a></h6>
+                            <h6><a href="@Url.Action("Index","TourisSpot")" data-easein="fadeIn">Tour<img src="~/Content/User/images/icon/tour.png" alt=""></a></h6>
                         </li>
                         <li>
                             <h6><a href="@Url.Action("Index","Restaurant")" data-easein="fadeIn">Restaurants<img src="~/Content/User/images/icon/fly.png" alt=""></a></h6>
                         </li>
                         <li>
-                            <h6><a href="#vehicles" data-easein="fadeIn">Vehicles<img src="~/Content/User/images/icon/car.png" alt=""></a></h6>
+                            <h6><a href="@Url.Action("Index","Vehicles")" data-easein="fadeIn">Vehicles<img src="~/Content/User/images/icon/car.png" alt=""></a></h6>
                         </li>
                         <li>
                             <h6><a href="#ship" data-easein="fadeIn">Ship<img src="~/Content/User/images/icon/ship.png" alt=""></a></h6>
@@ -95,184 +95,7 @@
                     </ul>
                 </div> <!-- tab menu end here -->
                 <!-- tab content strat here -->
-                <div class="tab-content" id="tab-content1">
-                    <div class="tab-pane active" id="hotels">
-                        <div class="hotels-form">
-                            <form action="#" method="post">
-                                <div class="hotel-input-2 input-b">
-                                    <input type="text" name="s" id="keyword" class="hotel-input-first" placeholder="Type Keyword">
-                                </div>
-                                <div class="hotel-input-4 input-b">
-                                    <select id='standard1' name='standard' class='custom-select'>
-                                        <option value=''>Select a Location</option>
-                                        <option value='Us'>America</option>
-                                        <option value='Canda'>Canada</option>
-                                        <option value='london'>London</option>
-                                        <option value='france'>Paris</option>
-                                        <option value='bd'>Bangladesh</option>
-                                    </select>
-                                </div>
-                                <div class="hotel-input-1 input-s">
-                                    <input type="text" name="s" id="datepicker" class="hotel-input-first" placeholder="Check-In">
-                                </div>
-                                <div class="hotel-input-1 input-s">
-                                    <input type="text" name="s" id="datepicker1" class="hotel-input-first" placeholder="Check-out">
-                                </div>
-                                <div class="hotel-input-1 input-s">
-                                    <input type="number" name="s" id="number" class="hotel-input-first" placeholder="Guest">
-                                </div>
-                                <div class="hotel-input-1 input-s">
-                                    <input type="text" name="s" id="budget" class="hotel-input-first" placeholder="Budget">
-                                </div>
-                                <div class="searc-btn-7">
-                                    <button type="submit">Search</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div> <!-- hotel form end here -->
-                    <div class="tab-pane" id="tour">
-                        <div class="hotels-form">
-                            <form action="#" method="post">
-                                <div class="hotel-input-4-23 input-b">
-                                    <input type="text" name="s" id="keyword2" class="hotel-input-first" placeholder="Type Keyword">
-                                </div>
-                                <div class="hotel-input-4-23 input-b">
-                                    <select id='standard2' name='standard' class='custom-select'>
-                                        <option value=''>Select a Location</option>
-                                        <option value='Us'>America</option>
-                                        <option value='Canda'>Canada</option>
-                                        <option value='london'>London</option>
-                                        <option value='france'>Paris</option>
-                                        <option value='bd'>Bangladesh</option>
-                                    </select>
-                                </div>
-                                <div class="hotel-input-4-23 input-s">
-                                    <input type="text" name="s" id="datepicker2" class="hotel-input-first" placeholder="Check-In Date">
-                                </div>
-                                <div class="hotel-input-4-23 input-s">
-                                    <input type="number" name="s" id="number1" class="hotel-input-first" placeholder="Number of Guest">
-                                </div>
-                                <div class="searc-btn-7">
-                                    <button type="submit">Search</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div> <!-- hotel form end here -->
-                    <div class="tab-pane" id="flights">
-                        <div class="flights-form">
-                            <form action="#" method="post">
-                                <div class="tour-input-20 input-b">
-                                    <select id='standard3' name='standard' class='custom-select'>
-                                        <option value=''>Origin City or airport</option>
-                                        <option value='Us'>America</option>
-                                        <option value='Canda'>Canada</option>
-                                        <option value='london'>London</option>
-                                        <option value='france'>Paris</option>
-                                        <option value='bd'>Bangladesh</option>
-                                    </select>
-                                </div>
-                                <div class="tour-input-20 input-b">
-                                    <select id='standard4' name='standard' class='custom-select'>
-                                        <option value=''>Destination City</option>
-                                        <option value='Us'>America</option>
-                                        <option value='Canda'>Canada</option>
-                                        <option value='london'>London</option>
-                                        <option value='france'>Paris</option>
-                                        <option value='bd'>Bangladesh</option>
-                                    </select>
-                                </div>
-                                <div class="tour-input-15 input-s">
-                                    <input type="text" name="s" id="datepicker3" class="hotel-input-first" placeholder="Daparture date">
-                                </div>
-                                <div class="tour-input-15 input-s">
-                                    <input type="text" name="s" id="datepicker4" class="hotel-input-first" placeholder="Return date">
-                                </div>
-                                <div class="tour-input-15 input-b">
-                                    <select id='nosearch' name='standard' class='custom-select'>
-                                        <option value=''>Economy</option>
-                                        <option value='Economy'>Economy</option>
-                                        <option value='Business'>Business</option>
-                                    </select>
-                                </div>
-                                <div class="tour-input-7-5 input-s input-xm">
-                                    <select id='nosearch1' name='standard' class='custom-select'>
-                                        <option value=''>Adult</option>
-                                        <option value='1'>1</option>
-                                        <option value='2'>2</option>
-                                        <option value='3'>3</option>
-                                        <option value='4'>4</option>
-                                        <option value='5'>5</option>
-                                        <option value='6'>6</option>
-                                        <option value='7'>7</option>
-                                        <option value='8'>8</option>
-                                        <option value='9'>9</option>
-                                        <option value='10'>10</option>
-                                    </select>
-                                </div>
-                                <div class="tour-input-7-5  input-s input-xm">
-                                    <select id='nosearch2' name='standard' class='custom-select'>
-                                        <option value=''>Kids</option>
-                                        <option value='1'>1</option>
-                                        <option value='2'>2</option>
-                                        <option value='3'>3</option>
-                                        <option value='4'>4</option>
-                                        <option value='5'>5</option>
-                                        <option value='6'>6</option>
-                                        <option value='7'>7</option>
-                                        <option value='8'>8</option>
-                                        <option value='9'>9</option>
-                                        <option value='10'>10</option>
-                                    </select>
-                                </div>
-                                <div class="searc-btn-7 flights-search-btn">
-                                    <button type="submit">Search</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div> <!-- flights form start here -->
-                    <div class="tab-pane" id="vehicles">
-                        <div class="hotels-form">
-                            <form action="#" method="post">
-                                <div class="hotel-input-4-23  input-s">
-                                    <input type="text" name="s" id="pickupdate" class="hotel-input-first" placeholder="Pickup Date & time">
-                                </div>
-                                <div class="hotel-input-4-23 input-s">
-                                    <input type="number" name="s" id="hours" class="hotel-input-first" placeholder="Hours">
-                                </div>
-                                <div class="hotel-input-4-23 input-s">
-                                    <input type="text" name="s" id="pickup" class="hotel-input-first" placeholder="Pickup Location">
-                                </div>
-                                <div class="hotel-input-4-23 input-s">
-                                    <input type="text" name="s" id="location" class="hotel-input-first" placeholder="Drop Location">
-                                </div>
-                                <div class="searc-btn-7">
-                                    <button type="submit">Search</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div> <!-- vehicles form end here -->
-                    <div class="tab-pane" id="ship">
-                        <div class="hotels-form">
-                            <form action="#" method="post">
-                                <div class="hotel-input-4-23 input-s">
-                                    <input type="text" name="s" id="shippickupdate" class="hotel-input-first" placeholder="Pickup Date & time">
-                                </div>
-                                <div class="hotel-input-4-23 input-s">
-                                    <input type="number" name="s" id="time" class="hotel-input-first" placeholder="Hours">
-                                </div>
-                                <div class="hotel-input-4-23 input-s">
-                                    <input type="text" name="s" id="name" class="hotel-input-first" placeholder="Pickup Location">
-                                </div>
-                                <div class="hotel-input-4-23 input-s">
-                                    <input type="text" name="s" id="drop-location" class="hotel-input-first" placeholder="Drop Location">
-                                </div>
-                                <div class="searc-btn-7">
-                                    <button type="submit">Search</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div><!-- ship form end here -->
-                </div><!-- tab content end -->
+               
             </div>
         </div>
     </div>
