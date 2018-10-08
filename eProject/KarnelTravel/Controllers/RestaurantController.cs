@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using KarnelTravel.Models;
@@ -35,6 +36,20 @@ namespace KarnelTravel.Controllers
             int PageSize = 9;
             int PageNumber = (page ?? 1);
             return View(lstRest1.OrderBy(n => n.Restaurant_Code).ToPagedList(PageNumber, PageSize));
+        }
+        public ActionResult DetaislRestaurant(string id)
+        {
+
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Restaurant restaurant = db.Restaurants.Include("ImgRestaurants").SingleOrDefault(item => item.Restaurant_Code == id);
+            if (restaurant == null)
+            {
+                return HttpNotFound();
+            }
+            return View(restaurant);
         }
     }
 }

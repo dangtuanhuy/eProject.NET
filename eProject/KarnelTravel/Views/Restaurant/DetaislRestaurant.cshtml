@@ -1,7 +1,6 @@
-﻿
-@model KarnelTravel.Models.Hotel
+﻿@model KarnelTravel.Models.Restaurant
 @{
-    ViewBag.Title = "DetaislHotel";
+    ViewBag.Title = "DetaislRestaurant";
     Layout = "~/Views/Shared/_UserLayout.cshtml";
 }
 
@@ -14,7 +13,7 @@
                         <h2>Details</h2>
                         <ul>
                             <li><a href="@Url.Action(" Index","Home")">Home</a></li>
-                            <li class="active"><a href="@Url.Action(" Index","Hotel")">Hotels</a></li>
+                            <li class="active"><a href="@Url.Action(" Index","Restaurant")">Restaurant</a></li>
                         </ul>
                     </div>
                 </div>
@@ -32,19 +31,17 @@
                         <div class="product col-md-3 service-image">
 
                             <center>
-                                <img id="item-display" src="~/myImg/Hotels/@Model.ImgHotels.FirstOrDefault().Img_Hotels" alt="" class="img-responsive aligncenter" />
+                                <img id="item-display" src="~/myImg/Restaurants/@Model.ImgRestaurants.FirstOrDefault().Img_Restaurants" alt="" class="img-responsive aligncenter" />
                             </center>
                         </div>
 
                         <div class="container service1-items col-sm-2 col-md-2 pull-left">
                             <center>
-                                @*<a id="item-1" class="service1-item">
-                                        <img src="http://www.corsair.com/Media/catalog/product/g/s/gs600_psu_sideview_blue_2.png" alt=""></img>
-                                    </a>*@
-                                @foreach (var img in Model.ImgHotels.Take(3))
+                               
+                                @foreach (var img in Model.ImgRestaurants.Take(3))
                                 {
                                     <a id="item-1" class="service1-item">
-                                        <img id="item-display" src="~/myImg/Hotels/@img.Img_Hotels" alt="" class="img-responsive aligncenter" />
+                                        <img id="item-display" src="~/myImg/Restaurants/@img.Img_Restaurants" alt="" class="img-responsive aligncenter" />
                                     </a>
                                 }
                             </center>
@@ -53,14 +50,14 @@
 
 
                     <div class="col-md-7">
-                        <div class="product-title">@Html.DisplayFor(model => model.Hotel_Name)</div>
+                        <div class="product-title">@Html.DisplayFor(model => model.Restaurant_Name)</div>
 
-                        <div class="product-desc">@Html.DisplayFor(model => model.Hotel_Details)</div>
+                        <div class="product-desc">@Html.DisplayFor(model => model.Restaurant_Description)</div>
 
 
                         <hr>
                         <div class="btn-group cart">
-                            <a href="@Url.Action("Index", "Hotel" )" class="btn btn-info">
+                            <a href="@Url.Action("Index", "Restaurant" )" class="btn btn-info">
                                 Views More
                             </a>
                         </div>
@@ -81,7 +78,7 @@
                         <div class="tab-pane fade in active" id="service-one">
 
                             <section class="container product-info">
-                                @Html.DisplayFor(model => model.Hotel_Details)
+                                @Html.DisplayFor(model => model.Restaurant_Description)
                             </section>
 
                         </div>
@@ -103,4 +100,6 @@
 
 
 <link href="~/Content/User/myStyle.css" rel="stylesheet" />
+
+
 
