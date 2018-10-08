@@ -1,0 +1,109 @@
+﻿@model KarnelTravel.Models.TouristSpot
+@{
+    ViewBag.Title = "TourisSpotDetails";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+<section class="breadcrumb-blog-version-one">
+    <div class="single-bredcurms" style="background-image:url('../../Content/User/images/bercums/contact-page.jpg');">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="bredcrums-content">
+                        <h2>Details</h2>
+                        <ul>
+                            <li><a href="@Url.Action(" Index","Home")">Home</a></li>
+                            <li class="active"><a href="@Url.Action(" Index","TourisSpot")">Touris Spot</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section><!-- blog breadcrumb version one end here -->
+<section class="section-paddings">
+    <div class="container">
+        <div class="content-wrapper">
+            <div class="item-container">
+                <div class="container-fluid">
+
+                    <div class="col-md-12">
+                        <div class="product col-md-3 service-image">
+
+                            <center>
+                                <img id="item-display" src="~/myImg/TouristSpot/@Model.ImgTouristSpots.FirstOrDefault().Img_TouristSpot" alt="" class="img-responsive aligncenter" />
+                            </center>
+                        </div>
+
+                        <div class="container service1-items col-sm-2 col-md-2 pull-left">
+                            <center>
+
+                                @foreach (var img in Model.ImgTouristSpots.Take(3))
+                                {
+                                    <a id="item-1" class="service1-item">
+                                        <img id="item-display" src="~/myImg/TouristSpot/@img.Img_TouristSpot" alt="" class="img-responsive aligncenter" />
+                                    </a>
+                                }
+                            </center>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-7">
+                        <div class="product-title">@Html.DisplayFor(model => model.TouristSpot_Name)</div>
+
+                        <div class="product-desc">@Html.DisplayFor(model => model.TouristSpot_Specific)</div>
+
+
+                        <hr>
+                        <div class="btn-group cart">
+                            <a href="@Url.Action("Index", "TourisSpot" )" class="btn btn-info">
+                                Views More
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid">
+                <div class="col-md-12 product-info">
+                    <ul id="myTab" class="nav nav-tabs nav_tabs">
+
+                        <li class="active"><a href="#service-one" data-toggle="tab">DESCRIPTION</a></li>
+                        <li><a href="#service-two" data-toggle="tab">PRODUCT INFO</a></li>
+                        <li><a href="#service-three" data-toggle="tab">REVIEWS</a></li>
+
+                    </ul>
+                    <div id="myTabContent" class="tab-content">
+                        <div class="tab-pane fade in active" id="service-one">
+
+                            <section class="container product-info">
+                                @Html.DisplayFor(model => model.TouristSpot_Specific)
+                            </section>
+
+                        </div>
+                        <div class="tab-pane fade" id="service-two">
+
+                            <section class="container">
+                                @Html.DisplayFor(model => model.TouristSpot_Price)
+                                @Html.DisplayFor(model => model.TouristSpot_Limit)
+                            </section>
+
+                        </div>
+                        <div class="tab-pane fade" id="service-three">
+                            <section class="container">
+                                
+                            </section>
+                        </div>
+                    </div>
+                    <hr>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<link href="~/Content/User/myStyle.css" rel="stylesheet" />
+
+
+
