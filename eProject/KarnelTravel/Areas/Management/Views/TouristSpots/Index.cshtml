@@ -12,6 +12,7 @@
         Create
     </a>
 </p>
+@Html.Raw(TempData["msg1"])
 <table class="table table-striped table-bordered" id="tablefillset">
     <thead>
         <tr>
@@ -33,60 +34,60 @@
             <th></th>
             <th></th>
         </tr>
-        </thead>
+    </thead>
     <tbody>
         @foreach (var item in Model)
         {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.TouristSpot_Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TouristSpot_Limit)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TouristSpot_Price)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TouristSpot_Status)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Location.Location_Name)
-            </td>
-            <td>
-                <a href="@Url.Action("UploadTouristSpots", "TouristSpots", new { id = item.TouristSpot_Id })" class="btn btn-info">
-                    <i class="fa fa-image"></i>
-                    <span>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TouristSpot_Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TouristSpot_Limit)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TouristSpot_Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TouristSpot_Status)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Location.Location_Name)
+                </td>
+                <td>
+                    <a href="@Url.Action("UploadTouristSpots", "TouristSpots", new { id = item.TouristSpot_Id })" class="btn btn-info">
+                        <i class="fa fa-image"></i>
+                        <span>
 
-                    </span>
-                </a>
-                |
-                <a href="@Url.Action("Edit", "TouristSpots", new { id = item.TouristSpot_Id })" class="btn btn-success">
-                    <i class="fa fa-pencil"></i>
-                    <span>
+                        </span>
+                    </a>
+                    |
+                    <a href="@Url.Action("Edit", "TouristSpots", new { id = item.TouristSpot_Id })" class="btn btn-success">
+                        <i class="fa fa-pencil"></i>
+                        <span>
 
-                    </span>
-                </a>
-                |
-                <a href="@Url.Action("Delete", "TouristSpots", new { id = item.TouristSpot_Id })" class="btn btn-danger">
-                    <i class="fa fa-trash-o"></i>
-                    <span>
+                        </span>
+                    </a>
+                    |
+                    <a href="@Url.Action("Delete", "TouristSpots", new { id = item.TouristSpot_Id })" class="btn btn-danger">
+                        <i class="fa fa-trash-o"></i>
+                        <span>
 
-                    </span>
-                </a>
-            <td>
-                @if (@item.TouristSpot_Status == true)
-                {
-                    <button id="@item.TouristSpot_Id" class="btn btn-info" onclick="UpdateStatus(this.id)">@item.TouristSpot_Status</button>
-                }
-                else
-                {
-                    <button id="@item.TouristSpot_Id" class="btn btn-danger" onclick="UpdateStatus(this.id)">@item.TouristSpot_Status</button>
-                }
-            </td>
-        </tr>
+                        </span>
+                    </a>
+                <td>
+                    @if (@item.TouristSpot_Status == true)
+                    {
+                        <button id="@item.TouristSpot_Id" class="btn btn-info" onclick="UpdateStatus(this.id)">@item.TouristSpot_Status</button>
+                    }
+                    else
+                    {
+                        <button id="@item.TouristSpot_Id" class="btn btn-danger" onclick="UpdateStatus(this.id)">@item.TouristSpot_Status</button>
+                    }
+                </td>
+            </tr>
         }
-        </tbody>
+    </tbody>
 </table>
 
 <script type="text/javascript">

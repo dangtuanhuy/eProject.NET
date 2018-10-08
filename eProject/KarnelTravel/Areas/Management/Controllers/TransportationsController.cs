@@ -153,7 +153,7 @@ namespace KarnelTravel.Areas.Management.Controllers
             }
             catch (Exception ex)
             {
-                TempData["msg"] = "<script>alert('Can not delete Record because Vehicels use Transportation');</script>";
+                TempData["msg1"] = "<script>alert('Can not delete Record because Vehicels use Transportation');</script>";
                 ex.ToString();
 
                 return RedirectToAction("Index");
