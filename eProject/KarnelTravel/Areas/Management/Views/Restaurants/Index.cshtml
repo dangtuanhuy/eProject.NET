@@ -10,23 +10,24 @@
         Create
     </a>
 </p>
+@Html.Raw(TempData["msg1"])
 <table class="table table-striped table-bordered" id="tablefillset">
     <thead>
         <tr>
-            
-            <th>
+
+            <th class="col-md-1">
                 @Html.DisplayNameFor(model => model.Restaurant_Name)
             </th>
-            <th>
+            <th class="col-md-2">
                 @Html.DisplayNameFor(model => model.Restaurant_Address)
-            </th>
-            <th>
+            </th >
+            <th class="col-md-4">
                 @Html.DisplayNameFor(model => model.Restaurant_Description)
             </th>
-            <th>
+            <th class="col-md-2">
                 @Html.DisplayNameFor(model => model.TouristSpot.TouristSpot_Name)
             </th>
-            <th></th>
+            <th class="col-md-3"></th>
         </tr>
     </thead>
 

@@ -116,9 +116,19 @@ namespace KarnelTravel.Areas.Management.Controllers
         public ActionResult DeleteConfirmed(string id)
         {
             Food food = db.Foods.Find(id);
-            db.Foods.Remove(food);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            try
+            {
+                db.Foods.Remove(food);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            catch(Exception e)
+            {
+                TempData["msg"] = "<script>alert('Can not Delete Record');</script>";
+                e.ToString();
+
+                return RedirectToAction("Index");
+            }
         }
 
         public ActionResult UploadFoods(string id)

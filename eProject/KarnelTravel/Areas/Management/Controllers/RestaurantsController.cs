@@ -77,7 +77,7 @@ namespace KarnelTravel.Areas.Management.Controllers
                     ex.ToString();
                     return RedirectToAction("Index");
                 }
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Restaurants");
             }
 
             ViewBag.TouristSpot_Id = new SelectList(db.TouristSpots, "TouristSpot_Id", "TouristSpot_Name", restaurant.TouristSpot_Id);
@@ -152,10 +152,22 @@ namespace KarnelTravel.Areas.Management.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(string id)
         {
+
             Restaurant restaurant = db.Restaurants.Find(id);
-            db.Restaurants.Remove(restaurant);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            try
+            {
+                db.Restaurants.Remove(restaurant);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            catch (Exception e)
+            {
+                TempData["msg1"] = "<script>alert('Can not Delete Record');</script>";
+                e.ToString();
+
+                return RedirectToAction("Index");
+            }
         }
         public ActionResult UploadRestaurants(string id)
         {
