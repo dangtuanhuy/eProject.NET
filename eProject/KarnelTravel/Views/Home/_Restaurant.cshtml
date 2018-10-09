@@ -22,6 +22,9 @@
                 <h3>@item.Restaurant_Name</h3>
                 <h2>@item.Restaurant_Address</h2>
             </div>
+            <div class="hotet-book-btn">
+                <a href="@Url.Action("DetaislRestaurant", "Restaurant", new { id = item.Restaurant_Code})" class="travel-primary-btn hvr-shutter-out-horizontal">Show Details</a>
+            </div>
         </div>
     </div>
 }

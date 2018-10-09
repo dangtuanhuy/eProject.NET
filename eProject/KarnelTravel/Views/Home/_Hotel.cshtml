@@ -20,7 +20,7 @@
                 <h3>@item.Hotel_Name</h3>
                 <h4>@item.Hotel_Address</h4>
                 <div class="hotet-book-btn">
-                    <a href="#" class="travel-primary-btn hvr-shutter-out-horizontal">Show Details</a>
+                    <a href="@Url.Action("DetaislHotel", "Hotel", new { id = item.Hotel_Id})" class="travel-primary-btn hvr-shutter-out-horizontal">Show Details</a>
                 </div>
             </div>
         </div>
