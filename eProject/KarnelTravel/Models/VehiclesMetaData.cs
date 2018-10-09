@@ -26,7 +26,8 @@ namespace KarnelTravel.Models
             [Required]
             [DisplayName("Vehecle Weight")]
             public Nullable<int> Vehicle_Weight { get; set; }
-            [Required]
+
+            
             [DisplayName("Vehecle IMG")]
             public string Vehicle_Img { get; set; }
             [Required]

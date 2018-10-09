@@ -202,9 +202,22 @@ namespace KarnelTravel.Areas.Management.Controllers
                         var imageUrl = defaultFolderToSaveFile + fileName;
 
                         // Lưu thông tin image url vào product
-                        var vehicles = db.Vehicles.Find(id);
-                        vehicles.Vehicle_Img = imageUrl;
-                        db.SaveChanges();
+                        try
+                        {
+                            var vehicles = db.Vehicles.Find(id);
+                            vehicles.Vehicle_Img = imageUrl;
+                            db.SaveChanges();
+                        }
+                        catch (DbEntityValidationException dbEx)
+                        {
+                            foreach (var validationErrors in dbEx.EntityValidationErrors)
+                            {
+                                foreach (var validationError in validationErrors.ValidationErrors)
+                                {
+                                    System.Console.WriteLine("Property: {0} Error: {1}", validationError.PropertyName, validationError.ErrorMessage);
+                                }
+                            }
+                        }
 
 
                         return RedirectToAction("Index");

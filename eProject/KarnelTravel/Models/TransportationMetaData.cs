@@ -22,7 +22,7 @@ public partial class Transportation
             [DisplayName("Transportation Details")]
             [DataType(DataType.MultilineText)]
             public string Transportation_Details { get; set; }
-            [Required]
+           
             [DisplayName("Transportation IMG")]
             public string Transportation_Img { get; set; }
             [Required]

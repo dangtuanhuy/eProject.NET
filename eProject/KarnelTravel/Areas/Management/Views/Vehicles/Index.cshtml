@@ -27,6 +27,9 @@
                 @Html.DisplayNameFor(model => model.Vehicle_Price)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.Vehicle_Img)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Vehicle_Weight)
             </th>
             <th>
@@ -38,52 +41,55 @@
     <tbody>
         @foreach (var item in Model)
         {
-            <tr>
-                <th class="text-center">
-                    @if (String.IsNullOrEmpty(item.Vehicle_Img) == false)
-                    {
-                        <img style="width: 100px" src="@Url.Content(item.Vehicle_Img)" />
-                    }
-                </th>
-                <td class="text-center">
-                    @Html.DisplayFor(modelItem => item.Vehicle_Id)
-                </td>
-                <td class="text-center">
-                    @Html.DisplayFor(modelItem => item.Vehicle_Name)
-                </td>
-                <td class="text-center">
-                    @Html.DisplayFor(modelItem => item.Vehicle_Price)
-                </td>
-                <td class="text-center">
-                    @Html.DisplayFor(modelItem => item.Vehicle_Weight)
-                </td>
-                <td class="text-center">
-                    @Html.DisplayFor(modelItem => item.Transportation.Transportation_Name)
-                </td>
-                <td class="text-center">
-                    <a href="@Url.Action("UploadVihicles", "Vehicles", new { id = item.Vehicle_Id })" class="btn btn-info">
-                        <i class="fa fa-image"></i>
-                        <span>
+        <tr>
+            <th class="text-center">
+                @if (String.IsNullOrEmpty(item.Vehicle_Img) == false)
+                {
+                    <img style="width: 100px" src="@Url.Content(item.Vehicle_Img)" />
+                }
+            </th>
+            <td class="text-center">
+                @Html.DisplayFor(modelItem => item.Vehicle_Id)
+            </td>
+            <td class="text-center">
+                @Html.DisplayFor(modelItem => item.Vehicle_Name)
+            </td>
+            <td class="text-center">
+                @Html.DisplayFor(modelItem => item.Vehicle_Price)
+            </td>
+            <td class="text-center">
+                @Html.DisplayFor(modelItem => item.Vehicle_Weight)
+            </td>
+            <td class="text-center">
+                @Html.DisplayFor(modelItem => item.Vehicle_Img)
+            </td>
+            <td class="text-center">
+                @Html.DisplayFor(modelItem => item.Transportation.Transportation_Name)
+            </td>
+            <td class="text-center">
+                <a href="@Url.Action("UploadVihicles", "Vehicles", new { id = item.Vehicle_Id })" class="btn btn-info">
+                    <i class="fa fa-image"></i>
+                    <span>
 
-                        </span>
-                    </a>
-                    |
-                    <a href="@Url.Action("Edit", "Vehicles", new { id = item.Vehicle_Id })" class="btn btn-success">
-                        <i class="fa fa-pencil"></i>
-                        <span>
+                    </span>
+                </a>
+                |
+                <a href="@Url.Action("Edit", "Vehicles", new { id = item.Vehicle_Id })" class="btn btn-success">
+                    <i class="fa fa-pencil"></i>
+                    <span>
 
-                        </span>
-                    </a>
-                    |
+                    </span>
+                </a>
+                |
 
-                    <a href="@Url.Action("Delete", "Vehicles", new { id = item.Vehicle_Id })" class="btn btn-danger">
-                        <i class="fa fa-trash-o"></i>
-                        <span>
+                <a href="@Url.Action("Delete", "Vehicles", new { id = item.Vehicle_Id })" class="btn btn-danger">
+                    <i class="fa fa-trash-o"></i>
+                    <span>
 
-                        </span>
-                    </a>
-                </td>
-            </tr>
+                    </span>
+                </a>
+            </td>
+        </tr>
         }
     </tbody>
 </table>
