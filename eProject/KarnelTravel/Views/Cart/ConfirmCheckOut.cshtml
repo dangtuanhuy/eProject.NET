@@ -31,7 +31,7 @@
                                 <fieldset>
                                     <legend style="text-align:center">Confirm CheckOut</legend>
                                     <div class="form-group">
-                                        @Html.LabelFor(model => model.Trip_Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        @Html.LabelFor(model => model.Trip_Name, "Name" ,htmlAttributes: new { @class = "control-label col-md-2" })
                                         <div class="col-md-9">
                                             @Html.EditorFor(model => model.Trip_Name, new { htmlAttributes = new { @class = "form-control" } })
                                             @Html.ValidationMessageFor(model => model.Trip_Name, "", new { @class = "text-danger" })
@@ -39,7 +39,7 @@
                                     </div>
 
                                     <div class="form-group">
-                                        @Html.LabelFor(model => model.Trip_Details, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        @Html.LabelFor(model => model.Trip_Details,"Phone" ,htmlAttributes: new { @class = "control-label col-md-2" })
                                         <div class="col-md-9">
                                             @Html.EditorFor(model => model.Trip_Details, new { htmlAttributes = new { @class = "form-control" } })
                                             @Html.ValidationMessageFor(model => model.Trip_Details, "", new { @class = "text-danger" })
@@ -47,7 +47,7 @@
                                     </div>
 
                                     <div class="form-group">
-                                        @Html.LabelFor(model => model.Trip_Address, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        @Html.LabelFor(model => model.Trip_Address, "Address",htmlAttributes: new { @class = "control-label col-md-2" })
                                         <div class="col-md-9">
                                             @Html.EditorFor(model => model.Trip_Address, new { htmlAttributes = new { @class = "form-control" } })
                                             @Html.ValidationMessageFor(model => model.Trip_Address, "", new { @class = "text-danger" })
