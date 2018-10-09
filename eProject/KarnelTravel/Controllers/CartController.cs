@@ -118,7 +118,6 @@ namespace KarnelTravel.Controllers
             if (ModelState.IsValid)
             {
                 var userId = Session["username"];
-                //Order order = new Order();
                 order.Trip_Date = DateTime.Now;
                 order.Customer_Id = Convert.ToString(userId);
                 //order.UserId = null;
@@ -135,12 +134,22 @@ namespace KarnelTravel.Controllers
                     details.Trip_Quantity = item.TourisQty;
                     details.OrginalPrice = item.TouristSpot_Price;
                     db.TripDetails.Add(details);
-
+                    
+                }
+                db.SaveChanges();
+                foreach (var item in lstGH)
+                {
+                    var tour = db.TouristSpots.SingleOrDefault(u => u.TouristSpot_Id == item.TouristSpot_Id);
+                    tour.TouristSpot_Limit = tour.TouristSpot_Limit - item.TourisQty;
                 }
                 db.SaveChanges();
                 Session["GioHang"] = null;
-                return RedirectToAction("XemGioHang", "Cart");
+                return RedirectToAction("Susses", "Cart");
             }
+            return View();
+        }
+        public ActionResult Susses()
+        {
             return View();
         }
     }
