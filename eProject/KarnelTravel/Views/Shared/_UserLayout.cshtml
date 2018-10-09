@@ -65,8 +65,13 @@
                             </ul>
                         </div>
                     </div>
-                    
-                </div>
+                    <div class="header-top-right text-right">
+                        <div class="col-md-3 col-xs-12 book-tab">
+                            <div class="book-btn">
+                                <a href="@Url.Action("XemGioHang", "Cart")">My Book Tour</a>
+                            </div>
+                        </div>
+                    </div>
             </div>
         </div> <!-- header top end -->
         <div class="header-bottom-area" id="stick-header">
@@ -78,6 +83,7 @@
                                 <img src="~/Content/User/images/logo.png" alt="">
                             </a>
                         </div>
+                        
                     </div>
                     <div class="col-md-11">
                         <nav>
@@ -97,7 +103,7 @@
                                 </li>
                                 <li>
                                     <a href="@Url.Action("About","About")">Abouts</a>
-                                </li>About
+                                </li>
                                 <li>
                                     <a href="@Url.Action("Contact","Contact")">Contact</a>
                                 </li>
@@ -108,7 +114,7 @@
                                 @if (@Session["username"] == null)
                                 {
                                     <li>
-                                        <a href="@Url.Action("LoginU", "LoginUser")">Sign In</a>
+                                        <a href="@Url.Action("LoginU", "LoginUser")">LOGIN</a>
                                     </li>
                                 }
                                 else
@@ -120,9 +126,9 @@
                                                 <a href="@Url.Action("UpdateAccout", "Register",new { id = @Session["username"] })">Update infornation</a>
                                             </li>
                                             <li>
-                                                <a href="@Url.Action("XemGioHang", "Cart")">My Book</a>
+                                                <a href="@Url.Action("XemGioHang", "Cart")">My Book Tour</a>
                                             </li>
-                                            <li><a href="@Url.Action("LogOff", "LoginUser")">Sign Out</a></li>
+                                            <li><a href="@Url.Action("LogOff", "LoginUser")">LOG OUT</a></li>
                                         </ul>
                                     </li>
                                 }
@@ -158,6 +164,7 @@
                             </ul>
                         </div>
                     </div>
+
                 </div> <!-- footer left -->
                 <div class="col-md-3 col-sm-6">
                     <div class="single-footer">
