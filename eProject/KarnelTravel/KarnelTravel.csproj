@@ -966,19 +966,6 @@
     <Content Include="Content\User\images\offer\5.jpg" />
     <Content Include="Content\User\images\offer\6.jpg" />
     <Content Include="Content\User\images\offer\7.jpg" />
-    <Content Include="Content\User\images\packages\1.jpg" />
-    <Content Include="Content\User\images\packages\10.jpg" />
-    <Content Include="Content\User\images\packages\11.jpg" />
-    <Content Include="Content\User\images\packages\12.jpg" />
-    <Content Include="Content\User\images\packages\13.jpg" />
-    <Content Include="Content\User\images\packages\2.jpg" />
-    <Content Include="Content\User\images\packages\3.jpg" />
-    <Content Include="Content\User\images\packages\4.jpg" />
-    <Content Include="Content\User\images\packages\5.jpg" />
-    <Content Include="Content\User\images\packages\6.jpg" />
-    <Content Include="Content\User\images\packages\7.jpg" />
-    <Content Include="Content\User\images\packages\8.jpg" />
-    <Content Include="Content\User\images\packages\9.jpg" />
     <Content Include="Content\User\images\partner\1.png" />
     <Content Include="Content\User\images\partner\10.png" />
     <Content Include="Content\User\images\partner\11.png" />
@@ -1563,6 +1550,10 @@
     <Content Include="Areas\Management\Views\Trips\Details.cshtml" />
     <Content Include="Areas\Management\Views\Trips\Edit.cshtml" />
     <Content Include="Areas\Management\Views\Trips\Index.cshtml" />
+    <None Include="Properties\PublishProfiles\KarnelTravel - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\KarnelTravel - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\KarnelTravel2 - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\KarnelTravel2 - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -1619,6 +1610,7 @@
     <Folder Include="Areas\Management\Views\Base\" />
     <Folder Include="Areas\Management\Views\Trip\" />
     <Folder Include="Content\Admin\assets\jquery-file-upload\server\php\files\thumbnail\" />
+    <Folder Include="Content\User\images\packages\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
