@@ -12,7 +12,7 @@ using KarnelTravel.Models;
 
 namespace KarnelTravel.Areas.Management.Controllers
 {
-    public class VehiclesController :BaseController
+    public class VehiclesController : BaseController
     {
         private KarnelTravelEntities db = new KarnelTravelEntities();
 
@@ -145,7 +145,7 @@ namespace KarnelTravel.Areas.Management.Controllers
         public ActionResult DeleteConfirmed(string id)
         {
             Vehicle vehicle = db.Vehicles.Find(id);
-            
+
             try
             {
                 db.Vehicles.Remove(vehicle);
@@ -202,9 +202,12 @@ namespace KarnelTravel.Areas.Management.Controllers
                         var imageUrl = defaultFolderToSaveFile + fileName;
 
                         // Lưu thông tin image url vào product
+
+
+                        //var vehicles = db.Vehicles.Find(id);
                         try
                         {
-                            var vehicles = db.Vehicles.Find(id);
+                            var vehicles = db.Vehicles.SingleOrDefault(item => item.Vehicle_Id == id);
                             vehicles.Vehicle_Img = imageUrl;
                             db.SaveChanges();
                         }
@@ -218,6 +221,7 @@ namespace KarnelTravel.Areas.Management.Controllers
                                 }
                             }
                         }
+
 
 
                         return RedirectToAction("Index");

@@ -1394,8 +1394,10 @@
     <Content Include="myImg\Transportations\TS1\VungTau.jpg" />
     <Content Include="myImg\Transportations\TS1\Water.jpg" />
     <Content Include="myImg\Transportations\TSTT003\Water.jpg" />
+    <Content Include="myImg\Transportations\TSTT006\Thumbnail.jpg" />
+    <Content Include="myImg\Vehicle\B009\Train.jpg" />
     <Content Include="myImg\Vehicle\LeftGrass.jpg" />
-    <Content Include="myImg\Vehicle\V0010\DBStructure.png" />
+    <Content Include="myImg\Vehicle\V001\Train.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">

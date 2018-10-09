@@ -202,7 +202,7 @@ namespace KarnelTravel.Areas.Management.Controllers
                         // Lưu thông tin image url vào product
                         try
                         {
-                            var Tran = db.Transportations.Find(id);
+                            var Tran = db.Transportations.SingleOrDefault(item => item.Transportation_Id == id);
                             Tran.Transportation_Img = imageUrl;
                             db.SaveChanges();
                         }
