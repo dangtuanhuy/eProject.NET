@@ -32,7 +32,7 @@ namespace KarnelTravel.Models
 
             [Display(Name = "Birthday")]
             [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
-            [DataType(DataType.Date, ErrorMessage = "Input data must be a date type")]
+            [DataType(DataType.DateTime, ErrorMessage = "Input data must be a date type")]
           
             public Nullable<System.DateTime> Customer_Bithday { get; set; }
 
@@ -55,8 +55,8 @@ namespace KarnelTravel.Models
             [DataType(DataType.EmailAddress,ErrorMessage = "Email Invalidate")]
             public string Customer_Email { get; set; }
 
-            [Display(Name = "Possport")]
-            [Required(ErrorMessage = "Possport can not null")]
+            [Display(Name = "Passport")]
+            [Required(ErrorMessage = "Passport can not null")]
           
             public string Customer_Possport { get; set; }
         }
