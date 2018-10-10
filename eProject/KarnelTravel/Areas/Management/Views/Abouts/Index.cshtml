@@ -26,7 +26,7 @@
                 @Html.DisplayNameFor(model => model.AboutLike)
             </th>
             <th class="text-center"> Method</th>
-            <th class="text-center"></th>
+            
         </tr>
         </thead>
     <tbody>
@@ -42,9 +42,19 @@
             <td class="text-center">
                 @Html.DisplayFor(modelItem => item.AboutName)
             </td>
-            <td class="text-center">
-                @Html.DisplayFor(modelItem => item.AboutGender)
-            </td>
+            
+            @if (item.AboutGender == 1)
+            {
+                <td class="text-center">
+                    Male
+                </td>
+            }
+            else
+            {
+                <td class="text-center">
+                    Female
+                </td>
+            }
             <td class="text-center">
                 @Html.DisplayFor(modelItem => item.AboutLike)
             </td>
@@ -68,23 +78,13 @@
                     <span>
 
                     </span>
-                </a>
-            <td>
-                @if (@item.AboutGender == true)
-                {
-                    <button id="@item.AboutId" class="btn btn-info" onclick="UpdateStatus(this.id)">@item.AboutGender</button>
-                }
-                else
-                {
-                    <button id="@item.AboutId" class="btn btn-danger" onclick="UpdateStatus(this.id)">@item.AboutGender</button>
-                }
-            </td>
+
         </tr>
         }
         </tbody>
 </table>
 
-<script type="text/javascript">
+@*<script type="text/javascript">
     function UpdateStatus(id) {
         $.ajax({
             url: "/Abouts/UpdateStatus",
@@ -101,4 +101,4 @@
             }
         });
     }
-</script>
+</script>*@

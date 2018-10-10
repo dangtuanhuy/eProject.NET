@@ -17,7 +17,7 @@ namespace KarnelTravel.Models
         public int AboutId { get; set; }
         public string AboutName { get; set; }
         public Nullable<System.DateTime> AboutBirth { get; set; }
-        public Nullable<bool> AboutGender { get; set; }
+        public Nullable<int> AboutGender { get; set; }
         public string AboutLike { get; set; }
         public string AboutImg { get; set; }
     }

@@ -18,10 +18,10 @@ namespace KarnelTravel.Models
 
             [Display(Name = "Birth")]
             [Required(ErrorMessage = "Birthday can not null")]
-            [DataType(DataType.Date,ErrorMessage = "Input data must be a date type")]
+            [DataType(DataType.DateTime,ErrorMessage = "Input data must be a date type")]
             public Nullable<System.DateTime> AboutBirth { get; set; }
 
-            [Display(Name ="Status")]
+            [Display(Name ="Gender")]
             public Nullable<bool> AboutGender { get; set; }
 
             [Display(Name = "Hoppy")]

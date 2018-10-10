@@ -27,7 +27,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.AboutBirth, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.AboutBirth, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.AboutBirth, new { htmlAttributes = new { @id = "datepicker",@class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.AboutBirth, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -35,10 +35,11 @@
         <div class="form-group">
             @Html.LabelFor(model => model.AboutGender, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.AboutGender)
-                    @Html.ValidationMessageFor(model => model.AboutGender, "", new { @class = "text-danger" })
-                </div>
+
+                @Html.DropDownList("AboutGender", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.AboutGender, "", new { @class = "text-danger" })
+
+
             </div>
         </div>
 
@@ -59,6 +60,13 @@
 }
 
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+
+    @section Scripts
+{
+        <script>
+        $(function () {
+            $("#datepicker").datepicker();
+        });
+        </script>
+    }
+

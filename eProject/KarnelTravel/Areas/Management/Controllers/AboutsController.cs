@@ -39,6 +39,11 @@ namespace KarnelTravel.Areas.Management.Controllers
         // GET: Management/Abouts/Create
         public ActionResult Create()
         {
+            ViewBag.AboutGender = new List<SelectListItem>
+            {
+                new SelectListItem {Value = "0", Text = "Male"},
+                new SelectListItem {Value = "1", Text = "Female"}
+            };
             return View();
         }
 
@@ -49,6 +54,11 @@ namespace KarnelTravel.Areas.Management.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "AboutId,AboutName,AboutBirth,AboutGender,AboutLike,AboutImg")] About about)
         {
+            ViewBag.AboutGender = new List<SelectListItem>
+            {
+                new SelectListItem {Value = "0", Text = "Male"},
+                new SelectListItem {Value = "1", Text = "Female"}
+            };
             if (ModelState.IsValid)
             {
                 db.Abouts.Add(about);
@@ -71,6 +81,13 @@ namespace KarnelTravel.Areas.Management.Controllers
             {
                 return HttpNotFound();
             }
+            var listTrangThai = new[]
+            {
+                new {TrangThai = 0, Ten = "Male"},
+                new {TrangThai = 1, Ten = "Female"}
+            };
+
+            ViewBag.AboutGender = new SelectList(listTrangThai, "TrangThai", "Ten", about.AboutGender);
             return View(about);
         }
 
@@ -81,12 +98,20 @@ namespace KarnelTravel.Areas.Management.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "AboutId,AboutName,AboutBirth,AboutGender,AboutLike,AboutImg")] About about)
         {
+
             if (ModelState.IsValid)
             {
                 db.Entry(about).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            var listTrangThai = new[]
+               {
+                new {TrangThai = 0, Ten = "Male"},
+                new {TrangThai = 1, Ten = "Female"}
+            };
+
+            ViewBag.AboutGender = new SelectList(listTrangThai, "TrangThai", "Ten", about.AboutGender);
             return View(about);
         }
 
@@ -177,44 +202,44 @@ namespace KarnelTravel.Areas.Management.Controllers
             return View();
         }
 
-        public ActionResult UpdateStatus(int id)
-        {
-            try
-            {
-                About ab = db.Abouts.Where(c => c.AboutId == id).SingleOrDefault();
+        //public ActionResult UpdateStatus(int id)
+        //{
+        //    try
+        //    {
+        //        About ab = db.Abouts.Where(c => c.AboutId == id).SingleOrDefault();
 
-                if (ab.AboutGender == false)
-                {
+        //        if (ab.AboutGender == false)
+        //        {
 
-                    ab.AboutGender = true;
-                }
-                else if (ab.AboutGender == true)
-                {
-                    ab.AboutGender = false;
-                }
-                db.SaveChanges();
+        //            ab.AboutGender = true;
+        //        }
+        //        else if (ab.AboutGender == true)
+        //        {
+        //            ab.AboutGender = false;
+        //        }
+        //        db.SaveChanges();
 
-                return Json(ab, JsonRequestBehavior.AllowGet);
-            }
-            catch
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.InternalServerError);
-            }
-        }
+        //        return Json(ab, JsonRequestBehavior.AllowGet);
+        //    }
+        //    catch
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.InternalServerError);
+        //    }
+        //}
 
-        public ActionResult IndexStatus()
-        {
-            List<About> listAbout = new List<About>();
-            try
-            {
-                listAbout = db.Abouts.Where(u => u.AboutGender == false).ToList();
+        //public ActionResult IndexStatus()
+        //{
+        //    List<About> listAbout = new List<About>();
+        //    try
+        //    {
+        //        listAbout = db.Abouts.Where(u => u.AboutGender == false).ToList();
 
-            }
-            catch
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.InternalServerError);
-            }
-            return View(listAbout);
-        }
+        //    }
+        //    catch
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.InternalServerError);
+        //    }
+        //    return View(listAbout);
+        //}
     }
 }

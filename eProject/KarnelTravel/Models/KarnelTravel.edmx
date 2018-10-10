@@ -12,7 +12,7 @@
           <Property Name="AboutId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="AboutName" Type="nvarchar" MaxLength="50" />
           <Property Name="AboutBirth" Type="date" />
-          <Property Name="AboutGender" Type="bit" />
+          <Property Name="AboutGender" Type="int" />
           <Property Name="AboutLike" Type="nvarchar" MaxLength="150" />
           <Property Name="AboutImg" Type="nvarchar" MaxLength="250" />
         </EntityType>
@@ -609,7 +609,7 @@
           <Property Name="AboutId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="AboutName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="AboutBirth" Type="DateTime" Precision="0" />
-          <Property Name="AboutGender" Type="Boolean" />
+          <Property Name="AboutGender" Type="Int32" />
           <Property Name="AboutLike" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
           <Property Name="AboutImg" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
         </EntityType>
