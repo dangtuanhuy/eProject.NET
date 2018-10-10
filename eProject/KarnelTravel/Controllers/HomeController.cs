@@ -20,9 +20,16 @@ namespace KarnelTravel.Controllers
             var Hotel1 = db.Hotels.Where(u => u.Hotel_Status == true).OrderByDescending(u => u.Hotel_Create);
             ViewBag.Hotel1 = Hotel1;
 
+            var Food1 = (from p in db.Foods select p).OrderByDescending(p => p.Food_Code);
+            ViewBag.Food1 = Food1;
+
             return View();
         }
         public ActionResult _TourisSpot()
+        {
+            return PartialView();
+        }
+        public ActionResult _Food()
         {
             return PartialView();
         }

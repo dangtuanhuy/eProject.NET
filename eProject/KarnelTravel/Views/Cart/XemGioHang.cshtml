@@ -88,9 +88,7 @@ else
                                                 <td class="col-sm-1 col-md-1 text-center"><strong>$@item.TouristSpot_Price</strong></td>
                                                 <td class="col-sm-1 col-md-1 text-center"><strong>$@item.ThanhTien</strong></td>
                                                 <td class="col-sm-1 col-md-1">
-                                                    <button type="button" class="btn btn-danger">
-                                                        <span class="fa fa-trash"></span> Remove
-                                                    </button>
+                                                        <a href="@Url.Action("XoaKhoiGio", new { TouristSpotId = @item.TouristSpot_Id })" onclick="return confirm('Are you sure Delete Tour?');" class="btn btn-danger fa fa-trash">Delete</a>
                                                 </td>
                                             </tr>
                                         }

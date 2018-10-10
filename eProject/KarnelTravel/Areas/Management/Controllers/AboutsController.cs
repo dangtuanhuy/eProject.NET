@@ -205,10 +205,10 @@ namespace KarnelTravel.Areas.Management.Controllers
         //public ActionResult UpdateStatus(int id)
         //{
         //    try
-        //    {
-        //        About ab = db.Abouts.Where(c => c.AboutId == id).SingleOrDefault();
+        //{
+        //       About ab = db.Abouts.Where(c => c.AboutId == id).SingleOrDefault();
 
-        //        if (ab.AboutGender == false)
+        //       if (ab.AboutGender == false)
         //        {
 
         //            ab.AboutGender = true;

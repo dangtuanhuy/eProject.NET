@@ -1604,6 +1604,7 @@
     <Content Include="Views\Restaurant\DetaislRestaurant.cshtml" />
     <Content Include="Views\TourisSpot\TourisSpotDetails.cshtml" />
     <Content Include="Views\Cart\Susses.cshtml" />
+    <Content Include="Views\Home\_Food.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

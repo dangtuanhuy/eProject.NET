@@ -20,10 +20,10 @@ namespace KarnelTravel.Models
             [DataType(DataType.MultilineText)]
             public string Restaurant_Address { get; set; }
 
-            [Display(Name = "Name")]
+            [Display(Name = "Status")]
             public Nullable<bool> Restaurant_Status { get; set; }
 
-            [Display(Name = "Name")]
+            [Display(Name = "Description")]
             [DataType(DataType.MultilineText)]
             public string Restaurant_Description { get; set; }
 

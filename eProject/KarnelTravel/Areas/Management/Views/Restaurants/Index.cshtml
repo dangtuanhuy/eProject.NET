@@ -27,6 +27,9 @@
             <th class="col-md-2">
                 @Html.DisplayNameFor(model => model.TouristSpot.TouristSpot_Name)
             </th>
+            <th class="col-md-1">
+                @Html.DisplayNameFor(model => model.Restaurant_Status)
+            </th>
             <th class="col-md-3"></th>
         </tr>
     </thead>
@@ -34,49 +37,59 @@
     <tbody>
         @foreach (var item in Model)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Restaurant_Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Restaurant_Address)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Restaurant_Description)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.TouristSpot.TouristSpot_Name)
-                </td>
-                <td>
-                    <a href="@Url.Action("UploadRestaurants", "Restaurants", new { id = item.Restaurant_Code })" class="btn btn-info">
-                        <i class="fa fa-image"></i>
-                        <span>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Restaurant_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Restaurant_Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Restaurant_Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TouristSpot.TouristSpot_Name)
+            </td>
+            <td style="text-align:center">
+                @if (@item.Restaurant_Status == true)
+                {
+                    <a href="@Url.Action("UpdateStatus", new { id = @item.Restaurant_Code })" onclick="return confirm('Are you sure update?');" class="btn btn-info">Open</a>
+                }
+                else
+                {
+                    <a href="@Url.Action("UpdateStatus", new { id = @item.Restaurant_Code })" onclick="return confirm('Are you sure update?');" class="btn btn-danger">Close</a>
+                }
+            </td>
+            <td>
+                <a href="@Url.Action("UploadRestaurants", "Restaurants", new { id = item.Restaurant_Code })" class="btn btn-info">
+                    <i class="fa fa-image"></i>
+                    <span>
 
-                        </span>
-                    </a>
-                    |
-                    <a href="@Url.Action("Edit", "Restaurants", new { id = item.Restaurant_Code })" class="btn btn-success">
-                        <i class="fa fa-flash"></i>
-                        <span>
+                    </span>
+                </a>
+                |
+                <a href="@Url.Action("Edit", "Restaurants", new { id = item.Restaurant_Code })" class="btn btn-success">
+                    <i class="fa fa-flash"></i>
+                    <span>
 
-                        </span>
-                    </a>
-                    |
-                    <a href="@Url.Action("Details", "Restaurants", new { id = item.Restaurant_Code })" class="btn btn-primary">
-                        <i class="fa fa-list-alt"></i>
-                        <span>
+                    </span>
+                </a>
+                |
+                <a href="@Url.Action("Details", "Restaurants", new { id = item.Restaurant_Code })" class="btn btn-primary">
+                    <i class="fa fa-list-alt"></i>
+                    <span>
 
-                        </span>
-                    </a>
-                    |
-                    <a href="@Url.Action("Delete", "Restaurants", new { id = item.Restaurant_Code})" class="btn btn-danger">
-                        <i class="fa fa-trash-o"></i>
-                        <span>
+                    </span>
+                </a>
+                |
+                <a href="@Url.Action("Delete", "Restaurants", new { id = item.Restaurant_Code})" class="btn btn-danger">
+                    <i class="fa fa-trash-o"></i>
+                    <span>
 
-                        </span>
-                    </a>
-                </td>
-            </tr>
+                    </span>
+                </a>
+            </td>
+        </tr>
         }
     </tbody>
 </table>

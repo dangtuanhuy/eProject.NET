@@ -1,8 +1,10 @@
 ﻿@model IEnumerable<KarnelTravel.Models.About>
 
 @{
-    ViewBag.Title = "Index";
-    Layout = "~/Areas/Management/Views/Shared/_AdministratorLayout.cshtml";
+                /**/
+
+                ViewBag.Title = "Index";
+                Layout = "~/Areas/Management/Views/Shared/_AdministratorLayout.cshtml";
 }
 
 <h2 class="text-center">About Us</h2>
@@ -15,7 +17,7 @@
 <table class="table table-striped table-bordered" id="tablefillset">
     <thead>
         <tr>
-            <th ></th>
+            <th></th>
             <th class="text-center">
                 @Html.DisplayNameFor(model => model.AboutName)
             </th>
@@ -26,79 +28,79 @@
                 @Html.DisplayNameFor(model => model.AboutLike)
             </th>
             <th class="text-center"> Method</th>
-            
+
         </tr>
-        </thead>
+    </thead>
     <tbody>
         @foreach (var item in Model)
         {
-        <tr>
-            <td class="text-center">
-                @if (String.IsNullOrEmpty(item.AboutImg) == false)
+            <tr>
+                <td class="text-center">
+                    @if (String.IsNullOrEmpty(item.AboutImg) == false)
+                    {
+                        <img style="width: 100px" src="@Url.Content(item.AboutImg)" />
+                    }
+                </td>
+                <td class="text-center">
+                    @Html.DisplayFor(modelItem => item.AboutName)
+                </td>
+
+                @if (item.AboutGender == 1)
                 {
-                    <img style="width: 100px" src="@Url.Content(item.AboutImg)" />
+                    <td class="text-center">
+                        Male
+                    </td>
                 }
-            </td>
-            <td class="text-center">
-                @Html.DisplayFor(modelItem => item.AboutName)
-            </td>
-            
-            @if (item.AboutGender == 1)
-            {
+                else
+                {
+                    <td class="text-center">
+                        Female
+                    </td>
+                }
                 <td class="text-center">
-                    Male
+                    @Html.DisplayFor(modelItem => item.AboutLike)
                 </td>
-            }
-            else
-            {
                 <td class="text-center">
-                    Female
-                </td>
-            }
-            <td class="text-center">
-                @Html.DisplayFor(modelItem => item.AboutLike)
-            </td>
-            <td class="text-center">
-                <a href="@Url.Action("UploadAbout", "Abouts", new { id = item.AboutId })" class="btn btn-info">
-                    <i class="fa fa-image"></i>
-                    <span>
+                    <a href="@Url.Action("UploadAbout", "Abouts", new { id = item.AboutId })" class="btn btn-info">
+                        <i class="fa fa-image"></i>
+                        <span>
 
-                    </span>
-                </a>
-                |
-                <a href="@Url.Action("Edit", "Abouts", new { id = item.AboutId })" class="btn btn-success">
-                    <i class="fa fa-pencil"></i>
-                    <span>
+                        </span>
+                    </a>
+                    |
+                    <a href="@Url.Action("Edit", "Abouts", new { id = item.AboutId })" class="btn btn-success">
+                        <i class="fa fa-pencil"></i>
+                        <span>
 
-                    </span>
-                </a>
-                |
-                <a href="@Url.Action("Delete", "Abouts", new { id = item.AboutId })" class="btn btn-danger">
-                    <i class="fa fa-trash-o"></i>
-                    <span>
+                        </span>
+                    </a>
+                    |
+                    <a href="@Url.Action("Delete", "Abouts", new { id = item.AboutId })" class="btn btn-danger">
+                        <i class="fa fa-trash-o"></i>
+                        <span>
 
-                    </span>
-
-        </tr>
+                        </span>
+                    </a>
+            </tr>
         }
-        </tbody>
+    </tbody>
 </table>
 
 @*<script type="text/javascript">
-    function UpdateStatus(id) {
-        $.ajax({
-            url: "/Abouts/UpdateStatus",
-            data: { id: id },
-            type: "POST",
-            success: function (data) {
-                //$("#"+id).attr("disabled","disabled");
-                $("#" + id).prop('disabled', true);//disabled is a property not an attribute
-                alert("Cập nhật status thành công!");
-                window.location.reload();
-            },
-            error: function (e) {
-                bootbox.alert(e.responseText);
-            }
-        });
-    }
-</script>*@
+        function UpdateStatus(id) {
+            $.ajax({
+                url: "/Abouts/UpdateStatus",
+                data: { id: id },
+                type: "POST",
+                success: function (data) {
+                    //$("#"+id).attr("disabled","disabled");
+                    $("#" + id).prop('disabled', true);//disabled is a property not an attribute
+                    alert("Cập nhật status thành công!");
+                    window.location.reload();
+                },
+                error: function (e) {
+                    bootbox.alert(e.responseText);
+                }
+            });
+        }
+    </script>*@

@@ -37,7 +37,7 @@ namespace KarnelTravel.Controllers
                 }
                 else
                 {
-                    return RedirectToAction("LoginU");
+                    ModelState.AddModelError("", "Please check username  or Password!");
                 }
             }
             return View("LoginU");
@@ -61,7 +61,7 @@ namespace KarnelTravel.Controllers
                 }
                 else
                 {
-                    return RedirectToAction("LoginCart");
+                    ModelState.AddModelError("", "Please check username  or Password!");
                 }
             }
             return View("LoginCart");

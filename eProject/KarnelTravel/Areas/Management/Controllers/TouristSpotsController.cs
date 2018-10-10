@@ -245,45 +245,20 @@ namespace KarnelTravel.Areas.Management.Controllers
 
         public ActionResult UpdateStatus(string id)
         {
-            try
+            TouristSpot ab = db.TouristSpots.Where(c => c.TouristSpot_Id == id).SingleOrDefault();
+            if (ab.TouristSpot_Status == false)
             {
-                TouristSpot ab = db.TouristSpots.Where(c => c.TouristSpot_Id == id).SingleOrDefault();
-
-                if (ab.TouristSpot_Status == false)
-                {
-
-                    ab.TouristSpot_Status = true;
-                }
-                else if (ab.TouristSpot_Status == true)
-                {
-                    ab.TouristSpot_Status = false;
-                }
-                db.SaveChanges();
-
-                return Json(ab, JsonRequestBehavior.AllowGet);
+                ab.TouristSpot_Status = true;
             }
-            catch
+            else
             {
-                return new HttpStatusCodeResult(HttpStatusCode.InternalServerError);
+                ab.TouristSpot_Status = false;
             }
+            db.SaveChanges();
+            return RedirectToAction("Index", "TouristSpots");
+
         }
 
-        public ActionResult IndexStatus()
-        {
-            List<TouristSpot> listTour = new List<TouristSpot>();
-            try
-            {
-                listTour = db.TouristSpots.Where(u => u.TouristSpot_Status == false).ToList();
-
-            }
-            catch
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.InternalServerError);
-            }
-            return View(listTour);
-        }
-
-       
 
     }
 }

@@ -35,47 +35,52 @@
     <tbody>
         @foreach (var item in Model)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Hotel_Id)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Hotel_Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Hotel_Address)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Hotel_Status)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.TouristSpot.TouristSpot_Name)
-                </td>
-                <td>
-                    <a href="@Url.Action("UploadHotels", "Hotels", new { id = item.Hotel_Id })" class="btn btn-info">
-                        <i class="fa fa-image"></i>
-                        <span>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Hotel_Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Hotel_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Hotel_Address)
+            </td>
+            <td style="text-align:center">
+                @if (@item.Hotel_Status == true)
+                {
+                    <a href="@Url.Action("UpdateStatus", new { id = @item.Hotel_Id })" onclick="return confirm('Are you sure update?');" class="btn btn-info">Open</a>
+                }
+                else
+                {
+                    <a href="@Url.Action("UpdateStatus", new { id = @item.Hotel_Id })" onclick="return confirm('Are you sure update?');" class="btn btn-danger">Close</a>
+                }
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TouristSpot.TouristSpot_Name)
+            </td>
+            <td>
+                <a href="@Url.Action("UploadHotels", "Hotels", new { id = item.Hotel_Id })" class="btn btn-info">
+                    <i class="fa fa-image"></i>
+                    <span>
 
-                        </span>
-                    </a>
-                    |
-                    <a href="@Url.Action("Edit", "Hotels", new { id = item.Hotel_Id })" class="btn btn-success">
-                        <i class="fa fa-pencil"></i>
-                        <span>
+                    </span>
+                </a>
+                |
+                <a href="@Url.Action("Edit", "Hotels", new { id = item.Hotel_Id })" class="btn btn-success">
+                    <i class="fa fa-pencil"></i>
+                    <span>
 
-                        </span>
-                    </a>
-                    |
-                    <a href="@Url.Action("Delete", "Hotels", new { id = item.Hotel_Id})" class="btn btn-danger">
-                        <i class="fa fa-trash-o"></i>
-                        <span>
+                    </span>
+                </a>
+                |
+                <a href="@Url.Action("Delete", "Hotels", new { id = item.Hotel_Id})" class="btn btn-danger">
+                    <i class="fa fa-trash-o"></i>
+                    <span>
 
-                        </span>
-                    </a>
-                </td>
-            </tr>
+                    </span>
+                </a>
+            </td>
+        </tr>
         }
     </tbody>
 </table>
-
-

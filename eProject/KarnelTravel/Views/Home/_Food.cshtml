@@ -1,10 +1,10 @@
 ﻿@using KarnelTravel.Models;
-@model IEnumerable<Hotel>
+@model IEnumerable<Food>
 
 <div class="row">
     <div class="col-md-12 col-sm-12 col-xs-12">
         <div class="section-title text-center">
-            <h2>Our most new Hotel</h2>
+            <h2>Our most new Food</h2>
             @*<p>Lorem ipsum dolor sit amet consectetur adipiscing elit Etiam at ipsum at ligula vestibulum sodales Sed luctus orci vel nibh aliquam laoreet Aenean accumsan </p>*@
         </div>
     </div>
@@ -14,16 +14,12 @@
     <div class="col-md-4 col-sm-6 co-lxs-12 single-item">
         <div class="single-hotels" style="width: 345px;height: 347px;">
             <div class="hotel-image" style="width: 345px;height: 229px;">
-                <img src="~/myImg/Hotels/@item.ImgHotels.FirstOrDefault().Img_Hotels" alt="" class="border-raduis-3">
+                <img src="~/myImg/Foods/@item.ImgFoods.FirstOrDefault().Img_Foods" alt="" class="border-raduis-3">
             </div>
             <div class="hotel-description">
-                <h3>@item.Hotel_Name</h3>
-                <h4>@item.Hotel_Address</h4>
-                <div class="hotet-book-btn">
-                    <a href="@Url.Action("DetaislHotel", "Hotel", new { id = item.Hotel_Id})" class="travel-primary-btn hvr-shutter-out-horizontal">Show Details</a>
-                </div>
+                <h3>@item.Food_Name</h3>
+                <h4>@item.Restaurant.Restaurant_Name</h4>
             </div>
-            
         </div>
     </div>
 }

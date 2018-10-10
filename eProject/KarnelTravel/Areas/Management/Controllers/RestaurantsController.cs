@@ -241,6 +241,24 @@ namespace KarnelTravel.Areas.Management.Controllers
             return Redirect("~/Restaurants/UploadRestaurants/" + Restaurant_Code);
         }
 
+
+
+        public ActionResult UpdateStatus(string id)
+        {
+            Restaurant ab = db.Restaurants.Where(c => c.Restaurant_Code == id).SingleOrDefault();
+            if (ab.Restaurant_Status == false)
+            {
+                ab.Restaurant_Status = true;
+            }
+            else
+            {
+                ab.Restaurant_Status = false;
+            }
+            db.SaveChanges();
+            return RedirectToAction("Index", "Restaurants");
+
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

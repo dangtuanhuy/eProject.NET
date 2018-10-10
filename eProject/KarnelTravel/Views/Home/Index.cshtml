@@ -8,6 +8,7 @@
     IEnumerable<TouristSpot> TouristSpots1 = ViewBag.TouristSpots1 as IEnumerable<TouristSpot>;
     IEnumerable<Restaurant> Restaurant1 = ViewBag.Restaurant1 as IEnumerable<Restaurant>;
     IEnumerable<Hotel> Hotel1 = ViewBag.Hotel1 as IEnumerable<Hotel>;
+    IEnumerable<Food> Food1 = ViewBag.Food1 as IEnumerable<Food>;
 }
 <section class="slider-area">
     <div class="rev_slider_wrapper">
@@ -122,6 +123,13 @@
     </div>
 </section> <!--end  popular packajge -->
 
+<section class="popular-packages pb-65 pt-90">
+    <div class="container">
+        <div class="row">
+            @Html.Partial("~/Views/Home/_Food.cshtml", Food1)
+        </div>
+    </div>
+</section> <!--end  popular packajge -->
 <!-- testimonial area start here -->
 <section class="testimonial-area image-bg-padding-100">
     <div class="testimonial-wrapper">

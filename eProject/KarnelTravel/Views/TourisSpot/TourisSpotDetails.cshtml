@@ -19,35 +19,38 @@
             </div>
         </div>
     </div>
-</section><!-- blog breadcrumb version one end here -->
-<section class="section-paddings">
-    <div class="container">
-        <div class="content-wrapper">
-            <div class="item-container">
-                <div class="container-fluid">
+</section>
 
-                    <div class="col-md-12">
-                        <div class="product col-md-3 service-image">
 
-                            <center>
-                                <img id="item-display" src="~/myImg/TouristSpot/@Model.ImgTouristSpots.FirstOrDefault().Img_TouristSpot" alt="" class="img-responsive aligncenter" />
-                            </center>
+<div class="container">
+    <div class="card">
+        <div class="container-fliud">
+            <div class="wrapper row">
+                <div class="preview col-md-6">
+                    <div class="tab-content" style="width: 345px;height: 229px;">
+
+                        <div class="tab-pane active" id="pic-1" style="height: 229px;">
+                            <img src="~/myImg/TouristSpot/@Model.ImgTouristSpots.FirstOrDefault().Img_TouristSpot" alt="">
                         </div>
-
-                        <div class="container service1-items col-sm-2 col-md-2 pull-left">
-                            <center>
-
-                                @foreach (var img in Model.ImgTouristSpots.Take(3))
-                                {
-                                    <a id="item-1" class="service1-item">
-                                        <img id="item-display" src="~/myImg/TouristSpot/@img.Img_TouristSpot" alt="" class="img-responsive aligncenter" />
-                                    </a>
-                                }
-                            </center>
-                        </div>
+                        @foreach (var img in Model.ImgTouristSpots.Take(3))
+                        {
+                            <div class="tab-pane" id="pic-@img.Img_TouristSpot_Sort">
+                                <img src="~/myImg/TouristSpot/@img.Img_TouristSpot" alt="">
+                            </div>
+                        }
                     </div>
+                    <ul class="preview-thumbnail nav nav-tabs">
+                        @foreach (var img in Model.ImgTouristSpots.Take(3))
+                        {
 
+                            <li>
+                                <a data-target="#pic-@img.Img_TouristSpot_Sort" data-toggle="tab"><img src="~/myImg/TouristSpot/@img.Img_TouristSpot" alt=""></a>
+                            </li>
+                        }
 
+                    </ul>
+                </div>
+                <div class="details col-md-6">
                     <div class="col-md-7">
                         <div class="product-title">@Html.DisplayFor(model => model.TouristSpot_Name)</div>
 
@@ -56,55 +59,264 @@
 
                         <hr>
                         <div class="btn-group cart">
-                            <a href="@Url.Action("ThemGioHang", "Cart", new { @TouristSpotId = Model.TouristSpot_Id, strUrl = Request.Url.ToString()})" class="btn btn-info">
+                            <a href="@Url.Action("ThemGioHang", "Cart", new { @TouristSpotId = Model.TouristSpot_Id, strUrl = Request.Url.ToString()})" onclick="return confirm('Are you sure you want to book this Tour?');" class="btn btn-info">
                                 ADD TO CART
                             </a>
                         </div>
                         <a class="btn btn-primary" href="@Url.Action("Index", "Home")">Continue shopping</a>
 
                     </div>
-                </div>
-            </div>
-            <div class="container-fluid">
-                <div class="col-md-12 product-info">
-                    <ul id="myTab" class="nav nav-tabs nav_tabs">
+                    <div class="container-fluid">
+                        <div class="col-md-12 product-info">
+                            <ul id="myTab" class="nav nav-tabs nav_tabs">
 
-                        <li class="active"><a href="#service-one" data-toggle="tab">DESCRIPTION</a></li>
-                        <li><a href="#service-two" data-toggle="tab">PRODUCT INFO</a></li>
-                        <li><a href="#service-three" data-toggle="tab">REVIEWS</a></li>
+                                <li class="active"><a href="#service-one" data-toggle="tab">DESCRIPTION</a></li>
+                                <li><a href="#service-two" data-toggle="tab">PRODUCT INFO</a></li>
+                                <li><a href="#service-three" data-toggle="tab">REVIEWS</a></li>
 
-                    </ul>
-                    <div id="myTabContent" class="tab-content">
-                        <div class="tab-pane fade in active" id="service-one">
+                            </ul>
+                            <div id="myTabContent" class="tab-content">
+                                <div class="tab-pane fade in active" id="service-one">
 
-                            <section class="container product-info">
-                                @Html.DisplayFor(model => model.TouristSpot_Specific)
-                            </section>
+                                    <section class="container product-info">
+                                        @Html.DisplayFor(model => model.TouristSpot_Specific)
+                                    </section>
 
-                        </div>
-                        <div class="tab-pane fade" id="service-two">
+                                </div>
+                                <div class="tab-pane fade" id="service-two">
 
-                            <section class="container">
-                                @Html.DisplayFor(model => model.TouristSpot_Price)
-                                @Html.DisplayFor(model => model.TouristSpot_Limit)
-                            </section>
+                                    <section class="container" style="width: 90%">
+                                        @Html.DisplayFor(model => model.TouristSpot_Price)
+                                        @Html.DisplayFor(model => model.TouristSpot_Limit)
+                                    </section>
 
-                        </div>
-                        <div class="tab-pane fade" id="service-three">
-                            <section class="container">
-                                
-                            </section>
+                                </div>
+                                <div class="tab-pane fade" id="service-three">
+                                    <section class="container"></section>
+                                </div>
+                            </div>
+                            <hr>
                         </div>
                     </div>
-                    <hr>
                 </div>
             </div>
         </div>
     </div>
-</section>
-
-
+</div>
 <link href="~/Content/User/myStyle.css" rel="stylesheet" />
+<style>
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        overflow-x: hidden;
+    }
 
+    img {
+        max-width: 100%;
+    }
 
+    .preview {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column;
+    }
 
+    @@media screen and (max-width: 996px) {
+        .preview {
+            margin-bottom: 20px;
+        }
+    }
+
+    .preview-pic {
+        -webkit-box-flex: 1;
+        -webkit-flex-grow: 1;
+        flex-grow: 1;
+    }
+
+    .preview-thumbnail.nav-tabs {
+        border: none;
+        margin-top: 15px;
+    }
+
+        .preview-thumbnail.nav-tabs li {
+            width: 18%;
+            margin-right: 2.5%;
+        }
+
+            .preview-thumbnail.nav-tabs li img {
+                max-width: 100%;
+                display: block;
+            }
+
+            .preview-thumbnail.nav-tabs li a {
+                padding: 0;
+                margin: 0;
+                cursor: pointer;
+            }
+
+            .preview-thumbnail.nav-tabs li:last-of-type {
+                margin-right: 0;
+            }
+
+    .tab-content {
+        overflow: hidden;
+    }
+
+        .tab-content img {
+            width: 100%;
+            -webkit-animation-name: opacity;
+            animation-name: opacity;
+            -webkit-animation-duration: .3s;
+            animation-duration: .3s;
+        }
+
+    .card {
+        margin-top: 0px;
+        background: #eee;
+        padding: 3em;
+        line-height: 1.5em;
+    }
+
+    @@media screen and (min-width: 997px) {
+        .wrapper {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+        }
+    }
+
+    .details {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column;
+    }
+
+    .colors {
+        -webkit-box-flex: 1;
+        -webkit-flex-grow: 1;
+        flex-grow: 1;
+    }
+
+    .product-title, .price, .sizes, .colors {
+        text-transform: UPPERCASE;
+        font-weight: bold;
+    }
+
+        .checked, .price span {
+            color: #ff9f1a;
+        }
+
+    .product-title, .rating, .product-description, .price, .vote, .sizes {
+        margin-bottom: 15px;
+    }
+
+    .product-title {
+        margin-top: 0;
+    }
+
+    .size {
+        margin-right: 10px;
+    }
+
+        .size:first-of-type {
+            margin-left: 40px;
+        }
+
+    .color {
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 10px;
+        height: 2em;
+        width: 2em;
+        border-radius: 2px;
+    }
+
+        .color:first-of-type {
+            margin-left: 20px;
+        }
+
+    .add-to-cart, .like {
+        background: #ff9f1a;
+        padding: 1.2em 1.5em;
+        border: none;
+        text-transform: UPPERCASE;
+        font-weight: bold;
+        color: #fff;
+        text-decoration: none;
+        -webkit-transition: background .3s ease;
+        transition: background .3s ease;
+    }
+
+        .add-to-cart:hover, .like:hover {
+            background: #b36800;
+            color: #fff;
+            text-decoration: none;
+        }
+
+    .not-available {
+        text-align: center;
+        line-height: 2em;
+    }
+
+        .not-available:before {
+            font-family: fontawesome;
+            content: "\f00d";
+            color: #fff;
+        }
+
+    .orange {
+        background: #ff9f1a;
+    }
+
+    .green {
+        background: #85ad00;
+    }
+
+    .blue {
+        background: #0076ad;
+    }
+
+    .tooltip-inner {
+        padding: 1.3em;
+    }
+
+    @@-webkit-keyframes opacity {
+        0% {
+            opacity: 0;
+            -webkit-transform: scale(3);
+            transform: scale(3);
+        }
+
+        100% {
+            opacity: 1;
+            -webkit-transform: scale(1);
+            transform: scale(1);
+        }
+    }
+
+    @@keyframes opacity {
+        0% {
+            opacity: 0;
+            -webkit-transform: scale(3);
+            transform: scale(3);
+        }
+
+        100% {
+            opacity: 1;
+            -webkit-transform: scale(1);
+            transform: scale(1);
+        }
+    }
+</style>

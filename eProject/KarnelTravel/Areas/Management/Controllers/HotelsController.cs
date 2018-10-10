@@ -240,6 +240,22 @@ namespace KarnelTravel.Areas.Management.Controllers
             return Json(!db.Hotels.Any(x => x.Hotel_Id == Hotel), JsonRequestBehavior.AllowGet);
         }
 
+
+        
+        public ActionResult UpdateStatus(string id)
+        {
+                Hotel ab = db.Hotels.Where(c => c.Hotel_Id == id).SingleOrDefault();
+                if (ab.Hotel_Status == false)
+                {
+                    ab.Hotel_Status = true;
+                }else
+                {
+                    ab.Hotel_Status = false; 
+                }
+                db.SaveChanges();
+                return RedirectToAction("Index", "Hotels");
+            
+        }
         protected override void Dispose(bool disposing)
         {
             if (disposing)

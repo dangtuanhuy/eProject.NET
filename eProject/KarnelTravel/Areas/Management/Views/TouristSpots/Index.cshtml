@@ -31,80 +31,63 @@
             <th>
                 @Html.DisplayNameFor(model => model.Location.Location_Name)
             </th>
-            <th></th>
+            <th>
+                @Html.DisplayNameFor(model => model.TouristSpot_Status)
+            </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
         @foreach (var item in Model)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.TouristSpot_Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.TouristSpot_Limit)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.TouristSpot_Price)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.TouristSpot_Status)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Location.Location_Name)
-                </td>
-                <td>
-                    <a href="@Url.Action("UploadTouristSpots", "TouristSpots", new { id = item.TouristSpot_Id })" class="btn btn-info">
-                        <i class="fa fa-image"></i>
-                        <span>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TouristSpot_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TouristSpot_Limit)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TouristSpot_Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TouristSpot_Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Location.Location_Name)
+            </td>
+            <td style="text-align:center">
+                @if (@item.TouristSpot_Status == true)
+                {
+                    <a href="@Url.Action("UpdateStatus", new { id = @item.TouristSpot_Id })" onclick="return confirm('Are you sure update?');" class="btn btn-info">Open</a>
+                }
+                else
+                {
+                    <a href="@Url.Action("UpdateStatus", new { id = @item.TouristSpot_Id })" onclick="return confirm('Are you sure update?');" class="btn btn-danger">Close</a>
+                }
+            </td>
+            <td>
+                <a href="@Url.Action("UploadTouristSpots", "TouristSpots", new { id = item.TouristSpot_Id })" class="btn btn-info">
+                    <i class="fa fa-image"></i>
+                    <span>
 
-                        </span>
-                    </a>
-                    |
-                    <a href="@Url.Action("Edit", "TouristSpots", new { id = item.TouristSpot_Id })" class="btn btn-success">
-                        <i class="fa fa-pencil"></i>
-                        <span>
+                    </span>
+                </a>
+                |
+                <a href="@Url.Action("Edit", "TouristSpots", new { id = item.TouristSpot_Id })" class="btn btn-success">
+                    <i class="fa fa-pencil"></i>
+                    <span>
 
-                        </span>
-                    </a>
-                    |
-                    <a href="@Url.Action("Delete", "TouristSpots", new { id = item.TouristSpot_Id })" class="btn btn-danger">
-                        <i class="fa fa-trash-o"></i>
-                        <span>
+                    </span>
+                </a>
+                |
+                <a href="@Url.Action("Delete", "TouristSpots", new { id = item.TouristSpot_Id })" class="btn btn-danger">
+                    <i class="fa fa-trash-o"></i>
+                    <span>
 
-                        </span>
-                    </a>
-                <td>
-                    @if (@item.TouristSpot_Status == true)
-                    {
-                        <button id="@item.TouristSpot_Id" class="btn btn-info" onclick="UpdateStatus(this.id)">@item.TouristSpot_Status</button>
-                    }
-                    else
-                    {
-                        <button id="@item.TouristSpot_Id" class="btn btn-danger" onclick="UpdateStatus(this.id)">@item.TouristSpot_Status</button>
-                    }
-                </td>
-            </tr>
+                    </span>
+                </a>
+        </tr>
         }
     </tbody>
 </table>
-
-<script type="text/javascript">
-    function UpdateStatus(id) {
-        $.ajax({
-            url: "/TouristSpots/UpdateStatus",
-            data: { id: id },
-            type: "POST",
-            success: function (data) {
-                //$("#"+id).attr("disabled","disabled");
-                $("#" + id).prop('disabled', true);//disabled is a property not an attribute
-                alert("Cập nhật status thành công!");
-                window.location.reload();
-            },
-            error: function (e) {
-                bootbox.alert(e.responseText);
-            }
-        });
-    }
-</script>

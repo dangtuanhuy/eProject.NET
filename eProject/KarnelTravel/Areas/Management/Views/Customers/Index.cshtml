@@ -39,34 +39,43 @@
     <tbody>
         @foreach (var item in Model)
         {
-            <tr>
-                
-                <td>
-                    @Html.DisplayFor(modelItem => item.Customer_LastName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Customer_FirstName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Customer_Bithday)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Customer_Gender)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Customer_Phone)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Customer_Address)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Customer_Email)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Customer_Possport)
-                </td>
+        <tr>
 
-            </tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Customer_LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Customer_FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Customer_Bithday)
+            </td>
+            @if (item.Customer_Gender == true)
+            {
+                <td class="text-center">
+                    Male
+                </td>
+            }
+            else
+            {
+                <td class="text-center">
+                    Female
+                </td>
+            }
+            <td>
+                @Html.DisplayFor(modelItem => item.Customer_Phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Customer_Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Customer_Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Customer_Possport)
+            </td>
+
+        </tr>
         }
     </tbody>
 </table>

@@ -40,8 +40,15 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Trip_Address)
                 </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Trip_Status)
+                <td style="text-align:center">
+                    @if (@item.Trip_Status == true)
+                    {
+                    <a href="@Url.Action("UpdateStatus", new { id = @item.Trip_Id })" onclick="return confirm('Are you sure update?');" class="btn btn-info">Delivered</a>
+                    }
+                    else
+                    {
+                    <a href="@Url.Action("UpdateStatus", new { id = @item.Trip_Id })" onclick="return confirm('Are you sure update?');" class="btn btn-danger">UnDelivered</a>
+                    }
                 </td>
             
                 <td>
@@ -60,36 +67,8 @@
                         </span>
                     </a>
                 </td>
-                <td>
-                    @if (@item.Trip_Status == true)
-                    {
-                        <button id="@item.Trip_Id" class="btn btn-info" onclick="UpdateStatus(this.id)">@item.Trip_Status</button>
-                    }
-                    else
-                    {
-                        <button id="@item.Trip_Id" class="btn btn-danger" onclick="UpdateStatus(this.id)">@item.Trip_Status</button>
-                    }
-                </td>
+                
             </tr>
         }
         </tbody>
 </table>
-
-<script type="text/javascript">
-    function UpdateStatus(id) {
-        $.ajax({
-            url: "/Trips/UpdateStatus",
-            data: { id: id },
-            type: "POST",
-            success: function (data) {
-                //$("#"+id).attr("disabled","disabled");
-                $("#" + id).prop('disabled', true);//disabled is a property not an attribute
-                alert("Update status successful!");
-                window.location.reload();
-            },
-            error: function (e) {
-                bootbox.alert(e.responseText);
-            }
-        });
-    }
-</script>

@@ -10,7 +10,7 @@ using KarnelTravel.Models;
 
 namespace KarnelTravel.Areas.Management.Controllers
 {
-    public class TripsController : Controller
+    public class TripsController : BaseController
     {
         private KarnelTravelEntities db = new KarnelTravelEntities();
 
@@ -126,43 +126,21 @@ namespace KarnelTravel.Areas.Management.Controllers
 
         public ActionResult UpdateStatus(int id)
         {
-            try
+            Trip ab = db.Trips.Where(c => c.Trip_Id == id).SingleOrDefault();
+            if (ab.Trip_Status == false)
             {
-                Trip ab = db.Trips.Where(c => c.Trip_Id == id).FirstOrDefault();
-
-                if (ab.Trip_Status == false)
-                {
-
-                    ab.Trip_Status = true;
-                }
-                else if (ab.Trip_Status == true)
-                {
-                    ab.Trip_Status = false;
-                }
-                db.SaveChanges();
-
-                return Json(ab, JsonRequestBehavior.AllowGet);
+                ab.Trip_Status = true;
             }
-            catch
+            else
             {
-                return new HttpStatusCodeResult(HttpStatusCode.InternalServerError);
+                ab.Trip_Status = false;
             }
+            db.SaveChanges();
+            return RedirectToAction("Index", "Trips");
+
         }
 
-        public ActionResult IndexStatus()
-        {
-            List<Trip> listAbout = new List<Trip>();
-            try
-            {
-                listAbout = db.Trips.Where(u => u.Trip_Status == false).ToList();
 
-            }
-            catch
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.InternalServerError);
-            }
-            return View(listAbout);
-        }
 
         protected override void Dispose(bool disposing)
         {

@@ -43,14 +43,16 @@
         <dd>
             @Html.DisplayFor(model => model.Trip_Address)
         </dd>
+        <dd>
+            @Html.DisplayNameFor(model => model.Trip_Status)
+        </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Trip_Status)
+            @Html.DropDownListFor(model => model.Trip_Status, new SelectList(new List<Object> {
+                                    new {value = true , text = "Delivered"},
+                                    new {value = false , text = "UnDelivered"}
+                                    },"value","text",2))
         </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Trip_Status)
-        </dd>
 
         <dt>
             @Html.DisplayNameFor(model => model.MasterOnline)
